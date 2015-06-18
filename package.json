@@ -1,0 +1,24 @@
+{
+  "name": "sporker",
+  "version": "1.0.0",
+  "description": "> Pithy project description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TCL735/EnigmaticSpork.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TCL735/EnigmaticSpork/issues"
+  },
+  "homepage": "https://github.com/TCL735/EnigmaticSpork#readme",
+  "dependencies": {
+    "bookshelf": "^0.8.1",
+    "express": "^4.12.4",
+    "mysql": "^2.7.0"
+  }
+}
