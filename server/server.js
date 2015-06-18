@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
+var util = require('./lib/utility');
 
 var app = express();
 var port = process.env.PORT || 8000;
@@ -33,19 +34,29 @@ passport.use(new GithubStrategy({
     // User.findOrCreate({ githubId: profile.id }, function (err, user) {
     //   return done(err, user);
     // });
-    return done(null,profile); // - this is temporary code.
+    return done(null,profile); 
   }
 ));
 
 // OAuth Required Libraries.
 app.use(methodOverride());
 app.use(cookieParser());
-app.use(session({ secret: 'my_precious' }));
+app.use(session({
+  secret: 'shhh, it\'s a secret',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 // Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+var auth = function(req, res, next){
+ if (!req.isAuthenticated()) res.send(401); 
+ else next(); 
+};
+
 
 // Serve our ../client files.
 app.use('/',express.static(path.join(__dirname, '../client')));
@@ -56,21 +67,24 @@ app.get('/auth/github',
 
 // Github OAuth Callback
 app.get('/auth/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
+  passport.authenticate('github', { failureRedirect: '/signin' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    console.log('good to go');
-    res.send('good');
-    // res.redirect('/');
+    console.log(!!req.user); // logs true if login is good.
+    res.redirect('/');
   });
 
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+app.get('/logout', function(req, res) {
+  req.session.destroy(function(){
+    res.redirect('/signin');
+  });
+});
+
+app.get('/restricted',util.isLoggedIn,function(req,res){
+  console.log('got thru fine');
 });
 
 
 app.listen(port,function(err){
   console.log('app listening on...' + port);
-
 });

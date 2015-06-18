@@ -11,7 +11,7 @@ angular.module('sporker.auth', [])
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.sporker', token);
-        $location.path('/links');
+        // $location.path('/links');
         $rootScope.$broadcast('authChange',Auth.isAuth());
       })
       .catch(function (error) {
@@ -23,7 +23,7 @@ angular.module('sporker.auth', [])
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.sporker', token);
-        $location.path('/links');
+        // $location.path('/links');
       })
       .catch(function (error) {
         console.error(error);
