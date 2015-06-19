@@ -23,23 +23,18 @@ passport.use(new GithubStrategy({
   callbackURL: config.github.callbackURL
 },
   function(accessToken, refreshToken, profile, done) {
-    // See below - when we have our DB up and running.
-    // User.findOrCreate({ githubId: profile.id }, function (err, user) {
-    //   return done(err, user);
-    // });
-    // userController.findOrCreate({
-    //   username: profile.login,
-    //   email: profile.email,
-    //   githubId: profile.id
-    // }).then(function() {
-    //   // TODO: create session???
-    // }).then(function() {
     process.nextTick(function() {
-      return done(null,profile);
+
+      userController.findOrCreate({
+        username: profile.username,
+        email: profile.emails[0].value,
+        githubId: profile.id
+      }).then(function() {
+        return done(null, profile);
+      });
+
     });
-    // });
-  }
-));
+  }));
 
 router.all('*',function(req,res,next){
   console.log('reqest to ' + req.method + 'req to: ' + req.url);
