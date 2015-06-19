@@ -9,14 +9,15 @@ var ensureAuthenticated = function(req, res, next) {
 };
 
 
-router.get('/users', ensureAuthenticated, function(req,res){
-  // var user = req.body.user;
-  // userController.getUser(req,res,next,user); // ends res with result
-  console.log('successfully got thru!');
+// router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
+router.get('/api/users/:username', function(req,res,next){
+  var user = req.params.username;
+
+  userController.getUser(req, res, next, user); // ends res with result
 });
 
 
-router.get('/skills',function(req,res){
+router.get('/api/skills',function(req,res){
 
 
 });
@@ -27,8 +28,6 @@ router.get('/logout', function(req, res) {
   });
 });
 
-router.get('/restricted',function(req,res){
-  console.log('got thru fine');
-});
+
 
 module.exports = router;
