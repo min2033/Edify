@@ -1,7 +1,7 @@
-angular.module('sporker.services', [])
+angular.module('edify.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
- 
+
   var signin = function (user) {
     return $http({
       method: 'POST',
@@ -25,11 +25,11 @@ angular.module('sporker.services', [])
   };
 
   var isAuth = function () {
-    return !!$window.localStorage.getItem('com.sporker');
+    return !!$window.localStorage.getItem('com.edify');
   };
 
   var signout = function () {
-    $window.localStorage.removeItem('com.sporker');
+    $window.localStorage.removeItem('com.edify');
     $location.path('/signin');
   };
 
@@ -41,7 +41,7 @@ angular.module('sporker.services', [])
   };
 })
 .factory('Users', function ($http) {
-  
+
   var getUser = function(username){
     return $http({
       method: 'GET',

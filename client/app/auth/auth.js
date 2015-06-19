@@ -1,4 +1,4 @@
-angular.module('sporker.auth', [])
+angular.module('edify.auth', [])
 
 .controller('AuthController', function ($rootScope, $scope, $window, $location, Auth) {
   $scope.user = {};
@@ -10,7 +10,7 @@ angular.module('sporker.auth', [])
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.sporker', token);
+        $window.localStorage.setItem('com.edify', token);
         // $location.path('/links');
         $rootScope.$broadcast('authChange',Auth.isAuth());
       })
@@ -22,7 +22,7 @@ angular.module('sporker.auth', [])
   $scope.signup = function () {
     Auth.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.sporker', token);
+        $window.localStorage.setItem('com.edify', token);
         // $location.path('/links');
       })
       .catch(function (error) {

@@ -1,13 +1,13 @@
-angular.module('sporker',[
+angular.module('edify',[
   'ui.router',
-  'sporker.auth',
-  'sporker.services',
-  'sporker.users',
-  'sporker.skills'
+  'edify.auth',
+  'edify.services',
+  'edify.users',
+  'edify.skills'
   ])
 .config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
-    
+
     $stateProvider
       .state('signin',{
         url:'/signin',
@@ -15,4 +15,4 @@ angular.module('sporker',[
         controller: 'AuthController'
       });
 });
-  
+
