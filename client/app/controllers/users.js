@@ -4,9 +4,9 @@ angular.module('edify.users', [])
   $scope.user;
 
   $scope.getUser = function () {
-    Users.getUser(****) //  We need to pass something into the service to retrieve one user
-    .then(function () {
-
+    Users.getUser('colin') //  We need to pass something into the service to retrieve one user
+    .then(function (user) {
+      $scope.user = user;
     })
     .catch(function (error) {
       console.error(error);

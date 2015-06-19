@@ -26,10 +26,6 @@ var user3 = new User({
   github_id: 'sol33t'
 });
 
-// user1.save();
-// user2.save();
-// user3.save();
-
 //SAVE SKILLS
 var skill1 = new Skill({
   skill_name: 'javascript'
@@ -42,10 +38,6 @@ var skill2 = new Skill({
 var skill3 = new Skill({
   skill_name: 'python'
 });
-
-// skill1.save();
-// skill2.save();
-// skill3.save();
 
 //SAVE LEARN SKILLS
 var learnSkill1 = new LearnSkill({
@@ -60,8 +52,7 @@ var learnSkill2 = new LearnSkill({
   skill_level: 5
 });
 
-// learnSkill1.save();
-// learnSkill2.save();
+
 
 new User({username: 'colin'})
   .fetch({
@@ -83,9 +74,6 @@ var teachSkill2 = new TeachSkill({
   skill_level: 3
 });
 
-// teachSkill1.save();
-// teachSkill2.save();
-
 new User({ username: 'jp' })
   .fetch({
     withRelated: 'teachSkills'
@@ -94,3 +82,14 @@ new User({ username: 'jp' })
     console.log('==========> fetched user who wants to teach:', user);
     console.log('==========> teachSkills:', user.relations.teachSkills.models);
   });
+
+user1.save();
+user2.save();
+user3.save();
+skill1.save();
+skill2.save();
+skill3.save();
+learnSkill1.save();
+learnSkill2.save();
+teachSkill1.save();
+teachSkill2.save();

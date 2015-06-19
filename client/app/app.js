@@ -11,8 +11,13 @@ angular.module('edify',[
     $stateProvider
       .state('signin',{
         url:'/signin',
-        templateUrl: 'app/auth/signin.html',
+        templateUrl: 'app/templates/signin.html',
         controller: 'AuthController'
+      })
+      .state('users',{
+        url:'/users',
+        templateUrl: 'app/templates/user.html',
+        controller: 'UsersController'
       });
 });
 

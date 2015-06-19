@@ -1,0 +1,24 @@
+<div>
+  <div>
+  <button ng-click="getUser()">Select a user</button>
+  </div>
+<div>
+<pre>User {{user.username}}
+     Email {{user.email}}
+     Github {{user.githubId}}
+</pre>
+</div>
+
+<div>Bio</div>
+
+<aside >Want to Learn
+<pre ng-repeat="skill in user.learnSkills"> {{skill}}
+</pre>
+</aside>
+
+<aside >Want to Teach
+<pre ng-repeat="skill in user.teachSkills"> {{skill}}
+</pre>
+</aside>
+
+</div>
