@@ -8,8 +8,8 @@ require('./lib/middleware.js')(app, express); // load up all middlewares
 var authRouter = require('./routes/auth');
 var mainRouter = require('./routes/main');
 
-app.use('/auth',authRouter);
-app.use('/',mainRouter);
+app.use('/auth', authRouter);
+app.use('/', mainRouter);
 
 // Serve our static ../client files.
 app.use(express.static(path.join(__dirname, '../client')));
