@@ -27,15 +27,17 @@ passport.use(new GithubStrategy({
     // User.findOrCreate({ githubId: profile.id }, function (err, user) {
     //   return done(err, user);
     // });
-    userController.findOrCreate({
-      username: profile.login,
-      email: profile.email,
-      githubId: profile.id
-    }).then(function() {
-      // TODO: create session???
-    }).then(function() {
+    // userController.findOrCreate({
+    //   username: profile.login,
+    //   email: profile.email,
+    //   githubId: profile.id
+    // }).then(function() {
+    //   // TODO: create session???
+    // }).then(function() {
+    process.nextTick(function() {
       return done(null,profile);
     });
+    // });
   }
 ));
 
