@@ -2,8 +2,8 @@ angular.module('edify',[
   'ui.router',
   'edify.auth',
   'edify.services',
-  'edify.users',
-  'edify.skills'
+  'edify.user'
+  //'edify.skills'
   ])
 .config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
@@ -11,8 +11,13 @@ angular.module('edify',[
     $stateProvider
       .state('signin',{
         url:'/signin',
-        templateUrl: 'app/auth/signin.html',
+        templateUrl: 'app/templates/signin.html',
         controller: 'AuthController'
+      })
+      .state('user',{
+        url:'/user',
+        templateUrl: 'app/templates/user.html',
+        controller: 'UserController'
       });
 });
 
