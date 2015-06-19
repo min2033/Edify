@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var Promise = require('bluebird');
+var userController = require('../controllers/userController');
+
 // OAuth - Github
 var passport = require('passport');
 var config = require('../oauth.js')
@@ -24,7 +27,15 @@ passport.use(new GithubStrategy({
     // User.findOrCreate({ githubId: profile.id }, function (err, user) {
     //   return done(err, user);
     // });
-    return done(null,profile); 
+    userController.findOrCreate({
+      username: profile.login,
+      email: profile.email,
+      githubId: profile.id
+    }).then(function() {
+      // TODO: create session???
+    }).then(function() {
+      return done(null,profile);
+    });
   }
 ));
 
@@ -37,7 +48,7 @@ router.all('*',function(req,res,next){
 router.get('/github', passport.authenticate('github', { scope: [ 'user:email' ] }));
 
 // Github OAuth Callback
-router.get('/github/callback', 
+router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/signin' }),
   function(req, res) {
     // Successful authentication, redirect home.
