@@ -45,7 +45,7 @@ angular.module('edify.services', [])
   var getUser = function(username){
     return $http({
       method: 'GET',
-      url: '/api/' + username
+      url: '/api/users/' + username
     })
     .then(function(resp){
       return resp.data
@@ -73,7 +73,7 @@ angular.module('edify.services', [])
   var getSkill = function(skillname){
     return $http({
       method: 'GET',
-      url: '/api/' + skillname
+      url: '/api/skills/' + skillname
     })
     .then(function(resp){
       return resp.data

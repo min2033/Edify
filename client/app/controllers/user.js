@@ -1,10 +1,10 @@
-angular.module('edify.users', [])
+angular.module('edify.user', [])
 
-.controller('UsersController', function($scope, Users) {
+.controller('UserController', function($scope, Users) {
   $scope.user;
 
   $scope.getUser = function () {
-    Users.getUser('colin') //  We need to pass something into the service to retrieve one user
+    Users.getUser('jp') //  We need to pass something into the service to retrieve one user
     .then(function (user) {
       $scope.user = user;
     })
