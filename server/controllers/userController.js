@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var Promise = require('bluebird');
 
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
 
         result.username = user.username;
         result.email = user.email;
-        result.github_id = user.github_id;
+        result.githubId = user.github_id;
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {
@@ -28,7 +29,26 @@ module.exports = {
       });
   },
 
+  findOrCreate: function(user) {
+    return new Promise(function(resolve, reject) {
 
+      new User({ github_id: user.githubId })
+        .fetch().then(function (found) {
+          if (found) {
+            resolve(found);
+          } else {
+            // add user to db
+            var newUser = new User({
+              username: user.username,
+              email: user.email,
+              github_id: user.githubId
+            });
+            newUser.save().then(resolve).catch(reject);
+
+          }
+        });
+    });
+  }
 
 
 
