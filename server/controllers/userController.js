@@ -10,10 +10,11 @@ module.exports = {
       })
       .then(function (user) {
         var result = {};
+        console.log(user);
 
-        result.username = user.username;
-        result.email = user.email;
-        result.githubId = user.github_id;
+        result.username = user.attributes.username;
+        result.email = user.attributes.email;
+        result.githubId = user.attributes.github_id;
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {
@@ -24,6 +25,7 @@ module.exports = {
         user.relations.teachSkills.models.forEach(function (item) {
           result.teachSkills.push(item.attributes);
         });
+        console.log(result);
 
         res.send(200, result);
       });
