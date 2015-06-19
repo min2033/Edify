@@ -1,4 +1,4 @@
-angular.module('sporker.users', [])
+angular.module('edify.users', [])
 
 .controller('UsersController', function($scope, Users) {
   $scope.user;
