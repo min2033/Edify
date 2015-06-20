@@ -9,8 +9,8 @@ var ensureAuthenticated = function(req, res, next) {
 };
 
 
-// router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
-router.get('/api/users/:username', function(req,res,next){
+router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
+// router.get('/api/users/:username', function(req,res,next){
   var user = req.params.username;
 
   userController.getUser(req, res, next, user); // ends res with result

@@ -1,36 +1,38 @@
 angular.module('edify.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
+  var currentUser = null;
 
   var signin = function (user) {
     return $http({
-      method: 'POST',
-      url: '/api/users/signin',
-      data: user
+      method: 'GET',
+      url: '/auth/github'
     })
     .then(function (resp) {
-      return resp.data.token;
+      console.log(resp.data);
+      currentUser = resp.data.user;
+      // return resp.data.token;
     });
   };
 
-  var signup = function (user) {
-    return $http({
-      method: 'POST',
-      url: '/api/users/signup',
-      data: user
-    })
-    .then(function (resp) {
-      return resp.data.token;
-    });
-  };
+// var signup = function (user) {
+//   return $http({
+//     method: 'POST',
+//     url: '/api/users/signup',
+//     data: user
+//   })
+//   .then(function (resp) {
+//     console.log(resp.data);
+//   });
+// };
 
   var isAuth = function () {
-    return !!$window.localStorage.getItem('com.edify');
+    return !!currentUser;
   };
 
   var signout = function () {
-    $window.localStorage.removeItem('com.edify');
     $location.path('/signin');
+    currentUser = null;
   };
 
   return {
