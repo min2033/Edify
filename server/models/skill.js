@@ -1,7 +1,7 @@
 var db = require('../dbConfig');
 require('./user');
-require('./learnSkill');
-require('./teachSkill');
+var TeachSkill = require('./teachSkill');
+var LearnSkill = require('./learnSkill');
 
 var Skill = db.Model.extend({
   tableName: 'skills',
@@ -9,11 +9,11 @@ var Skill = db.Model.extend({
 
 
   teachers: function () {
-    return this.belongsToMany('User').through('TeachSkill');
+    return this.belongsToMany('User').through(TeachSkill);
   },
 
   learners: function () {
-    return this.belongsToMany('User').through('LearnSkill');
+    return this.belongsToMany('User').through(LearnSkill);
   },
 
   initialize: function () {
