@@ -74,14 +74,14 @@ var teachSkill2 = new TeachSkill({
   skill_level: 3
 });
 
-new User({ username: 'jp' })
-  .fetch({
-    withRelated: 'teachSkills'
-  })
-  .then(function (user) {
-    console.log('==========> fetched user who wants to teach:', user);
-    console.log('==========> teachSkills:', user.relations.teachSkills.models);
-  });
+// new User({ username: 'jp' })
+//   .fetch({
+//     withRelated: 'teachSkills'
+//   })
+//   .then(function (user) {
+//     console.log('==========> fetched user who wants to teach:', user);
+//     console.log('==========> teachSkills:', user.relations.teachSkills.models);
+//   });
 
 user1.save();
 user2.save();
