@@ -10,7 +10,6 @@ module.exports = {
       })
       .then(function (skill) {
         var result = {};
-        console.log(skill);
 
         result.skill_name = skill.attributes.skill_name;
 
@@ -23,8 +22,6 @@ module.exports = {
         skill.relations.teachers.models.forEach(function (item) {
           result.teachers.push(item.attributes);
         });
-
-        console.log(result);
 
         res.send(200, result);
       });
