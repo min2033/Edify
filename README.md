@@ -21,7 +21,9 @@
 ## Usage
 
 > Install dependencies
+
 > Start MySQL server
+
 > Log in via Github
 
 ## Requirements
