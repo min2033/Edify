@@ -47,7 +47,7 @@ mysql.server start
 
 From client directory
 
-'''sh
+```sh
 bower install
 ```
 
