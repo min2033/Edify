@@ -12,8 +12,8 @@ var GithubStrategy = require('passport-github2').Strategy;
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+passport.deserializeUser(function(user, done) {
+  done(null, user);
 });
 
 // OAuth - Github Strategy
@@ -49,7 +49,7 @@ router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/signin' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    console.log(!!req.user); // logs true if login is good.
+    // console.log(!!req.user); // logs true if login is good.
     res.redirect('/');
   });
 

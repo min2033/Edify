@@ -10,7 +10,6 @@ module.exports = {
       })
       .then(function (skill) {
         var result = {};
-        console.log(skill);
 
         result.skill_name = skill.attributes.skill_name;
 
@@ -24,8 +23,33 @@ module.exports = {
           result.teachers.push(item.attributes);
         });
 
-        console.log(result);
+        res.send(200, result);
+      });
+  },
 
+  allSkills: function (req, res, next) {
+    new Skill()
+      .fetchAll({
+        withRelated: ['teachers', 'learners']
+      })
+      .then(function (skills) {
+        var result = {};
+
+        var models = skills.models;
+
+        for (var i = 0; i < models.length; i++) {
+          var skill = models[i];
+          result[skill.attributes.skill_name] = {learners: [],teachers:[]};
+
+          skill.relations.learners.models.forEach(function (item) {
+            result[skill.attributes.skill_name].learners.push(item.attributes);
+          });
+
+          skill.relations.teachers.models.forEach(function (item) {
+            result[skill.attributes.skill_name].teachers.push(item.attributes);
+          });
+
+        };
         res.send(200, result);
       });
   },
