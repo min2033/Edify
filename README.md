@@ -21,7 +21,9 @@
 ## Usage
 
 > Install dependencies
+
 > Start MySQL server
+
 > Log in via Github
 
 ## Requirements
@@ -47,7 +49,7 @@ mysql.server start
 
 From client directory
 
-'''sh
+```sh
 bower install
 ```
 
