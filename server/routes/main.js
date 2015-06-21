@@ -9,6 +9,12 @@ var ensureAuthenticated = function(req, res, next) {
   res.redirect('/login');
 };
 
+router.get('/api/profile', ensureAuthenticated, function(req,res){
+  res.user = req.user; // attach user obj to res.
+  // query the db to get real user info.
+  res.send(req.user);
+});
+
 router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
 // router.get('/api/users/:username', function(req,res,next){
   var user = req.params.username;

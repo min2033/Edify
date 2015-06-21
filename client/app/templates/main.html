@@ -1,0 +1,22 @@
+<div>
+  <img src="{{user._json.avatar_url}}" class="profile img-circle img-responsive"></img>
+  <pre>
+    User {{user.username}}
+    Email {{user.emails[0].value}}
+    Github {{user.id}}
+  </pre>
+</div>
+
+<div>Bio</div>
+
+<aside>Want to Learn
+  <pre ng-repeat="skill in user.learnSkills"> {{skill}}
+  </pre>
+</aside>
+
+<aside >Want to Teach
+  <pre ng-repeat="skill in user.teachSkills"> {{skill}}
+  </pre>
+</aside>
+
+</div>

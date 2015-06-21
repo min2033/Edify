@@ -3,28 +3,12 @@ angular.module('edify.services', [])
 .factory('Auth', function ($http, $location, $window) {
   var currentUser = null;
 
-  var signin = function (user) {
+  var getUser = function(){
     return $http({
       method: 'GET',
-      url: '/auth/github'
-    })
-    .then(function (resp) {
-      console.log(resp.data);
-      currentUser = resp.data.user;
-      // return resp.data.token;
+      url: '/api/profile'
     });
   };
-
-// var signup = function (user) {
-//   return $http({
-//     method: 'POST',
-//     url: '/api/users/signup',
-//     data: user
-//   })
-//   .then(function (resp) {
-//     console.log(resp.data);
-//   });
-// };
 
   var isAuth = function () {
     return !!currentUser;
@@ -36,10 +20,9 @@ angular.module('edify.services', [])
   };
 
   return {
-    signin: signin,
-    signup: signup,
-    isAuth: isAuth,
-    signout: signout
+    user: currentUser,
+    getUser: getUser,
+    isAuth: isAuth
   };
 })
 .factory('Users', function ($http) {
