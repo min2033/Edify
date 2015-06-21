@@ -1,12 +1,12 @@
-# Project Name
+# Edify
 
-> Pithy project description
+> Skill sharing platform
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Colin Parsons
+  - __Scrum Master__: Timmy Luong
+  - __Development Team Members__: JP Ji, Mike Kim
 
 ## Table of Contents
 
@@ -20,15 +20,18 @@
 
 ## Usage
 
-> Some usage instructions
+> Install dependencies
+> Start MySQL server
+> Log in via Github
 
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Express 4.12.x
+- MySQL 2.7.x
+- Bookshelf 0.8.x
+- Knex 0.8.6
+- Passport 0.2.2
 
 ## Development
 
@@ -39,6 +42,12 @@ From within the root directory:
 ```sh
 sudo npm install -g bower
 npm install
+mysql.server start
+```
+
+From client directory
+
+'''sh
 bower install
 ```
 
