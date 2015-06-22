@@ -79,7 +79,22 @@ angular.module('edify.services', [])
     .then(function(resp){
       return resp.data;
     });
-  }
+  };
+
+  var deleteSkill = function(userId, skillId, type) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/skills',
+      data: {
+        type: type,
+        skillId: skillId,
+        userId: userId
+      }
+    })
+    .then(function(response) {
+      return response.data;
+    });
+  };
 
   return {
     getSkill: getSkill,
