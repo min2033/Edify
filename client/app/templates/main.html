@@ -8,12 +8,43 @@
   </ul>
 </div>
 
-<div class="col-md-4 text-center"><h1>skills to learn</h1>
-  <pre ng-repeat="skill in user.learnSkills"> {{skill}}
-  </pre>
+<div class="col-md-5 text-center">
+  <h1>
+    <a class="add" ui-sref="skills">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    skills to learn
+  </h1>
+  <div class="skill well clearfix" ng-repeat="skill in user.learnSkills">
+    <div class="skill-title"><a ui-sref="skills/{{skill.skill_name}}">{{skill.skill_name}}</a></div>
+    <div class="skill-level">level: {{skill.skill_level}}
+      <button type="button" class="btn btn-default btn-sm" ng-click="increaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-default btn-sm" ng-click="decreaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
 </div>
 
-<div class="col-md-4 text-center" ><h1>skills to teach</h1>
-  <pre ng-repeat="skill in user.teachSkills"> {{skill}}
-  </pre>
+<div class="col-md-5 text-center" >
+  <h1>
+    <a class="add" ui-sref="skills">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    skills to teach
+  </h1>
+  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">
+    <div class="skill-title"><a ui-sref="skills/{{skill.skill_name}}">{{skill.skill_name}}</a></div>
+    <div class="skill-level">level: {{skill.skill_level}}
+      <button type="button" class="btn btn-default btn-sm" ng-click="increaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-default btn-sm" ng-click="decreaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </button>
+    </div>
+
+  </div>
 </div>

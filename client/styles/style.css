@@ -16,10 +16,15 @@ ul {
   margin-right: 20px;
 }
 
-nav a {
+a {
   cursor: pointer;
 }
 
 #main {
   margin-top: 50px;
+}
+
+.skill-title {
+  text-decoration: none;
+  font-size: 18px;
 }

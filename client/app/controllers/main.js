@@ -16,4 +16,12 @@ angular.module('edify.main', [])
 
   $scope.getProfile();
 
+  $scope.increaseSkillLevel = function(index) {
+
+  };
+
+  $scope.decreaseSkillLevel = function(index) {
+
+  };
+
 });
