@@ -7,13 +7,15 @@
   </head>
 
   <body>
-    <h2>edify</h2>
-    <div>
-      <a ui-sref="user">Users</a> |
-      <a ui-sref="signin">Sign in</a> |
-      <a ui-sref="signout">Sign out</a>
-    </div>
-    <div ui-view></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <a class="navbar-brand" ui-sref="#">edify</a>
+      <ul class="nav navbar-nav navbar-right signin">
+        <li><a ui-sref="signin">sign in</a></li>
+        <li><a ui-sref="signout">sign out</a></li>
+      </ul>
+    </nav>
+
+    <div id="main" ui-view></div>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
