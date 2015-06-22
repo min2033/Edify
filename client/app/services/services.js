@@ -60,16 +60,17 @@ angular.module('edify.services', [])
 })
 .factory('Skills', function ($http) {
 
-  var getSkill = function(skillname){
+  var getAllSkills = function(){
     return $http({
       method: 'GET',
-      url: '/api/skills/' + skillname
+      url: '/api/skills/'
     })
     .then(function(resp){
       return resp.data
     });
   };
 
+  // postSkill is INCOMPLETE!
   var postSkill = function(skill){
     return $http({
       method: 'POST',
@@ -97,7 +98,7 @@ angular.module('edify.services', [])
   };
 
   return {
-    getSkill: getSkill,
+    getAllSkills: getAllSkills,
     postSkill: postSkill,
     deleteSkill: deleteSkill
   };
