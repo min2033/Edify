@@ -1,6 +1,7 @@
 var Skill = require('../models/skill');
 var Promise = require('bluebird');
-
+var LearnSkill = require('../models/learnSkill');
+var TeachSkill = require('../models/teachSkill');
 
 module.exports = {
   getSkill: function (req, res, next, skillname) {
@@ -54,25 +55,78 @@ module.exports = {
       });
   },
 
-  findOrCreate: function(user) {
+  findOrCreate: function(req) {
     return new Promise(function(resolve, reject) {
-
-      new User({ github_id: user.githubId })
+      new Skill({ skill_name: req.body.skill })
         .fetch().then(function (found) {
           if (found) {
-            resolve(found);
+            req.body.skillId = found.attributes.id;
+            resolve(req);
           } else {
-            // add user to db
-            var newUser = new User({
-              username: user.username,
-              email: user.email,
-              github_id: user.githubId
+            // add skill to db
+            var newSkill = new Skill({
+              skill_name: req.body.skill,
             });
-            newUser.save().then(resolve).catch(reject);
-
+            newSkill.save()
+            .then(function(){
+              req.body.skillId = newSkill.attributes.id;
+              resolve(req);
+            }).catch(reject);
           }
         });
     });
+  },
+
+  relate: function(data,res,next) {
+    //data = { type: teach, skill: javascript, skilllevel: 3, userId: 3, skillId: 5}
+    if(data.type === "teach"){
+      new TeachSkill({skill_id: data.skillId, user_id: data.userId})
+        .fetch()
+        .then(function(item){ // check if already exists, update if exist
+          if(item){
+            item.attributes.skill_level = parseInt(data.skilllevel);
+            item.save().then(function(){
+              console.log('update complete!');
+              res.send(data);
+            });
+          }else{ 
+            // create a new entry
+            var entry = new TeachSkill({
+              user_id: data.userId,
+              skill_id: data.skillId,
+              skill_level: data.skilllevel
+            });
+            entry.save().then(function(){
+              res.send(entry);
+            });
+          }
+        });
+    }else if(data.type === "learn"){  // Learn skills
+      new LearnSkill({skill_id: data.skillId, user_id: data.userId})
+        .fetch()
+        .then(function(item){ // check if already exists, update if exist
+          if(item){
+            item.attributes.skill_level = parseInt(data.skilllevel);
+            item.save().then(function(){
+              console.log('update complete!');
+              res.send(data);
+            });
+          }else{ 
+            // create a new entry
+            var entry = new LearnSkill({
+              user_id: data.userId,
+              skill_id: data.skillId,
+              skill_level: data.skilllevel
+            });
+            entry.save().then(function(){
+              res.send(entry);
+            });
+          }
+        });
+    }else{
+      res.send("Specify Learn/Teach Type!");
+    }
+    
   }
 
 };

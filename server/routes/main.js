@@ -9,24 +9,38 @@ var ensureAuthenticated = function(req, res, next) {
   res.redirect('/');
 };
 
+// Gets user profile
 router.get('/api/profile', ensureAuthenticated, function(req,res,next){
   userController.getUser(req, res, next, {github_id:req.user.id});
 });
 
+// Gets another user's profile & skills
 router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
 // router.get('/api/users/:username', function(req,res,next){
   var user = req.params.username;
-  userController.getUser(req, res, next, {username:user}); // ends res with result
+  userController.getUser(req, res, next, {username:user});
 });
 
+// Fetch individual skill with its learners and teachers
 router.get('/api/skills/:skillname',function(req,res,next){
   var skill = req.params.skillname;
-  skillController.getSkill(req,res,next,skill); // ends res with result
+  skillController.getSkill(req,res,next,skill);
 });
 
-router.get('/api/skills/',function(req,res,next){ // get all skills
-  var skill = req.params.skillname;
-  skillController.allSkills(req,res,next); // ends res with result
+// Fetch all skills with learners and teachers
+router.get('/api/skills/',function(req,res,next){
+  skillController.allSkills(req,res,next);
+});
+
+// User says I want to learn/teach this skill
+router.post('/api/skills/',function(req,res,next){
+  //req.body = { type: 'teach', skill: 'javascript', skilllevel: 3, userId: 3 }
+  console.log('post request received');
+  skillController
+    .findOrCreate(req) // skillId is added on to req.body
+    .then(function(data){
+      skillController.relate(data.body,res,next); // create an entry in teach/learn join tables
+    });
 });
 
 router.get('/logout', function(req, res) {

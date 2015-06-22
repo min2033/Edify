@@ -15,6 +15,7 @@ module.exports = {
         result.username = user.attributes.username;
         result.email = user.attributes.email;
         result.githubId = user.attributes.github_id;
+        result.id = user.attributes.id;
         result.avatar = req.user._json.avatar_url; // this is only for user.
 
         result.learnSkills = [];
