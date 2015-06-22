@@ -70,6 +70,7 @@ angular.module('edify.services', [])
     });
   };
 
+  // postSkill is INCOMPLETE!
   var postSkill = function(skill){
     return $http({
       method: 'POST',
