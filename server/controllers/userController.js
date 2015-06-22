@@ -3,18 +3,19 @@ var Promise = require('bluebird');
 
 
 module.exports = {
-  getUser: function (req, res, next, username) {
-    new User({ username: username })
+
+  getUser: function (req, res, next, params) { // params = {username: username}
+    new User(params)
       .fetch({
         withRelated: ['teachSkills', 'learnSkills']
       })
       .then(function (user) {
         var result = {};
-        console.log(user);
 
         result.username = user.attributes.username;
         result.email = user.attributes.email;
         result.githubId = user.attributes.github_id;
+        result.avatar = req.user._json.avatar_url; // this is only for user.
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {

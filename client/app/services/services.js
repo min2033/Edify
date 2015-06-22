@@ -14,15 +14,20 @@ angular.module('edify.services', [])
     return !!currentUser;
   };
 
-  var signout = function () {
-    $location.path('/signin');
+  var signOut = function () {
+    $http({
+      method: 'GET',
+      url: '/logout'
+    });
     currentUser = null;
+    $location.path('/signin');
   };
 
   return {
     user: currentUser,
     getUser: getUser,
-    isAuth: isAuth
+    isAuth: isAuth,
+    signOut: signOut
   };
 })
 .factory('Users', function ($http) {
