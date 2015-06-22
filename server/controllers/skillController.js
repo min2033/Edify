@@ -132,6 +132,8 @@ module.exports = {
   },
 
   deleteSkill: function(req,res){
+    console.log("$$$$$$$$$$$ " + req.body.type);
+    console.log("$$$$$$$$$$$ " + req.body.skillId);
     //req.body = { type: 'teach', skillId: 2, userId: 3 }
     // find the entry from teachskills or learnskills
     if(req.body.type === "teach"){

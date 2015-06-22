@@ -83,8 +83,8 @@ angular.module('edify.services', [])
 
   var deleteSkill = function(userId, skillId, type) {
     return $http({
-      method: 'DELETE',
-      url: '/api/skills',
+      method: 'POST',
+      url: '/api/skills/delete',
       data: {
         type: type,
         skillId: skillId,
