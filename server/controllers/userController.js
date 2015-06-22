@@ -19,16 +19,24 @@ module.exports = {
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {
-          result.learnSkills.push(item.attributes);
+          result.learnSkills.push({
+            id: item.attributes.id,
+            skill_name: item.attributes.skill_name,
+            skill_level: item.pivot.attributes.skill_level
+          });
         });
 
         result.teachSkills = [];
         user.relations.teachSkills.models.forEach(function (item) {
-          result.teachSkills.push(item.attributes);
+          result.teachSkills.push({
+            id: item.attributes.id,
+            skill_name: item.attributes.skill_name,
+            skill_level: item.pivot.attributes.skill_level
+          });
         });
-        console.log(result);
+        // console.log(result);
 
-        res.send(200, result);
+        res.status(200).send(result);
       });
   },
 
