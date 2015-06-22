@@ -1,22 +1,50 @@
-<div>
-  <img src="{{user.avatar}}" class="profile img-circle img-responsive"></img>
-  <pre>
-    User {{user.username}}
-    Email {{user.email}}
-    Github {{user.githubId}}
-  </pre>
+<div class="well col-md-2">
+  <div class="row text-center">
+    <img src="{{user.avatar}}" class="profile img-circle img-responsive center-block"></img>
+  </div>
+  <ul class="text-center">
+    <li><a target="_blank " href="http://github.com/{{user.username}}">{{user.username}}</a></li>
+    <li><a target="_blank" href="mailto:{{user.email}}">{{user.email}}</a></li>
+  </ul>
 </div>
 
-<div>Bio</div>
+<div class="col-md-5 text-center">
+  <h1>
+    <a class="add" ui-sref="skills">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    skills to learn
+  </h1>
+  <div class="skill well clearfix" ng-repeat="skill in user.learnSkills">
+    <div class="skill-title"><a ui-sref="skills/{{skill.skill_name}}">{{skill.skill_name}}</a></div>
+    <div class="skill-level">level: {{skill.skill_level}}
+      <button type="button" class="btn btn-default btn-sm" ng-click="increaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-default btn-sm" ng-click="decreaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</div>
 
-<aside>Want to Learn
-  <pre ng-repeat="skill in user.learnSkills"> {{skill}}
-  </pre>
-</aside>
+<div class="col-md-5 text-center" >
+  <h1>
+    <a class="add" ui-sref="skills">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    skills to teach
+  </h1>
+  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">
+    <div class="skill-title"><a ui-sref="skills/{{skill.skill_name}}">{{skill.skill_name}}</a></div>
+    <div class="skill-level">level: {{skill.skill_level}}
+      <button type="button" class="btn btn-default btn-sm" ng-click="increaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-default btn-sm" ng-click="decreaseSkillLevel($index)" ng-blur="saveSkill($index)">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </button>
+    </div>
 
-<aside >Want to Teach
-  <pre ng-repeat="skill in user.teachSkills"> {{skill}}
-  </pre>
-</aside>
-
+  </div>
 </div>
