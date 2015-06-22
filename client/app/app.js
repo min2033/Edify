@@ -3,6 +3,7 @@ angular.module('edify',[
   'edify.auth',
   'edify.services',
   'edify.user',
+  'edify.allskills',
   'edify.main'
   //'edify.skills'
   ])
@@ -29,6 +30,11 @@ angular.module('edify',[
         url:'/user',
         templateUrl: 'app/templates/user.html',
         controller: 'UserController'
+      })
+      .state('allskills', {
+        url: '',
+        templateUrl: '',
+        controller: 'AllSkillsController'
       });
 });
 
