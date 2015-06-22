@@ -13,6 +13,7 @@ module.exports = {
         var result = {};
 
         result.skill_name = skill.attributes.skill_name;
+        result.skill_id = skill.attributes.id;
 
         result.learners = [];
         skill.relations.learners.models.forEach(function (item) {
@@ -41,6 +42,7 @@ module.exports = {
         for (var i = 0; i < models.length; i++) {
           var skill = models[i];
           result[skill.attributes.skill_name] = {learners: [],teachers:[]};
+          result[skill.attributes.skill_name].skill_id = skill.attributes.id;
 
           skill.relations.learners.models.forEach(function (item) {
             result[skill.attributes.skill_name].learners.push(item.attributes);
@@ -77,7 +79,7 @@ module.exports = {
     });
   },
 
-  relate: function(data,res,next) {
+  update: function(data,res,next) { // either update skilllevel or add 
     //data = { type: teach, skill: javascript, skilllevel: 3, userId: 3, skillId: 5}
     if(data.type === "teach"){
       new TeachSkill({skill_id: data.skillId, user_id: data.userId})
@@ -127,6 +129,33 @@ module.exports = {
       res.send("Specify Learn/Teach Type!");
     }
     
+  },
+
+  deleteSkill: function(req,res){
+    //req.body = { type: 'teach', skillId: 2, userId: 3 }
+    // find the entry from teachskills or learnskills
+    if(req.body.type === "teach"){
+      new TeachSkill({skill_id: req.body.skillId, user_id: req.body.userId})
+        .fetch()
+        .then(function(item){
+          item.destroy()
+            .then(function(){
+              res.send("Teach item successfully deleted.");
+            });
+        });
+    }else if(req.body.type === "learn"){
+      new LearnSkill({skill_id: req.body.skillId, user_id: req.body.userId})
+        .fetch()
+        .then(function(item){
+          item.destroy()
+            .then(function(){
+              res.send("Learn item successfully deleted.");
+            });
+        });
+    }else{
+      res.send("Specify Learn/Teach Type!");
+    }
+
   }
 
 };

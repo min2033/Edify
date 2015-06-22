@@ -35,12 +35,17 @@ router.get('/api/skills/',function(req,res,next){
 // User says I want to learn/teach this skill
 router.post('/api/skills/',function(req,res,next){
   //req.body = { type: 'teach', skill: 'javascript', skilllevel: 3, userId: 3 }
-  console.log('post request received');
   skillController
     .findOrCreate(req) // skillId is added on to req.body
     .then(function(data){
-      skillController.relate(data.body,res,next); // create an entry in teach/learn join tables
+      skillController.update(data.body,res,next); // create an entry in teach/learn join tables
     });
+});
+
+// User says I want to delete this skill
+router.delete('/api/skills/',function(req,res,next){
+  //req.body = { type: 'teach', skillId: 2, userId: 3 }
+  skillController.deleteSkill(req,res);
 });
 
 router.get('/logout', function(req, res) {
