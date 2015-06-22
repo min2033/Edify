@@ -32,8 +32,8 @@ angular.module('edify',[
         controller: 'UserController'
       })
       .state('allskills', {
-        url: '',
-        templateUrl: '',
+        url: '/allskills',
+        templateUrl: 'app/templates/allskills.html',
         controller: 'AllSkillsController'
       });
 });

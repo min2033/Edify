@@ -1,18 +1,16 @@
 angular.module('edify.allskills', [])
 
 .controller('AllSkillsController', function($scope, Skills) {
-  
+  $scope.allSkills;
 
   $scope.getAllSkills = function () {
-    /* example
-    Users.getUser('jp')
-    .then(function (user) {
-      $scope.user = user;
+    Skills.getAllSkills()
+    .then(function (skills) {
+      $scope.allSkills = skills;
     })
     .catch(function (error) {
       console.error(error);
     });
-    */
   };
 
 });
