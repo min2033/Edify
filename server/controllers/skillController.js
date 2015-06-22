@@ -79,24 +79,24 @@ module.exports = {
     });
   },
 
-  update: function(data,res,next) { // either update skilllevel or add 
-    //data = { type: teach, skill: javascript, skilllevel: 3, userId: 3, skillId: 5}
+  update: function(data,res,next) { // either update skillLevel or add
+    //data = { type: teach, skill: javascript, skillLevel: 3, userId: 3, skillId: 5}
     if(data.type === "teach"){
       new TeachSkill({skill_id: data.skillId, user_id: data.userId})
         .fetch()
         .then(function(item){ // check if already exists, update if exist
           if(item){
-            item.attributes.skill_level = parseInt(data.skilllevel);
+            item.attributes.skill_level = parseInt(data.skillLevel);
             item.save().then(function(){
               console.log('update complete!');
               res.send(data);
             });
-          }else{ 
+          }else{
             // create a new entry
             var entry = new TeachSkill({
               user_id: data.userId,
               skill_id: data.skillId,
-              skill_level: data.skilllevel
+              skill_level: data.skillLevel
             });
             entry.save().then(function(){
               res.send(entry);
@@ -108,17 +108,17 @@ module.exports = {
         .fetch()
         .then(function(item){ // check if already exists, update if exist
           if(item){
-            item.attributes.skill_level = parseInt(data.skilllevel);
+            item.attributes.skill_level = parseInt(data.skillLevel);
             item.save().then(function(){
               console.log('update complete!');
               res.send(data);
             });
-          }else{ 
+          }else{
             // create a new entry
             var entry = new LearnSkill({
               user_id: data.userId,
               skill_id: data.skillId,
-              skill_level: data.skilllevel
+              skill_level: data.skillLevel
             });
             entry.save().then(function(){
               res.send(entry);
@@ -128,10 +128,12 @@ module.exports = {
     }else{
       res.send("Specify Learn/Teach Type!");
     }
-    
+
   },
 
   deleteSkill: function(req,res){
+    console.log("$$$$$$$$$$$ " + req.body.type);
+    console.log("$$$$$$$$$$$ " + req.body.skillId);
     //req.body = { type: 'teach', skillId: 2, userId: 3 }
     // find the entry from teachskills or learnskills
     if(req.body.type === "teach"){

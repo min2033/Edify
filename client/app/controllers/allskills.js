@@ -7,10 +7,6 @@ angular.module('edify.allskills', [])
     Skills.getAllSkills()
     .then(function (skills) {
       $scope.allSkills = skills;
-    })
-    .catch(function (error) {
-      console.error(error);
     });
   };
-
 });

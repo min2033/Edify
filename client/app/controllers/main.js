@@ -45,7 +45,8 @@ angular.module('edify.main', [])
     $scope.user.learnSkills.splice(index, 1);
     Skills.deleteSkill($scope.user.id, skillId, 'learn')
       .then(function(data) {
-        console.log('learn skill removed!');
+        console.log(data);
+        // console.log('learn skill removed!');
       });
   };
 
@@ -76,7 +77,8 @@ angular.module('edify.main', [])
     $scope.user.teachSkills.splice(index, 1);
     Skills.deleteSkill($scope.user.id, skillId, 'teach')
       .then(function(data) {
-        console.log('teach skill removed!');
+        console.log(data);
+        // console.log('teach skill removed!');
       });
   };
 
