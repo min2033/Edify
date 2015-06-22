@@ -73,7 +73,7 @@ angular.module('edify.services', [])
   var postSkill = function(skill){
     return $http({
       method: 'POST',
-      url: '/api/',
+      url: '/api/skills/',
       data: skill
     })
     .then(function(resp){
@@ -98,6 +98,7 @@ angular.module('edify.services', [])
 
   return {
     getSkill: getSkill,
-    postSkill: postSkill
+    postSkill: postSkill,
+    deleteSkill: deleteSkill
   };
 });
