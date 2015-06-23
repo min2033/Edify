@@ -1,6 +1,5 @@
 angular.module('edify',[
   'ui.router',
-  'edify.auth',
   'edify.services',
   'edify.user',
   'edify.allskills',
