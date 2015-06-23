@@ -11,7 +11,7 @@
     <div class="skill-entry well" ng-repeat="skill in allSkills | filter: query">
       <!-- <span>ID: {{skill[1].skill_id}}</span> -->
       <div class="skill-title text-center">
-        <a ui-sref="skill/:{{skill[0]}}">{{skill[0]}}</a>
+        <a ui-sref="skill({skillname: '{{skill[0]}}' })">{{skill[0]}}</a>
       </div>
       <div class="teacher-learner-count text-center pull-left">
         <div>{{skill[1].learners.length}}</div>
