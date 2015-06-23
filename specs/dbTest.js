@@ -63,16 +63,6 @@ var learnSkill2 = new LearnSkill({
   skill_level: 5
 });
 
-
-
-new User({username: 'colin'})
-  .fetch({
-    withRelated: ['learnSkills']
-  })
-  .then(function (user) {
-    console.log('==========> fetched user who wants to learn:', user);
-  });
-
 var teachSkill1 = new TeachSkill({
   skill_id: 1,
   user_id: 2,
@@ -85,15 +75,8 @@ var teachSkill2 = new TeachSkill({
   skill_level: 3
 });
 
-// new User({ username: 'jp' })
-//   .fetch({
-//     withRelated: 'teachSkills'
-//   })
-//   .then(function (user) {
-//     console.log('==========> fetched user who wants to teach:', user);
-//     console.log('==========> teachSkills:', user.relations.teachSkills.models);
-//   });
 
+// SAVE SAMPLE DATA
 user1.save();
 user2.save();
 user3.save();
@@ -102,3 +85,21 @@ learnSkill1.save();
 learnSkill2.save();
 teachSkill1.save();
 teachSkill2.save();
+
+// TEST FETCHING
+// new User({username: 'colin'})
+//   .fetch({
+//     withRelated: ['learnSkills']
+//   })
+//   .then(function (user) {
+//     console.log('==========> fetched user who wants to learn:', user);
+//   });
+
+// new User({ username: 'jp' })
+//   .fetch({
+//     withRelated: 'teachSkills'
+//   })
+//   .then(function (user) {
+//     console.log('==========> fetched user who wants to teach:', user);
+//     console.log('==========> teachSkills:', user.relations.teachSkills.models);
+//   });
