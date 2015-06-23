@@ -5,13 +5,13 @@ angular.module('edify.allskills', [])
   // Use this assignment only for STATIC data testing
   //   - comment out when doing real database testing
   $scope.allSkills = [
-                      ["JavaScript", {learners: [{},{},{},{}], teachers: [{},{},{},{}], skill_id: 100} ],
-                      ["Backbone", {learners: [{},{}], teachers: [{}], skill_id: 200} ],
-                      ["Angular", {learners: [{},{},{}], teachers: [{},{},{}], skill_id: 300} ],
-                      ["Node", {learners: [{},{},{},{},{}], teachers: [{},{}], skill_id: 400} ],
-                      ["Databases", {learners: [{},{},{},{},{},{},{}], teachers: [], skill_id: 500} ],
-                      ["Java", {learners: [{},{},{},{},{}], teachers: [{},{},{},{},{},{},{},{}], skill_id: 666} ],
-                      ["Data Structures", {learners: [{}], teachers: [{},{},{},{},{}], skill_id: 99} ],
+                      ["javascript", {learners: [{},{},{},{}], teachers: [{},{},{},{}], skill_id: 100} ],
+                      ["backbone", {learners: [{},{}], teachers: [{}], skill_id: 200} ],
+                      ["angular", {learners: [{},{},{}], teachers: [{},{},{}], skill_id: 300} ],
+                      ["node", {learners: [{},{},{},{},{}], teachers: [{},{}], skill_id: 400} ],
+                      ["databases", {learners: [{},{},{},{},{},{},{}], teachers: [], skill_id: 500} ],
+                      ["java", {learners: [{},{},{},{},{}], teachers: [{},{},{},{},{},{},{},{}], skill_id: 666} ],
+                      ["data structures", {learners: [{}], teachers: [{},{},{},{},{}], skill_id: 99} ],
                      ];
 
   // USE this assignment for real database testing
@@ -21,7 +21,7 @@ angular.module('edify.allskills', [])
     Skills.getAllSkills()
     .then(function (skills) {
       for (var key in skills) {
-        $scope.allSkills.push([key,result[key]]);    
+        $scope.allSkills.push([key,result[key]]);
       }
     })
     .catch(function (error) {
