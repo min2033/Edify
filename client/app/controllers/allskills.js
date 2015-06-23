@@ -21,7 +21,7 @@ angular.module('edify.allskills', [])
     Skills.getAllSkills()
     .then(function (skills) {
       for (var key in skills) {
-        $scope.allSkills.push([key,result[key]]);
+        $scope.allSkills.push([key, skills[key]]);
       }
     })
     .catch(function (error) {
