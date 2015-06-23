@@ -2,9 +2,9 @@
   "name": "edify",
   "version": "1.0.0",
   "description": "> Pithy project description",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,9 @@
     "mysql": "^2.7.0",
     "passport": "^0.2.2",
     "passport-github2": "^0.1.9"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
