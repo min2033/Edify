@@ -16,8 +16,7 @@ angular.module('edify',[
       })
       .state('signin',{
         url:'/signin',
-        templateUrl: 'app/templates/signin.html',
-        controller: 'AuthController'
+        templateUrl: 'app/templates/signin.html'
       })
       .state('signout',{
         url:'/',
