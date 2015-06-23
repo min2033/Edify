@@ -30,17 +30,25 @@ var user3 = new User({
 });
 
 //SAVE SKILLS
-var skill1 = new Skill({
-  skill_name: 'javascript'
+
+var skills = ['html',
+'css',
+'javascript',
+'python',
+'ruby',
+'databases',
+'algorithms',
+'electronics',
+'microcontrollers',
+'fabrication'];
+
+skills.forEach(function(skillName) {
+  var skill = new Skill({
+    skill_name: skillName
+  });
+  skill.save();
 });
 
-var skill2 = new Skill({
-  skill_name: 'ruby'
-});
-
-var skill3 = new Skill({
-  skill_name: 'python'
-});
 
 //SAVE LEARN SKILLS
 var learnSkill1 = new LearnSkill({
@@ -89,9 +97,7 @@ var teachSkill2 = new TeachSkill({
 user1.save();
 user2.save();
 user3.save();
-skill1.save();
-skill2.save();
-skill3.save();
+
 learnSkill1.save();
 learnSkill2.save();
 teachSkill1.save();
