@@ -38,7 +38,7 @@ angular.module('edify.services', [])
       url: '/api/users/' + username
     })
     .then(function(resp){
-      return resp.data
+      return resp.data;
     });
   };
 
@@ -51,7 +51,7 @@ angular.module('edify.services', [])
     .then(function(resp){
       return resp.data;
     });
-  }
+  };
 
   return {
     getUser: getUser,
@@ -66,7 +66,7 @@ angular.module('edify.services', [])
       url: '/api/skills/'
     })
     .then(function(resp){
-      return resp.data
+      return resp.data;
     });
   };
 
@@ -76,7 +76,7 @@ angular.module('edify.services', [])
       url: '/api/skills/' + skillname
     })
     .then(function(resp){
-      return resp.data
+      return resp.data;
     });
   };
 
@@ -111,6 +111,6 @@ angular.module('edify.services', [])
     getAllSkills: getAllSkills,
     postSkill: postSkill,
     deleteSkill: deleteSkill,
-    getSkill, getSkill
+    getSkill: getSkill
   };
 });

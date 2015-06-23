@@ -3,7 +3,7 @@ angular.module('edify.user', [
 ])
 
 .controller('UserController', function($scope, $stateParams, Users) {
-  $scope.user;
+  $scope.user = null;
 
   $scope.getUser = function () {
     Users.getUser($stateParams.username) //  We need to pass something into the service to retrieve one user

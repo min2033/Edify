@@ -1,7 +1,7 @@
 angular.module('edify.main', [])
 
 .controller('MainController', function($scope, Auth, Users, Skills) {
-  $scope.user;
+  $scope.user = null;
 
   $scope.getProfile = function () {
     if (Auth.isAuth()) {
