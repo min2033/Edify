@@ -1,10 +1,12 @@
-angular.module('edify.user', [])
+angular.module('edify.user', [
+  'ui.router'
+])
 
-.controller('UserController', function($scope, Users) {
+.controller('UserController', function($scope, $stateParams, Users) {
   $scope.user;
 
   $scope.getUser = function () {
-    Users.getUser('jp') //  We need to pass something into the service to retrieve one user
+    Users.getUser($stateParams.username) //  We need to pass something into the service to retrieve one user
     .then(function (user) {
       $scope.user = user;
     })
@@ -12,5 +14,7 @@ angular.module('edify.user', [])
       console.error(error);
     });
   };
+
+  $scope.getUser();
 
 });
