@@ -16,7 +16,8 @@ module.exports = {
         result.email = user.attributes.email;
         result.githubId = user.attributes.github_id;
         result.id = user.attributes.id;
-        result.avatar = req.user._json.avatar_url; // this is only for user.
+        result.avatar = user.attributes.avatar;
+        // result.avatar = req.user._json.avatar_url; // this is only for user.
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {
@@ -53,7 +54,8 @@ module.exports = {
             var newUser = new User({
               username: user.username,
               email: user.email,
-              github_id: user.githubId
+              github_id: user.githubId,
+              avatar: user.avatar
             });
             newUser.save().then(resolve).catch(reject);
 

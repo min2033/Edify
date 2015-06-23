@@ -24,11 +24,11 @@ passport.use(new GithubStrategy({
 },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function() {
-
       userController.findOrCreate({
         username: profile.username,
         email: profile.emails[0].value,
-        githubId: profile.id
+        githubId: profile.id,
+        avatar: profile._json.avatar_url
       }).then(function() {
         return done(null, profile);
       });
