@@ -27,7 +27,7 @@ angular.module('edify',[
         }
       })
       .state('user',{
-        url:'/user',
+        url:'/user/:username',
         templateUrl: 'app/templates/user.html',
         controller: 'UserController'
       })

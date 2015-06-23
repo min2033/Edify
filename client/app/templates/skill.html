@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="learner in learners">
-          <td>{{learner.username}}</td>
+          <td><a ui-sref="user({username: '{{learner.username}}' })">{{learner.username}}</a></td>
           <td>{{learner.skill_level}}</td>
         </tr>
       </tbody>
@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="teacher in teachers">
-          <td>{{teacher.username}}</td>
+          <td><a ui-sref="user({username: '{{teacher.username}}' })">{{teacher.username}}</a></td>
           <td>{{teacher.skill_level}}</td>
         </tr>
       </tbody>
