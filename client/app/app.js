@@ -4,8 +4,8 @@ angular.module('edify',[
   'edify.services',
   'edify.user',
   'edify.allskills',
-  'edify.main'
-  // 'edify.skills'
+  'edify.main',
+  'edify.skill'
   ])
 .config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
@@ -35,5 +35,10 @@ angular.module('edify',[
         url: '/allskills',
         templateUrl: 'app/templates/allskills.html',
         controller: 'AllSkillsController'
+      })
+      .state('skill', {
+        url: '/skill/:skillname',
+        templateUrl: 'app/templates/skill.html',
+        controller: 'SkillController'
       });
 });

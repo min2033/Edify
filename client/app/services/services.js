@@ -70,6 +70,16 @@ angular.module('edify.services', [])
     });
   };
 
+  var getSkill = function(skillname){
+    return $http({
+      method: 'GET',
+      url: '/api/skills/' + skillname
+    })
+    .then(function(resp){
+      return resp.data
+    });
+  };
+
   // postSkill is INCOMPLETE!
   var postSkill = function(skill){
     return $http({
@@ -100,6 +110,7 @@ angular.module('edify.services', [])
   return {
     getAllSkills: getAllSkills,
     postSkill: postSkill,
-    deleteSkill: deleteSkill
+    deleteSkill: deleteSkill,
+    getSkill, getSkill
   };
 });

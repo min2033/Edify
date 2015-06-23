@@ -17,15 +17,23 @@ module.exports = {
 
         result.learners = [];
         skill.relations.learners.models.forEach(function (item) {
-          result.learners.push(item.attributes);
+          result.learners.push({
+            id: item.attributes.id,
+            username: item.attributes.username,
+            skill_level: item.pivot.attributes.skill_level
+          });
         });
 
         result.teachers = [];
         skill.relations.teachers.models.forEach(function (item) {
-          result.teachers.push(item.attributes);
+          result.teachers.push({
+            id: item.attributes.id,
+            username: item.attributes.username,
+            skill_level: item.pivot.attributes.skill_level
+          });
         });
 
-        res.send(200, result);
+        res.status(200).send(result);
       });
   },
 
@@ -45,15 +53,23 @@ module.exports = {
           result[skill.attributes.skill_name].skill_id = skill.attributes.id;
 
           skill.relations.learners.models.forEach(function (item) {
-            result[skill.attributes.skill_name].learners.push(item.attributes);
+            result[skill.attributes.skill_name].learners.push({
+              id: item.attributes.id,
+              username: item.attributes.username,
+              skill_level: item.pivot.attributes.skill_level
+            });
           });
 
           skill.relations.teachers.models.forEach(function (item) {
-            result[skill.attributes.skill_name].teachers.push(item.attributes);
+            result[skill.attributes.skill_name].teachers.push({
+              id: item.attributes.id,
+              username: item.attributes.username,
+              skill_level: item.pivot.attributes.skill_level
+            });
           });
 
         };
-        res.send(200, result);
+        res.status(200).send(result);
       });
   },
 
