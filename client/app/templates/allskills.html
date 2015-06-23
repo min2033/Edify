@@ -3,6 +3,16 @@
   <textarea name="Filter" id="filter-form" rows="1" cols="50" placeholder="Filter by skill..."></textarea>
   <button type="button" class="button button-teachers">Sort by Teachers</button>
   <button type="button" class="button button-learners">Sort by Learners</button>
-  <pre ng-repeat>
-  </pre>
+  <div>
+    <div ng-repeat="skill in allSkills">
+      <button type="button" class="button button-learn">+ Learn</button>
+      <button type="button" class="button button-teach">+ Teach</button>
+      <span>
+        <span>{{skill.skill_id}}</span>
+        <span>"Skill Name"</span>
+        <span>"Number of teachers"</span>
+        <span>"Number of learners"</span>
+      </span>
+    </div>
+  </div>
 </div>
