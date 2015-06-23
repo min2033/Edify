@@ -20,6 +20,7 @@ module.exports = {
           result.learners.push({
             id: item.attributes.id,
             username: item.attributes.username,
+            avatar: item.attributes.avatar,
             skill_level: item.pivot.attributes.skill_level
           });
         });
@@ -29,6 +30,7 @@ module.exports = {
           result.teachers.push({
             id: item.attributes.id,
             username: item.attributes.username,
+            avatar: item.attributes.avatar,
             skill_level: item.pivot.attributes.skill_level
           });
         });
@@ -56,6 +58,7 @@ module.exports = {
             result[skill.attributes.skill_name].learners.push({
               id: item.attributes.id,
               username: item.attributes.username,
+              avatar: item.attributes.avatar,
               skill_level: item.pivot.attributes.skill_level
             });
           });
@@ -64,6 +67,7 @@ module.exports = {
             result[skill.attributes.skill_name].teachers.push({
               id: item.attributes.id,
               username: item.attributes.username,
+              avatar: item.attributes.avatar,
               skill_level: item.pivot.attributes.skill_level
             });
           });

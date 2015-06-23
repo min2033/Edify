@@ -11,19 +11,22 @@ var TeachSkill = require('../server/models/teachSkill');
 var user1 = new User({
   username: 'colin',
   email: 'casparsons@gmail.com',
-  github_id: 'ultralame'
+  github_id: 'ultralame',
+  avatar: 'https://avatars.githubusercontent.com/u/690729?v=3'
 });
 
 var user2 = new User({
   username: 'jp',
   email: 'theboss@canadatopcondoms.com',
-  github_id: 'baka101'
+  github_id: 'baka101',
+  avatar: 'https://avatars.githubusercontent.com/u/7163397?v=3'
 });
 
 var user3 = new User({
   username: 'sally',
   email: 'asdf@aol.com',
-  github_id: 'sol33t'
+  github_id: 'sol33t',
+  avatar: 'https://avatars.githubusercontent.com/u/10736577?v=3'
 });
 
 //SAVE SKILLS
