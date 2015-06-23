@@ -33,13 +33,13 @@ router.get('/api/skills/',function(req,res,next){
 });
 
 // User says I want to delete this skill
-router.post('/api/skills/delete/',function(req,res,next){
+router.post('/api/skills/delete/', ensureAuthenticated, function(req,res,next){
   //req.body = { type: 'teach', skillId: 2, userId: 3 }
   skillController.deleteSkill(req,res);
 });
 
 // User says I want to learn/teach this skill
-router.post('/api/skills/',function(req,res,next){
+router.post('/api/skills/', ensureAuthenticated, function(req,res,next){
   //req.body = { type: 'teach', skill: 'javascript', skilllevel: 3, userId: 3 }
   skillController
     .findOrCreate(req) // skillId is added on to req.body
