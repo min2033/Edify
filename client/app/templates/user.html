@@ -1,24 +1,29 @@
-<div>
-  <div>
-  <button ng-click="getUser()">Select a user</button>
+<div class="well col-md-2 bio">
+  <div class="row text-center">
+    <img src="{{user.avatar}}" class="profile img-circle img-responsive center-block"></img>
   </div>
-<div>
-<pre>User {{user.username}}
-     Email {{user.email}}
-     <!-- Github {{user.githubId}} -->
-</pre>
+  <ul class="text-center">
+    <li><a target="_blank " href="http://github.com/{{user.username}}">{{user.username}}</a></li>
+    <li><a target="_blank" href="mailto:{{user.email}}">{{user.email}}</a></li>
+  </ul>
 </div>
 
-<div>Bio</div>
+<div class="col-md-5 text-center">
+  <h1>
+    skills to learn
+  </h1>
+  <div class="skill well clearfix" ng-repeat="skill in user.learnSkills">
+    <div class="skill-title"><a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
+    <div class="skill-level">level: {{skill.skill_level}}</div>
+  </div>
+</div>
 
-<aside >Want to Learn
-<pre ng-repeat="skill in user.learnSkills"> {{skill}}
-</pre>
-</aside>
-
-<aside >Want to Teach
-<pre ng-repeat="skill in user.teachSkills"> {{skill}}
-</pre>
-</aside>
-
+<div class="col-md-5 text-center" >
+  <h1>
+    skills to teach
+  </h1>
+  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">
+    <div class="skill-title"><a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
+    <div class="skill-level">level: {{skill.skill_level}}</div>
+  </div>
 </div>
