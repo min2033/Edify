@@ -31,9 +31,17 @@ a {
 }
 
 .signin-button {
+  margin-bottom: 200px;
 }
 
 #octocat {
-  margin-top: 175px;
+  margin-top: 60px;
   margin-bottom: 20px;
+}
+
+#signin-copy {
+  font-size: 18px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
