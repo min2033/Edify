@@ -13,6 +13,8 @@ app.use('/', mainRouter);
 
 // Serve our static ../client files.
 app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static('/'));
+
 
 app.listen(port,function(err){
   console.log('app listening on...' + port);
