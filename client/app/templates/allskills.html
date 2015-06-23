@@ -1,20 +1,26 @@
-<div>
-  <h2>All Skills</h2>
-  <div>
-    <textarea ng-model="query" name="Filter" id="filter-form" rows="1" cols="50" placeholder="Filter by skill..."></textarea>
-    <button type="button" class="button button-teachers">Sort by Teachers</button>
-    <button type="button" class="button button-learners">Sort by Learners</button>
+<div class="col-md-6 col-md-offset-3">
+  <div class="text-center">
+  <h2 class="text-center">all skills</h2>
+  <input type="text" ng-model="query" name="Filter" id="filter-form" placeholder="filter...">
+  <div class="sort-buttons">sort by
+    <button type="button" class="button button-teachers">teachers</button>
+    <button type="button" class="button button-learners">learners</button>
+  </div>
   </div>
   <div>
-    <div ng-repeat="skill in allSkills | filter: query">
-      <button class="glyphicon glyphicon-plus">Learn</button>
-      <button class="glyphicon glyphicon-plus">Teach</button>
-      <span>
-        <span>ID: {{skill[1].skill_id}}</span>
-        <span>{{skill[0]}}</span>
-        <span>Learners: {{skill[1].learners.length}}</span>
-        <span>Teachers: {{skill[1].teachers.length}}</span>
-      </span>
+    <div class="skill-entry well" ng-repeat="skill in allSkills | filter: query">
+      <!-- <span>ID: {{skill[1].skill_id}}</span> -->
+      <div class="skill-title text-center">
+        <a ui-sref="/skill/{{skill[0]}}">{{skill[0]}}</a>
+      </div>
+      <div class="teacher-learner-count pull-left text-center">
+        <div>{{skill[1].learners.length}}</div>
+        <button class="glyphicon glyphicon-plus"><br/>learn</button>
+      </div>
+      <div class="teacher-learner-count text-center">
+        <div>{{skill[1].teachers.length}}</div>
+        <button class="glyphicon glyphicon-plus"><br/>teach</button>
+      </div>
     </div>
   </div>
 </div>
