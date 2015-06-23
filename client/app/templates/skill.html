@@ -1,0 +1,33 @@
+<div>
+  <h2>{{skillname}}</h2>
+  <div class="col-md-6"> 
+    <h3>Learners</h3>
+    <table class="table">
+      <thead>
+        <td>Username</td>
+        <td>Skill Level</td>
+      </thead>
+      <tbody>
+        <tr ng-repeat="learner in learners">
+          <td>{{learner.username}}</td>
+          <td>{{learner.skill_level}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h3>Teachers</h3>
+    <table class="table">
+      <thead>
+        <td>Username</td>
+        <td>Skill Level</td>
+      </thead>
+      <tbody>
+        <tr ng-repeat="teacher in teachers">
+          <td>{{teacher.username}}</td>
+          <td>{{teacher.skill_level}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
