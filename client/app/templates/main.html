@@ -16,7 +16,7 @@
     skills to learn
   </h1>
   <div class="skill well clearfix" ng-repeat="skill in user.learnSkills">
-    <div class="skill-title"><a href="/#/skill/{{skill.skill_name}}">{{skill.skill_name}}</a></div>
+    <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
     <div class="skill-level">level: {{skill.skill_level}}
       <button type="button" class="btn btn-default btn-sm" ng-click="increaseLearnSkillLevel($index)" ng-blur="saveLearnSkill($index)">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -39,7 +39,7 @@
     skills to teach
   </h1>
   <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">
-    <div class="skill-title"><a ui-sref="skills/{{skill.skill_name}}">{{skill.skill_name}}</a></div>
+    <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
     <div class="skill-level">level: {{skill.skill_level}}
       <button type="button" class="btn btn-default btn-sm" ng-click="increaseTeachSkillLevel($index)" ng-blur="saveTeachSkill($index)">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

@@ -1,6 +1,6 @@
 angular.module('edify.allskills', [])
 
-.controller('AllSkillsController', function($scope, Skills) {
+.controller('AllSkillsController', function($scope, Auth, Skills) {
 
   // Use this assignment only for STATIC data testing
   //   - comment out when doing real database testing
@@ -17,10 +17,25 @@ angular.module('edify.allskills', [])
   // USE this assignment for real database testing
   $scope.allSkills = [];
 
+  $scope.getProfile = function () {
+    if (Auth.isAuth()) {
+      $scope.user = Auth.user;
+    } else {
+      Auth.getUser()
+        .then(function(data) {
+          $scope.user = data.data;
+      });
+    }
+  };
+
+  $scope.getProfile();
+
+
   $scope.getAllSkills = function () {
     Skills.getAllSkills()
     .then(function (skills) {
       for (var key in skills) {
+        // console.log([key, skills[key]]);
         $scope.allSkills.push([key, skills[key]]);
       }
     })
@@ -30,5 +45,33 @@ angular.module('edify.allskills', [])
   };
 
   $scope.getAllSkills();
+
+  $scope.addLearnSkill = function(index) {
+    // debugger;
+    var skill = {
+      type: 'learn',
+      // skill: $scope.allSkills[index].skill_name,
+      skill: $scope.allSkills[index][0],
+      skillLevel: 1,
+      userId: $scope.user.id
+    };
+    Skills.postSkill(skill).then(function(data) {
+      console.log('added skill to learn!');
+    });
+  };
+
+  $scope.addTeachSkill = function(index) {
+    var skill = {
+      type: 'teach',
+      // skill: $scope.user.teachSkills[index].skill_name,
+      skill: $scope.allSkills[index][0],
+      skillLevel: 1,
+      userId: $scope.user.id
+    };
+    Skills.postSkill(skill).then(function(data) {
+      console.log('added skill to teach!');
+    });
+  };
+
 
 });
