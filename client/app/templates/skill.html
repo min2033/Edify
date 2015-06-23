@@ -1,33 +1,34 @@
-<div>
-  <h2>{{skillname}}</h2>
-  <div class="col-md-6"> 
-    <h3>Learners</h3>
-    <table class="table">
-      <thead>
-        <td>Username</td>
-        <td>Skill Level</td>
-      </thead>
-      <tbody>
-        <tr ng-repeat="learner in learners">
-          <td><a ui-sref="user({username: '{{learner.username}}' })">{{learner.username}}</a></td>
-          <td>{{learner.skill_level}}</td>
-        </tr>
-      </tbody>
-    </table>
+<h1 class="text-center">{{skillname}}</h1>
+<div class="col-md-5">
+  <h2>
+    Learners
+  </h1>
+  <div class="row skill well clearfix" ng-repeat="learner in learners">
+    <div class="col-xs-3">
+      <a ui-sref="user({username: '{{learner.username}}' })">
+        <img src="{{learner.avatar}}" class="profile img-circle img-responsive center-block"></img>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="username"><a ui-sref="user({username: '{{learner.username}}' })">{{learner.username}}</a></div>
+      <div class="skill-level">level: {{learner.skill_level}}</div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h3>Teachers</h3>
-    <table class="table">
-      <thead>
-        <td>Username</td>
-        <td>Skill Level</td>
-      </thead>
-      <tbody>
-        <tr ng-repeat="teacher in teachers">
-          <td><a ui-sref="user({username: '{{teacher.username}}' })">{{teacher.username}}</a></td>
-          <td>{{teacher.skill_level}}</td>
-        </tr>
-      </tbody>
-    </table>
+</div>
+
+<div class="col-md-5 col-md-offset-1" >
+  <h2>
+    Teachers
+  </h1>
+  <div class="row skill well clearfix" ng-repeat="teacher in teachers">
+    <div class="col-xs-3">
+      <a ui-sref="user({username: '{{teacher.username}}' })">
+        <img src="{{teacher.avatar}}" class="profile img-circle img-responsive center-block"></img>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="username"><a ui-sref="user({username: '{{teacher.username}}' })">{{teacher.username}}</a></div>
+      <div class="skill-level">level: {{teacher.skill_level}}</div>
+    </div>
   </div>
 </div>
