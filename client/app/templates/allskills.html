@@ -15,11 +15,11 @@
       </div>
       <div class="teacher-learner-count text-center pull-left">
         <div>{{skill[1].learners.length}}</div>
-        <button class="glyphicon glyphicon-plus"><br/>learn</button>
+        <button ng-click="addLearnSkill($index)" class="glyphicon glyphicon-plus"><br/>learn</button>
       </div>
       <div class="teacher-learner-count text-center">
         <div>{{skill[1].teachers.length}}</div>
-        <button class="glyphicon glyphicon-plus"><br/>teach</button>
+        <button ng-click="addTeachSkill($index)" class="glyphicon glyphicon-plus"><br/>teach</button>
       </div>
     </div>
   </div>
