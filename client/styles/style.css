@@ -22,7 +22,7 @@ a {
   margin-top: 50px;
 }
 
-.skill-title {
+.skill-title, .username {
   font-size: 24px;
 }
 
