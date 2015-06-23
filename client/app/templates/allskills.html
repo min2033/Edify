@@ -1,17 +1,19 @@
 <div>
   <h2>All Skills</h2>
-  <textarea name="Filter" id="filter-form" rows="1" cols="50" placeholder="Filter by skill..."></textarea>
-  <button type="button" class="button button-teachers">Sort by Teachers</button>
-  <button type="button" class="button button-learners">Sort by Learners</button>
   <div>
-    <div ng-repeat="skill in allSkills">
-      <button type="button" class="button button-learn">+ Learn</button>
-      <button type="button" class="button button-teach">+ Teach</button>
+    <textarea ng-model="query" name="Filter" id="filter-form" rows="1" cols="50" placeholder="Filter by skill..."></textarea>
+    <button type="button" class="button button-teachers">Sort by Teachers</button>
+    <button type="button" class="button button-learners">Sort by Learners</button>
+  </div>
+  <div>
+    <div ng-repeat="skill in allSkills | filter: query">
+      <button class="glyphicon glyphicon-plus">Learn</button>
+      <button class="glyphicon glyphicon-plus">Teach</button>
       <span>
-        <span>{{skill.skill_id}}</span>
-        <span>"Skill Name"</span>
-        <span>"Number of teachers"</span>
-        <span>"Number of learners"</span>
+        <span>ID: {{skill[1].skill_id}}</span>
+        <span>{{skill[0]}}</span>
+        <span>Learners: {{skill[1].learners.length}}</span>
+        <span>Teachers: {{skill[1].teachers.length}}</span>
       </span>
     </div>
   </div>
