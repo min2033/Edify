@@ -6,6 +6,17 @@ angular.module('edify',[
   'edify.main',
   'edify.skill'
   ])
+
+.controller('AppController', function ($scope, Auth){
+  $scope.isSignedIn = function () {
+    return Auth.isAuth();
+  };
+
+  $scope.isSignedOut = function () {
+    return !Auth.isAuth();
+  }
+})
+
 .config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider

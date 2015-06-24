@@ -2,19 +2,19 @@
 <html ng-app="edify">
 
   <head>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <!-- For Deployment -->
     <!-- <link rel="stylesheet" type="text/css" href="dist/style.min.css"/> -->
   </head>
 
-  <body>
+  <body ng-controller="AppController">
     <nav class="navbar navbar-default navbar-fixed-top">
       <a class="navbar-brand" ui-sref="allskills">edify</a>
       <ul class="nav navbar-nav navbar-right signin">
         <li><a ui-sref="home">profile</a></li>
-        <li><a ui-sref="signin">sign in</a></li>
-        <li><a ui-sref="signout">sign out</a></li>
+        <li class="signin-{{isSignedIn()}}"><a ui-sref="signin">sign in</a></li>
+        <li class="signout-{{isSignedOut()}}"><a ui-sref="signout">sign out</a></li>
       </ul>
     </nav>
 
