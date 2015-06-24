@@ -57,11 +57,10 @@ angular.module('edify.allskills', [])
     $scope.sort = option;
   };
 
-  $scope.addLearnSkill = function(index) {
+  $scope.addLearnSkill = function(skillName) {
     var skill = {
       type: 'learn',
-      // skill: $scope.allSkills[index].skill_name,
-      skill: $scope.allSkills[index].skill_name,
+      skill: skillName,
       skillLevel: 1,
       userId: $scope.user.id
     };
@@ -70,11 +69,10 @@ angular.module('edify.allskills', [])
     });
   };
 
-  $scope.addTeachSkill = function(index) {
+  $scope.addTeachSkill = function(skillName) {
     var skill = {
       type: 'teach',
-      // skill: $scope.user.teachSkills[index].skill_name,
-      skill: $scope.allSkills[index].skill_name,
+      skill: skillName,
       skillLevel: 1,
       userId: $scope.user.id
     };
