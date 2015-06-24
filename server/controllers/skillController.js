@@ -21,7 +21,8 @@ module.exports = {
             id: item.attributes.id,
             username: item.attributes.username,
             avatar: item.attributes.avatar,
-            skill_level: item.pivot.attributes.skill_level
+            skill_level: item.pivot.attributes.skill_level,
+            blurb: item.pivot.attributes.blurb
           });
         });
 
@@ -31,7 +32,8 @@ module.exports = {
             id: item.attributes.id,
             username: item.attributes.username,
             avatar: item.attributes.avatar,
-            skill_level: item.pivot.attributes.skill_level
+            skill_level: item.pivot.attributes.skill_level,
+            blurb: item.pivot.attributes.blurb
           });
         });
 
@@ -59,7 +61,8 @@ module.exports = {
               id: item.attributes.id,
               username: item.attributes.username,
               avatar: item.attributes.avatar,
-              skill_level: item.pivot.attributes.skill_level
+              skill_level: item.pivot.attributes.skill_level,
+              blurb: item.pivot.attributes.blurb
             });
           });
 
@@ -68,7 +71,8 @@ module.exports = {
               id: item.attributes.id,
               username: item.attributes.username,
               avatar: item.attributes.avatar,
-              skill_level: item.pivot.attributes.skill_level
+              skill_level: item.pivot.attributes.skill_level,
+              blurb: item.pivot.attributes.blurb
             });
           });
 
@@ -101,12 +105,14 @@ module.exports = {
 
   update: function(data,res,next) { // either update skillLevel or add
     //data = { type: teach, skill: javascript, skillLevel: 3, userId: 3, skillId: 5}
+    console.log(data);
     if(data.type === "teach"){
       new TeachSkill({skill_id: data.skillId, user_id: data.userId})
         .fetch()
         .then(function(item){ // check if already exists, update if exist
           if(item){
-            item.attributes.skill_level = parseInt(data.skillLevel);
+            if(data.skillLevel) item.attributes.skill_level = parseInt(data.skillLevel);
+            if(data.blurb) item.attributes.blurb = data.blurb;
             item.save().then(function(){
               console.log('update complete!');
               res.send(data);
@@ -116,7 +122,8 @@ module.exports = {
             var entry = new TeachSkill({
               user_id: data.userId,
               skill_id: data.skillId,
-              skill_level: data.skillLevel
+              skill_level: data.skillLevel,
+              blurb: data.blurb
             });
             entry.save().then(function(){
               res.send(entry);
@@ -128,7 +135,8 @@ module.exports = {
         .fetch()
         .then(function(item){ // check if already exists, update if exist
           if(item){
-            item.attributes.skill_level = parseInt(data.skillLevel);
+            if(data.skillLevel) item.attributes.skill_level = parseInt(data.skillLevel);
+            if(data.blurb) item.attributes.blurb = data.blurb;
             item.save().then(function(){
               console.log('update complete!');
               res.send(data);
@@ -138,7 +146,8 @@ module.exports = {
             var entry = new LearnSkill({
               user_id: data.userId,
               skill_id: data.skillId,
-              skill_level: data.skillLevel
+              skill_level: data.skillLevel,
+              blurb: data.blurb
             });
             entry.save().then(function(){
               res.send(entry);

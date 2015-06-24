@@ -61,6 +61,7 @@ db.knex.schema.hasTable('users_learn_skills').then(function(exists) {
       entry.increments('id').primary();
       entry.integer('user_id', 255).references('users.id');
       entry.integer('skill_id', 255).references('skills.id');
+      entry.string('blurb', 255);
       entry.integer('skill_level', 255);
       entry.timestamps();
     }).then(function (table) {
@@ -75,6 +76,7 @@ db.knex.schema.hasTable('users_teach_skills').then(function(exists) {
       entry.increments('id').primary();
       entry.integer('user_id', 255).references('users.id');
       entry.integer('skill_id', 255).references('skills.id');
+      entry.string('blurb', 255);
       entry.integer('skill_level', 255);
       entry.timestamps();
     }).then(function (table) {

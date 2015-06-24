@@ -52,7 +52,7 @@ router.post('/api/skills/delete/', ensureAuthenticated, function(req,res,next){
 
 // User says I want to learn/teach this skill
 router.post('/api/skills/', ensureAuthenticated, function(req,res,next){
-  //req.body = { type: 'teach', skill: 'javascript', skilllevel: 3, userId: 3 }
+  //req.body = { type: 'teach', skill: 'javascript', skilllevel: 3, userId: 3, blurb: 'something' }
   skillController
     .findOrCreate(req) // skillId is added on to req.body
     .then(function(data){
