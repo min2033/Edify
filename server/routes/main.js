@@ -15,7 +15,7 @@ router.get('/api/profile', ensureAuthenticated, function(req,res,next){
 });
 
 //Update user profile
-router.put('/api/profile', function(req,res,next){
+router.put('/api/profile', ensureAuthenticated, function(req,res,next){
   //req.body = { blurb: 'sometext', userId: 4}
   userController.updateUser(req, res, next);
 });
