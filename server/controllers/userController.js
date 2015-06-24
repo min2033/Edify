@@ -24,7 +24,8 @@ module.exports = {
           result.learnSkills.push({
             id: item.attributes.id,
             skill_name: item.attributes.skill_name,
-            skill_level: item.pivot.attributes.skill_level
+            skill_level: item.pivot.attributes.skill_level,
+            blurb: item.pivot.attributes.blurb
           });
         });
 
@@ -33,7 +34,8 @@ module.exports = {
           result.teachSkills.push({
             id: item.attributes.id,
             skill_name: item.attributes.skill_name,
-            skill_level: item.pivot.attributes.skill_level
+            skill_level: item.pivot.attributes.skill_level,
+            blurb: item.pivot.attributes.blurb
           });
         });
         // console.log(result);
@@ -82,7 +84,8 @@ module.exports = {
               username: user.username,
               email: user.email,
               github_id: user.githubId,
-              avatar: user.avatar
+              avatar: user.avatar,
+              blurb: ''
             });
             newUser.save().then(resolve).catch(reject);
 

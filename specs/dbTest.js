@@ -57,25 +57,29 @@ skills.forEach(function(skillName) {
 var learnSkill1 = new LearnSkill({
   skill_id: 1,
   user_id: 1,
-  skill_level: 1
+  skill_level: 1,
+  blurb: 'im good'
 });
 
 var learnSkill2 = new LearnSkill({
   skill_id: 3,
   user_id: 1,
-  skill_level: 5
+  skill_level: 5,
+  blurb: 'im ok'
 });
 
 var teachSkill1 = new TeachSkill({
   skill_id: 1,
   user_id: 2,
-  skill_level: 7
+  skill_level: 7,
+  blurb: 'im very good'
 });
 
 var teachSkill2 = new TeachSkill({
   skill_id: 3,
   user_id: 2,
-  skill_level: 3
+  skill_level: 3,
+  blurb: 'wat'
 });
 
 
