@@ -10,6 +10,14 @@ angular.module('edify.services', [])
     });
   };
 
+  var user = function(){
+    return currentUser;
+  };
+
+  var setUser = function(user){
+    currentUser = user;
+  };
+
   var isAuth = function () {
     return !!currentUser;
   };
@@ -24,8 +32,9 @@ angular.module('edify.services', [])
   };
 
   return {
-    user: currentUser,
+    user: user,
     getUser: getUser,
+    setUser: setUser,
     isAuth: isAuth,
     signOut: signOut
   };
