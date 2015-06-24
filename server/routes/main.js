@@ -21,6 +21,12 @@ router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
   userController.getUser(req, res, next, {username:user});
 });
 
+// Gets all users with username
+router.get('/api/users/', function(req,res,next){
+// router.get('/api/users/:username', function(req,res,next){
+  userController.allUsers(req, res, next);
+});
+
 // Fetch individual skill with its learners and teachers
 router.get('/api/skills/:skillname',function(req,res,next){
   var skill = req.params.skillname;
