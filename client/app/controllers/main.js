@@ -3,6 +3,8 @@ angular.module('edify.main', [])
 .controller('MainController', function($scope, Auth, Users, Skills) {
   $scope.user = null;
 
+  $scope.editor = false;
+
   $scope.getProfile = function () {
     if (Auth.isAuth()) {
       $scope.user = Auth.user();
@@ -16,6 +18,17 @@ angular.module('edify.main', [])
   };
 
   $scope.getProfile();
+
+  $scope.updateBio = function() {
+    var user = {
+      blurb: $scope.user.blurb,
+      userId: $scope.user.id
+    };
+
+    Users.putUser(user).then(function(data) {
+      console.log('saved user blurb!');
+    });
+  };
 
   $scope.increaseLearnSkillLevel = function(index) {
     console.log('learn skill level increased!');
