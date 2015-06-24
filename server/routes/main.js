@@ -14,6 +14,12 @@ router.get('/api/profile', ensureAuthenticated, function(req,res,next){
   userController.getUser(req, res, next, {github_id:req.user.id});
 });
 
+//Update user profile
+router.put('/api/profile', ensureAuthenticated, function(req,res,next){
+  //req.body = { blurb: 'sometext', userId: 4}
+  userController.updateUser(req, res, next);
+});
+
 // Gets another user's profile & skills
 router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
 // router.get('/api/users/:username', function(req,res,next){

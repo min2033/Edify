@@ -38,7 +38,7 @@ CREATE TABLE `skills` (
 
 LOCK TABLES `skills` WRITE;
 /*!40000 ALTER TABLE `skills` DISABLE KEYS */;
-INSERT INTO `skills` VALUES (1,'html','2015-06-23 13:01:36','2015-06-23 13:01:36'),(2,'css','2015-06-23 13:01:36','2015-06-23 13:01:36'),(3,'javascript','2015-06-23 13:01:36','2015-06-23 13:01:36'),(4,'python','2015-06-23 13:01:36','2015-06-23 13:01:36'),(5,'ruby','2015-06-23 13:01:36','2015-06-23 13:01:36'),(6,'databases','2015-06-23 13:01:36','2015-06-23 13:01:36'),(7,'algorithms','2015-06-23 13:01:36','2015-06-23 13:01:36'),(8,'electronics','2015-06-23 13:01:36','2015-06-23 13:01:36'),(9,'microcontrollers','2015-06-23 13:01:36','2015-06-23 13:01:36'),(10,'fabrication','2015-06-23 13:01:36','2015-06-23 13:01:36');
+INSERT INTO `skills` VALUES (1,'html','2015-06-24 14:42:50','2015-06-24 14:42:50'),(2,'css','2015-06-24 14:42:50','2015-06-24 14:42:50'),(3,'javascript','2015-06-24 14:42:50','2015-06-24 14:42:50'),(4,'python','2015-06-24 14:42:50','2015-06-24 14:42:50'),(5,'ruby','2015-06-24 14:42:50','2015-06-24 14:42:50'),(6,'databases','2015-06-24 14:42:50','2015-06-24 14:42:50'),(7,'algorithms','2015-06-24 14:42:50','2015-06-24 14:42:50'),(8,'electronics','2015-06-24 14:42:50','2015-06-24 14:42:50'),(9,'microcontrollers','2015-06-24 14:42:50','2015-06-24 14:42:50'),(10,'fabrication','2015-06-24 14:42:50','2015-06-24 14:42:50');
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,6 +54,7 @@ CREATE TABLE `users` (
   `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `github_id` varchar(255) DEFAULT NULL,
+  `blurb` varchar(255) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -68,7 +69,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'colin','casparsons@gmail.com','ultralame','https://avatars.githubusercontent.com/u/690729?v=3','2015-06-23 13:01:36','2015-06-23 13:01:36'),(2,'jp','theboss@canadatopcondoms.com','baka101','https://avatars.githubusercontent.com/u/7163397?v=3','2015-06-23 13:01:36','2015-06-23 13:01:36'),(3,'sally','asdf@aol.com','sol33t','https://avatars.githubusercontent.com/u/10736577?v=3','2015-06-23 13:01:36','2015-06-23 13:01:36');
+INSERT INTO `users` VALUES (1,'colin','casparsons@gmail.com','ultralame','I like to do stuff','https://avatars.githubusercontent.com/u/690729?v=3','2015-06-24 14:42:50','2015-06-24 14:42:50'),(2,'jp','theboss@canadatopcondoms.com','baka101','I also like to do stuff','https://avatars.githubusercontent.com/u/7163397?v=3','2015-06-24 14:42:50','2015-06-24 14:42:50'),(3,'sally','asdf@aol.com','sol33t','wait a minute...','https://avatars.githubusercontent.com/u/10736577?v=3','2015-06-24 14:42:50','2015-06-24 14:42:50');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +97,7 @@ CREATE TABLE `users_learn_skills` (
 
 LOCK TABLES `users_learn_skills` WRITE;
 /*!40000 ALTER TABLE `users_learn_skills` DISABLE KEYS */;
-INSERT INTO `users_learn_skills` VALUES (1,1,1,1,'2015-06-23 13:01:36','2015-06-23 13:01:36'),(2,1,3,5,'2015-06-23 13:01:36','2015-06-23 13:01:36');
+INSERT INTO `users_learn_skills` VALUES (1,1,1,1,'2015-06-24 14:42:50','2015-06-24 14:42:50'),(2,1,3,5,'2015-06-24 14:42:50','2015-06-24 14:42:50');
 /*!40000 ALTER TABLE `users_learn_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +125,7 @@ CREATE TABLE `users_teach_skills` (
 
 LOCK TABLES `users_teach_skills` WRITE;
 /*!40000 ALTER TABLE `users_teach_skills` DISABLE KEYS */;
-INSERT INTO `users_teach_skills` VALUES (1,2,1,7,'2015-06-23 13:01:36','2015-06-23 13:01:36'),(2,2,3,3,'2015-06-23 13:01:36','2015-06-23 13:01:36');
+INSERT INTO `users_teach_skills` VALUES (1,2,1,7,'2015-06-24 14:42:50','2015-06-24 14:42:50'),(2,2,3,3,'2015-06-24 14:42:50','2015-06-24 14:42:50');
 /*!40000 ALTER TABLE `users_teach_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -137,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-23 13:02:37
+-- Dump completed on 2015-06-24 14:43:16

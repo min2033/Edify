@@ -12,21 +12,24 @@ var user1 = new User({
   username: 'colin',
   email: 'casparsons@gmail.com',
   github_id: 'ultralame',
-  avatar: 'https://avatars.githubusercontent.com/u/690729?v=3'
+  avatar: 'https://avatars.githubusercontent.com/u/690729?v=3',
+  blurb: 'I like to do stuff'
 });
 
 var user2 = new User({
   username: 'jp',
   email: 'theboss@canadatopcondoms.com',
   github_id: 'baka101',
-  avatar: 'https://avatars.githubusercontent.com/u/7163397?v=3'
+  avatar: 'https://avatars.githubusercontent.com/u/7163397?v=3',
+  blurb: 'I also like to do stuff'
 });
 
 var user3 = new User({
   username: 'sally',
   email: 'asdf@aol.com',
   github_id: 'sol33t',
-  avatar: 'https://avatars.githubusercontent.com/u/10736577?v=3'
+  avatar: 'https://avatars.githubusercontent.com/u/10736577?v=3',
+  blurb: 'wait a minute...'
 });
 
 //SAVE SKILLS
