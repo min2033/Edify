@@ -4,7 +4,8 @@ angular.module('edify',[
   'edify.user',
   'edify.allskills',
   'edify.main',
-  'edify.skill'
+  'edify.skill',
+  'edify.signin'
   ])
 
 .controller('AppController', function ($scope, Auth){
@@ -17,6 +18,26 @@ angular.module('edify',[
   };
 })
 
+.run(function ($rootScope, $state, Auth) {
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+
+    //allow going to signin page
+    var isSignin = toState.name === 'signin';
+
+    //allow access signin page
+    if (isSignin) {
+      return;
+    }
+
+    //when trying to access other pages, redirect if not authenticated
+    var isAuth = Auth.isAuth();
+    if (!isAuth) {
+      event.preventDefault();
+      $state.go('signin'); //redirect
+    }
+  });  
+})
+
 .config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
@@ -27,7 +48,8 @@ angular.module('edify',[
       })
       .state('signin',{
         url:'/signin',
-        templateUrl: 'app/templates/signin.html'
+        templateUrl: 'app/templates/signin.html',
+        controller: 'SigninController'
       })
       .state('signout',{
         url:'/',
