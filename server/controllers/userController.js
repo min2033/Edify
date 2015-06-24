@@ -50,6 +50,25 @@ module.exports = {
       });
   },
 
+  updateUser: function(req,res,next){
+    var data = req.body; // { blurb: 'sometext', userId: 4}
+    console.log(data);
+
+    new User({id: data.userId})
+      .fetch()
+      .then(function(item){ // check if already exists, update if exist
+        if(item){
+          item.attributes.blurb = data.blurb;
+          item.save().then(function(){
+            console.log('update complete!');
+            res.send(data);
+          });
+        }else{
+          res.send('no user found');
+        }
+      });
+  },
+
   findOrCreate: function(user) {
     return new Promise(function(resolve, reject) {
 
