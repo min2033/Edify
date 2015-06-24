@@ -6,7 +6,7 @@
   <div class="row skill well clearfix" ng-repeat="learner in learners">
     <div class="col-xs-3">
       <a ui-sref="user({username: '{{learner.username}}' })">
-        <img src="{{learner.avatar}}" class="profile img-circle img-responsive center-block"></img>
+        <img ng-src="{{learner.avatar}}" class="profile img-circle img-responsive center-block"></img>
       </a>
     </div>
     <div class="col-xs-8">
@@ -23,7 +23,7 @@
   <div class="row skill well clearfix" ng-repeat="teacher in teachers">
     <div class="col-xs-3">
       <a ui-sref="user({username: '{{teacher.username}}' })">
-        <img src="{{teacher.avatar}}" class="profile img-circle img-responsive center-block"></img>
+        <img ng-src="{{teacher.avatar}}" class="profile img-circle img-responsive center-block"></img>
       </a>
     </div>
     <div class="col-xs-8">
