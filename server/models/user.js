@@ -8,11 +8,11 @@ var User = db.Model.extend({
   hasTimestamps: true,
 
   teachSkills: function () {
-    return this.belongsToMany('Skill', 'users_teach_skills').withPivot(['skill_level']);
+    return this.belongsToMany('Skill', 'users_teach_skills').withPivot(['skill_level','blurb']);
   },
 
   learnSkills: function () {
-    return this.belongsToMany('Skill', 'users_learn_skills').withPivot(['skill_level']);
+    return this.belongsToMany('Skill', 'users_learn_skills').withPivot(['skill_level','blurb']);
   },
 
   initialize: function () {

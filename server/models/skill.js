@@ -9,11 +9,11 @@ var Skill = db.Model.extend({
 
 
   teachers: function () {
-    return this.belongsToMany('User', 'users_teach_skills').withPivot(['skill_level']);
+    return this.belongsToMany('User', 'users_teach_skills').withPivot(['skill_level','blurb']);
   },
 
   learners: function () {
-    return this.belongsToMany('User', 'users_learn_skills').withPivot(['skill_level']);
+    return this.belongsToMany('User', 'users_learn_skills').withPivot(['skill_level','blurb']);
   },
 
   initialize: function () {
