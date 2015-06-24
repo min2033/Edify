@@ -37,10 +37,10 @@ angular.module('edify.allskills', [])
     .then(function (skills) {
       var obj = {};
       for (var key in skills) {
-        obj['skill_name'] = key;
-        obj['learners'] = skills[key].learners;
-        obj['teachers'] = skills[key].teachers;
-        obj['skill_id'] = skills[key].skill_id;
+        obj.skill_name = key;
+        obj.learners = skills[key].learners;
+        obj.teachers = skills[key].teachers;
+        obj.skill_id = skills[key].skill_id;
         $scope.allSkills.push(obj);
         obj = {};
       }

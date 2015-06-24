@@ -108,6 +108,7 @@ module.exports = function(grunt) {
   grunt.registerTask('reset', ['shell']); // Reset DB with pre-fill data.
   grunt.registerTask('build', [
     'jshint',
+    'ngAnnotate',
     'concat',
     'uglify',
     'cssmin',
