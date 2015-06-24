@@ -2,7 +2,7 @@
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: '127.0.0.1',
+    host: 'mysql://bae2cae4b6e5c7:227a853d@us-cdbr-iron-east-02.cleardb.net/heroku_624f14e9d7bb9b4?reconnect=true',
     user: 'root',
     password: '',
     database: 'edify',
