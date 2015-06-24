@@ -62,9 +62,21 @@ angular.module('edify.services', [])
     });
   };
 
+  var putUser = function(user) {
+    return $http({
+      method: 'PUT',
+      url: '/api/profile',
+      data: user
+    })
+    .then(function(resp) {
+      return resp.data;
+    });
+  };
+
   return {
     getUser: getUser,
-    postUser: postUser
+    postUser: postUser,
+    putUser: putUser
   };
 })
 .factory('Skills', function ($http) {

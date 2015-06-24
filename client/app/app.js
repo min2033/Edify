@@ -14,7 +14,7 @@ angular.module('edify',[
 
   $scope.isSignedOut = function () {
     return !Auth.isAuth();
-  }
+  };
 })
 
 .config(function($stateProvider,$urlRouterProvider){

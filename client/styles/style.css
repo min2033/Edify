@@ -10,6 +10,11 @@
   font-size: 18px;
 }
 
+.editor {
+  width: 100%;
+  resize: none;
+}
+
 p.git{
   color:white;
   font-family:'century gothic';
