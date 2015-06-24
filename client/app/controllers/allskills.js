@@ -58,7 +58,6 @@ angular.module('edify.allskills', [])
   };
 
   $scope.addLearnSkill = function(index) {
-    // debugger;
     var skill = {
       type: 'learn',
       // skill: $scope.allSkills[index].skill_name,

@@ -53,3 +53,34 @@ li.signin-true, li.signout-true {
 li.signin-false, li.signout-false {
   display: inline;
 }
+
+.teacher-learner-count {
+  padding: 20px 0 23px 0;
+  margin: 0px 10px 0 10px;
+  border: 2px solid grey;
+}
+
+.teacher-learner-count button {
+  width: 60px;
+  height: 60px;
+}
+
+.count {
+  box-sizing: border-box;
+  font-size: 18px;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  margin: 0;
+}
+
+.counters {
+  margin-top: 10px;
+}
+
+#filter-form {
+}
+
+.filter-sort {
+  text-align: center;
+}
