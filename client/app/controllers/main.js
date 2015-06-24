@@ -1,23 +1,7 @@
 angular.module('edify.main', [])
 
 .controller('MainController', function($scope, Auth, Users, Skills) {
-  $scope.user = null;
-
-  $scope.editor = false;
-
-  $scope.getProfile = function () {
-    if (Auth.isAuth()) {
-      $scope.user = Auth.user();
-    } else {
-      Auth.getUser()
-        .then(function(data) {
-          $scope.user = data.data;
-          Auth.setUser(data.data);
-      });
-    }
-  };
-
-  $scope.getProfile();
+  $scope.user = Auth.user();
 
   $scope.updateBio = function() {
     var user = {

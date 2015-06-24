@@ -6,7 +6,7 @@ var router = express.Router();
 var ensureAuthenticated = function(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   console.log('rejected');
-  res.redirect('/');
+  res.status(401).end();
 };
 
 // Gets user profile

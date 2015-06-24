@@ -1,6 +1,6 @@
 angular.module('edify.services', [])
 
-.factory('Auth', function ($http, $location, $window) {
+.service('Auth', function ($http, $location, $window) {
   var currentUser = null;
 
   var getUser = function(){
