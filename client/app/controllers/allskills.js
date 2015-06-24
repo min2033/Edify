@@ -20,7 +20,7 @@ angular.module('edify.allskills', [])
 
   $scope.getProfile = function () {
     if (Auth.isAuth()) {
-      $scope.user = Auth.user;
+      $scope.user = Auth.user();
     } else {
       Auth.getUser()
         .then(function(data) {

@@ -5,11 +5,12 @@ angular.module('edify.main', [])
 
   $scope.getProfile = function () {
     if (Auth.isAuth()) {
-      $scope.user = Auth.user;
+      $scope.user = Auth.user();
     } else {
       Auth.getUser()
         .then(function(data) {
           $scope.user = data.data;
+          Auth.setUser(data.data);
       });
     }
   };
