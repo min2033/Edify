@@ -10,6 +10,45 @@
   font-size: 18px;
 }
 
+p.git{
+  color:white;
+  font-family:'century gothic';
+  font-size:18px;
+}
+
+#github{
+  z-index:10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+#github img{
+  width:350px;
+}
+
+.wallpaper-one {
+  background: #ffffff url("../assets/tiles/wood-pattern8-512.jpg") repeat right top;
+  position: fixed;
+  width: 60%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /*z-index: 10;*/
+}
+
+.wallpaper-two {
+  background: #ffffff url("../assets/tiles/wood-pattern3-512.jpg") repeat right top;
+  position: fixed;
+  width: 60%;
+  height: 100%;
+  left: 60%;
+  top: 0;
+  /*z-index: 10;*/
+}
+
 .signin li {
   margin-right: 20px;
 }
