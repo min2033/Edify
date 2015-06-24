@@ -34,7 +34,7 @@ db.knex.schema.hasTable('users').then(function(exists) {
       user.string('username', 255).unique();
       user.string('email', 255);
       user.string('github_id', 255);
-      user.string('userblurb', 255);
+      user.string('blurb', 255);
       user.string('avatar', 255);
       user.timestamps();
     }).then(function (table) {

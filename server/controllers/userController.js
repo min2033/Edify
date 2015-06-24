@@ -16,7 +16,7 @@ module.exports = {
         result.email = user.attributes.email;
         result.githubId = user.attributes.github_id;
         result.id = user.attributes.id;
-        result.userblurb = user.attributes.userblurb;
+        result.blurb = user.attributes.blurb;
         result.avatar = user.attributes.avatar;
 
         result.learnSkills = [];
