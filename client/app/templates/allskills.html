@@ -1,26 +1,46 @@
 <div class="col-md-6 col-md-offset-3">
-  <div class="text-center">
+
   <h2 class="text-center">all skills</h2>
-  <input type="text" ng-model="query" name="Filter" id="filter-form" placeholder="filter...">
-  <div class="sort-buttons">sort by
-    <button type="button" class="button button-teachers" ng-click="setSort('-teachers')">teachers</button>
-    <button type="button" class="button button-learners" ng-click="setSort('-learners')">learners</button>
-  </div>
-  </div>
-  <div>
-    <div class="skill-entry well" ng-repeat="skill in allSkills | filter: query | orderBy: sort">
-      <!-- <span>ID: {{skill[1].skill_id}}</span> -->
-      <div class="skill-title text-center">
-        <a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a>
-      </div>
-      <div class="teacher-learner-count text-center pull-left">
-        <div>{{skill.learners.length}}</div>
-        <button ng-click="addLearnSkill($index)" class="glyphicon glyphicon-plus"><br/>learn</button>
-      </div>
-      <div class="teacher-learner-count text-center">
-        <div>{{skill.teachers.length}}</div>
-        <button ng-click="addTeachSkill($index)" class="glyphicon glyphicon-plus"><br/>teach</button>
-      </div>
+
+  <div class="filter-sort">
+    filter
+    <input type="text" ng-model="query" name="Filter" id="filter-form" autofocus>
+    <div class="sort-buttons">sort by
+      <button class="btn btn-default btn-sm" ng-click="setSort('-teachers')">teachers</button>
+      <button class="btn btn-default btn-sm" ng-click="setSort('-learners')">learners</button>
     </div>
   </div>
+
+  <div class="row skill-entry well" ng-repeat="skill in allSkills | filter: query | orderBy: sort">
+    <!-- <span>ID: {{skill[1].skill_id}}</span> -->
+    <div class="skill-title text-center">
+      <a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a>
+    </div>
+
+    <div class="counters text-center">
+
+      <span class="teacher-learner-count">
+        <button class="btn btn-default btn-md"
+          ng-disabled="$scope.user.learnSkills.indexOf($scope.allSkills[$index].id)"
+          ng-click="addLearnSkill($index)">
+          <div class="glyphicon glyphicon-plus"></div>
+          <div>learn</div>
+        </button>
+        <span class="count">{{skill.learners.length}}</span>
+      </span>
+
+      <span class="teacher-learner-count">
+        <button class="btn btn-default btn-md"
+          ng-disabled="$scope.user.teachSkills.indexOf($scope.allSkills[$index].id)"
+          ng-click="addLearnSkill($index)">
+          <div class="glyphicon glyphicon-plus"></div>
+          <div>teach</div>
+        </button>
+        <span class="count">{{skill.teachers.length}}</span>
+      </span>
+
+    </div>
+
+  </div>
+
 </div>
