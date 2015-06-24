@@ -5,7 +5,6 @@ angular.module('edify',[
   'edify.allskills',
   'edify.main',
   'edify.skill',
-  'edify.signin'
   ])
 
 .controller('AppController', function ($scope, Auth){
@@ -19,6 +18,8 @@ angular.module('edify',[
 })
 
 .run(function ($rootScope, $state, Auth) {
+
+  //restrict access to signed in users
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
     //allow going to signin page
@@ -32,9 +33,18 @@ angular.module('edify',[
     //when trying to access other pages, redirect if not authenticated
     var isAuth = Auth.isAuth();
     if (!isAuth) {
-      event.preventDefault();
-      $state.go('signin'); //redirect
+      Auth.getUser()
+        .success(function(data, status) {
+          console.log('Logged in;', data);
+          Auth.setUser(data);
+        })
+        .error(function(data, status) {
+          console.log('ERROR:', status);
+          event.preventDefault();
+          $state.go('signin'); //redirect
+        });      
     }
+  
   });  
 })
 
@@ -49,7 +59,6 @@ angular.module('edify',[
       .state('signin',{
         url:'/signin',
         templateUrl: 'app/templates/signin.html',
-        controller: 'SigninController'
       })
       .state('signout',{
         url:'/',

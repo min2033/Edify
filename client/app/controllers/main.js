@@ -1,7 +1,14 @@
 angular.module('edify.main', [])
 
 .controller('MainController', function($scope, Auth, Users, Skills) {
-  $scope.user = Auth.user();
+
+  Auth.getUser()
+    .success(function(data, status) {
+      $scope.user = data;
+    })
+    .error(function(data, status) {
+      console.log('ERROR:', status);
+    });
 
   $scope.updateBio = function() {
     var user = {

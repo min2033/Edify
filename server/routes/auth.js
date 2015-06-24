@@ -50,7 +50,7 @@ router.get('/github/callback',
   function(req, res) {
     // Successful authentication, redirect home.
     // console.log(!!req.user); // logs true if login is good.
-    res.redirect('/#/signin');
+    res.redirect('/');
   });
 
 module.exports = router;
