@@ -18,7 +18,6 @@ module.exports = {
         result.id = user.attributes.id;
         result.userblurb = user.attributes.userblurb;
         result.avatar = user.attributes.avatar;
-        // result.avatar = req.user._json.avatar_url; // this is only for user.
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {
@@ -40,6 +39,14 @@ module.exports = {
         // console.log(result);
 
         res.status(200).send(result);
+      });
+  },
+
+  allUsers: function(req,res,next){
+    new User()
+      .fetchAll()
+      .then(function(users){
+        res.send(users);
       });
   },
 
