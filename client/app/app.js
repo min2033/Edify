@@ -7,9 +7,10 @@ angular.module('edify',[
   'edify.allskills',
   'edify.main',
   'edify.skill',
+  'edify.location'
   ])
 
-.controller('AppController', function ($scope, Auth){
+.controller('AppController', function ($scope, Auth, Location){
   $scope.isSignedIn = function () {
     return Auth.isAuth();
   };
@@ -17,6 +18,14 @@ angular.module('edify',[
   $scope.isSignedOut = function () {
     return !Auth.isAuth();
   };
+
+  //Test for Location service: see console for output
+  window.onGoogleReady = function () {  
+    Location.calculateZipDistance(94115, 92084, function ( result ) {
+      console.log('distance is: ', result);
+    })
+  }
+
 })
 
 .run(function ($rootScope, $state, Auth) {
