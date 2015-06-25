@@ -139,7 +139,7 @@ angular.module('edify.services', [])
     restrict: 'A',
               // star is thumbs-up emoji
     template: '<span class="rating">'
-              + '{{stars.length}}\&#x1f44d;'
+              + '{{stars.length}}\uD83D\uDC4D'
               +'</span>',
     scope: {
       ratingValue: '=',
@@ -158,21 +158,32 @@ angular.module('edify.services', [])
     restrict: 'E',
     template: '<div>'
               + '<button type="button" class="btn btn-default btn-sm" ng-click="upVoteUser()">'
-              + '\&#x1f44d; this user'
+              + '{{actionStatus}}'
               + '</button>'
               + '{{message}}'
               + '</div>',
     scope: {
-      // message: '@',
-      // upVoted: false
+      clicker: '=',
+      teacher: '=',
+      learner: '=',
+      skill: '='
     },
     link: function (scope, elem, attrs) {
       scope.message = "";
       scope.upVoted = false;
+      scope.actionStatus = "Upvote"
       scope.upVoteUser = function () {
+
+        // show me the vitals:
+        console.log("clicker", scope.clicker);
+        console.log("teacher", scope.teacher);
+        console.log("learner", scope.learner);
+        console.log("skill", scope.skill);
+
         if (!scope.upVoted) {
           scope.upVoted = true;
           scope.message = "Thanks for your feedback!";
+          scope.actionStatus = '\uD83D\uDC4D'
         }
       };
 

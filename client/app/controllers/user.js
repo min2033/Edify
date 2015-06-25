@@ -2,7 +2,7 @@ angular.module('edify.user', [
   'ui.router'
 ])
 
-.controller('UserController', function($scope, $stateParams, Users) {
+.controller('UserController', function($scope, $stateParams, Users, Auth) {
   $scope.user = null;
 
   $scope.getUser = function () {
@@ -16,5 +16,9 @@ angular.module('edify.user', [
   };
 
   $scope.getUser();
+
+  $scope.getClicker = function () {
+    return Auth.user().username;
+  };
 
 });

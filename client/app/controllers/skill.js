@@ -56,5 +56,7 @@ angular.module('edify.skill', [
     });
   };
 
-
+  $scope.getClicker = function() {
+    return Auth.user().username;
+  };
 });
