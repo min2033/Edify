@@ -19,6 +19,7 @@
       <div class="username"><a ui-sref="user({username: '{{learner.username}}' })">{{learner.username}}</a></div>
       <div class="skill-level">level: {{learner.skill_level}}</div>
       <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
+      <up-vote></up-vote>
     </div>
   </div>
 </div>
@@ -43,6 +44,7 @@
       <div class="username"><a ui-sref="user({username: '{{teacher.username}}' })">{{teacher.username}}</a></div>
       <div class="skill-level">level: {{teacher.skill_level}}</div>
       <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
+      <up-vote></up-vote>
     </div>
   </div>
 </div>
