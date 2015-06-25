@@ -138,8 +138,9 @@ angular.module('edify.services', [])
 .directive('starRating', function () {
   return {
     restrict: 'A',
+              // star is thumbs-up emoji
     template: '<span class="rating">'
-              + '{{stars.length}}\u2605'
+              + '{{stars.length}}\&#x1f44d;'
               +'</span>',
     scope: {
       ratingValue: '=',
