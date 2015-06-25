@@ -101,7 +101,6 @@ angular.module('edify.services', [])
     });
   };
 
-  // postSkill is INCOMPLETE!
   var postSkill = function(skill){
     return $http({
       method: 'POST',
@@ -151,6 +150,35 @@ angular.module('edify.services', [])
       for (var i = 0; i < scope.max; i++) {
         scope.stars.push({filled: i < scope.ratingValue});
       }
+    }
+  };
+})
+.directive('upVote', function () {
+  return {
+    restrict: 'E',
+    template: '<div>'
+              + '<button type="button" class="btn btn-default btn-sm" ng-click="upVoteUser()">'
+              + '\&#x1f44d; this user'
+              + '</button>'
+              + '{{message}}'
+              + '</div>',
+    scope: {
+      // message: '@',
+      // upVoted: false
+    },
+    link: function (scope, elem, attrs) {
+      scope.message = "";
+      scope.upVoted = false;
+      scope.upVoteUser = function () {
+        if (!scope.upVoted) {
+          scope.upVoted = true;
+          scope.message = "Thanks for your feedback!";
+        }
+      };
+
+      scope.saveUpvote = function () {
+
+      };
     }
   };
 });
