@@ -1,6 +1,6 @@
 angular.module('edify.main', [])
 
-.controller('MainController', function($scope, $modal, Auth, Users, Skills) {
+.controller('MainController', function($rootScope, $scope, $modal, Auth, Users, Skills) {
 
   Auth.getUser()
     .success(function(data, status) {
@@ -9,6 +9,12 @@ angular.module('edify.main', [])
     .error(function(data, status) {
       console.log('ERROR:', status);
     });
+
+  var update = function(){
+    $scope.user = Auth.user();
+  };
+
+  $rootScope.$on('skillChange',update);
 
   $scope.updateBio = function() {
     var user = {
