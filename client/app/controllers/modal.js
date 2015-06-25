@@ -1,6 +1,6 @@
 angular.module('edify.modal',[])
 
-.controller('learnModalController',function($scope,$modalInstance,Auth,Skills,items){
+.controller('learnModalController',function($rootScope,$scope,$modalInstance,Auth,Skills,items){
 
   $scope.items = items;
   $scope.ok = function () {
@@ -58,11 +58,10 @@ angular.module('edify.modal',[])
     $scope.sort = option;
   };
 
-  $scope.addLearnSkill = function(skill) {
-    var name = skill.skill_name;
+  $scope.addLearnSkill = function(skillName) {
     var skill = {
       type: 'learn',
-      skill: name,
+      skill: skillName,
       skillLevel: 1,
       userId: $scope.user.id
     };
@@ -70,7 +69,7 @@ angular.module('edify.modal',[])
     var index = -1;
     for (var i = 0; i < $scope.allSkills.length; i++) {
       var cur = $scope.allSkills[i];
-      if(cur.skill_name === name){
+      if(cur.skill_name === skillName){
         index = i;
       }
     };
@@ -78,12 +77,23 @@ angular.module('edify.modal',[])
 
     Skills.postSkill(skill).then(function(data) {
       console.log('added skill to learn!');
+      var user = Auth.user();
+      var skill = {
+        blurb: null,
+        id: data.skill_id,
+        skill_level: 1,
+        skill_name: skillName,
+        stars:null
+      };
+      user.learnSkills.push(skill);
+      Auth.setUser(user);
+      $rootScope.$emit('skillChange');
     });
   };
 
 
 })
-.controller('teachModalController',function($scope,$modalInstance,Auth,Skills,items){
+.controller('teachModalController',function($rootScope,$scope,$modalInstance,Auth,Skills,items){
 
   $scope.items = items;
   $scope.ok = function () {
@@ -159,6 +169,17 @@ angular.module('edify.modal',[])
   if(index !== -1) $scope.allSkills.splice(index,1);
   Skills.postSkill(skill).then(function(data) {
     console.log('added skill to teach!');
+    var user = Auth.user();
+    var skill = {
+      blurb: null,
+      id: data.skill_id,
+      skill_level: 1,
+      skill_name: skillName,
+      stars:null
+    };
+    user.teachSkills.push(skill);
+    Auth.setUser(user);
+    $rootScope.$emit('skillChange');
   });
 };
 

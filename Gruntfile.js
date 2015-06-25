@@ -24,6 +24,7 @@ module.exports = function(grunt) {
                     'client/app/controllers/user.js',
                     'client/app/controllers/main.js',
                     'client/app/controllers/skill.js',
+                    'client/app/controllers/modal.js',
                     'client/app/services/services.js',
                     'client/app/app.js'
                     ]
@@ -38,6 +39,7 @@ module.exports = function(grunt) {
         'client/app/controllers/user.js',
         'client/app/controllers/main.js',
         'client/app/controllers/skill.js',
+        'client/app/controllers/modal.js',
         'client/app/services/services.js',
         'client/app/app.js'
       ],
