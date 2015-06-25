@@ -1,0 +1,54 @@
+<h1 class="text-center">Teach</h1>
+
+<div class="filter-sort">
+  filter
+  <input type="text" ng-model="query" name="Filter" id="filter-form" autofocus>
+  <div class="sort-buttons">sort by
+    <button class="btn btn-default btn-sm" ng-click="setSort('-teachers')">teachers</button>
+    <button class="btn btn-default btn-sm" ng-click="setSort('-learners')">learners</button>
+  </div>
+</div>
+
+<div class="row skill-entry well" ng-repeat="skill in allSkills | filter: query | orderBy: sort">
+  <!-- <span>ID: {{skill[1].skill_id}}</span> -->
+  <!-- <div class="skill-title text-center"> -->
+  <!-- </div> -->
+
+  <div class="col-xs-3">
+    <a ui-sref="skill({skillname: '{{skill.skill_name}}' })">
+      <!-- <img ng-src="{{skill.icon}}" class="profile img-circle img-responsive center-block"></img> -->
+      <img src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
+    </a>
+  </div>
+  <div class="col-xs-6">
+    <div class="username">
+      <a ng-click="ok()" ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}
+      </a>
+    </div>
+    <p>
+      Blue Bottle cardigan Thundercats chambray Williamsburg, cliche hella Pitchfork ethical.
+    </p>
+  </div>
+  <div class="col-xs-3">
+    <!-- <div class="counters pull-right"> -->
+
+      <span class="count">Learners: {{skill.learners.length}}</span>
+
+      <div class="teacher-learner-count">
+        <button class="btn btn-default btn-md"
+          ng-disabled="$scope.user.teachSkills.indexOf($scope.allSkills[$index].id)"
+          ng-click="addTeachSkill(skill.skill_name)">
+          <div class="glyphicon glyphicon-plus"></div>
+          <div>teach</div>
+        </button>
+        <span class="count">{{skill.teachers.length}}</span>
+      </div>
+
+    <!-- </div> -->
+  </div>
+
+
+
+<!-- end of row -->
+</div>
+

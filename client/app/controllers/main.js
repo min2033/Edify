@@ -1,6 +1,6 @@
 angular.module('edify.main', [])
 
-.controller('MainController', function($scope, Auth, Users, Skills) {
+.controller('MainController', function($scope, $modal, Auth, Users, Skills) {
 
   Auth.getUser()
     .success(function(data, status) {
@@ -86,5 +86,53 @@ angular.module('edify.main', [])
         // console.log('teach skill removed!');
       });
   };
+
+  // For Modals
+
+  $scope.open = function(type){
+    if(type === "learn"){
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'app/templates/modals/learn.html',
+        controller: 'learnModalController',
+        size: 'lg',
+        resolve: {
+          items: function () {
+            return true;
+            // return $scope.items;
+          }
+        }
+      });
+    }else if(type === "teach"){
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'app/templates/modals/teach.html',
+        controller: 'teachModalController',
+        size: 'lg',
+        resolve: {
+          items: function () {
+            return true;
+            // return $scope.items;
+          }
+        }
+      });
+    }
+
+    modalInstance.result.then(function(){
+      // Refetch the user data after modal close.
+      console.log('model closed!');
+      Auth.getUser()
+        .success(function(data, status) {
+          $scope.user = data;
+        })
+        .error(function(data, status) {
+          console.log('ERROR:', status);
+        });
+    });
+
+  };
+
+
+
 
 });

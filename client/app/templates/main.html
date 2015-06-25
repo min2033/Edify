@@ -27,9 +27,13 @@
 
 <div class="col-md-5 text-center">
   <h1>
-    <a class="add" ui-sref="allskills">
+      <!-- Modal to Learn Skills -->
+    <a class="add" ng-click="open('learn')">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
+<!--     <a class="add" ui-sref="allskills">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a> -->
     skills to learn
   </h1>
   <div class="skill well clearfix" ng-repeat="skill in user.learnSkills">
@@ -51,9 +55,14 @@
 
 <div class="col-md-5 text-center" >
   <h1>
+    <a class="add" ng-click="open('teach')">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    <!--
     <a class="add" ui-sref="allskills">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
+    -->
     skills to teach
   </h1>
   <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">

@@ -1,6 +1,7 @@
 angular.module('edify',[
   'ui.router',
   'ui.bootstrap',
+  'edify.modal',
   'edify.services',
   'edify.user',
   'edify.allskills',
