@@ -22,7 +22,8 @@ module.exports = {
             username: item.attributes.username,
             avatar: item.attributes.avatar,
             skill_level: item.pivot.attributes.skill_level,
-            blurb: item.pivot.attributes.blurb
+            blurb: item.pivot.attributes.blurb,
+            stars: item.pivot.attributes.stars
           });
         });
 
@@ -33,7 +34,8 @@ module.exports = {
             username: item.attributes.username,
             avatar: item.attributes.avatar,
             skill_level: item.pivot.attributes.skill_level,
-            blurb: item.pivot.attributes.blurb
+            blurb: item.pivot.attributes.blurb,
+            stars: item.pivot.attributes.stars
           });
         });
 
@@ -62,7 +64,8 @@ module.exports = {
               username: item.attributes.username,
               avatar: item.attributes.avatar,
               skill_level: item.pivot.attributes.skill_level,
-              blurb: item.pivot.attributes.blurb
+              blurb: item.pivot.attributes.blurb,
+              stars: item.pivot.attributes.stars
             });
           });
 
@@ -72,7 +75,8 @@ module.exports = {
               username: item.attributes.username,
               avatar: item.attributes.avatar,
               skill_level: item.pivot.attributes.skill_level,
-              blurb: item.pivot.attributes.blurb
+              blurb: item.pivot.attributes.blurb,
+              stars: item.pivot.attributes.stars
             });
           });
 
