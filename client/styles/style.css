@@ -2,9 +2,31 @@ p {
   font-size: 18px;
 }
 
+.signin-box {
+  margin-bottom: 20px;
+}
+
+.signin-container {
+  margin-top: 40px;
+}
+
+.spin {
+  -webkit-animation:spin 4s ease-in infinite;
+  -moz-animation:spin 4s ease-in infinite;
+  animation:spin 4s ease-in infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(1440deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(1440deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(1440deg); transform:rotate(1440deg); } }
+
 h2 button {
   display: inline-block;
 }
+
+.bio {
+  /*position: fixed;*/
+}
+
 .bio img {
   width:140px;
   height:140px;
@@ -18,6 +40,7 @@ h2 button {
 }
 
 .editor {
+  font-size: 18px;
   width: 100%;
   resize: none;
 }
@@ -90,7 +113,7 @@ a:hover {
 }
 
 #octocat {
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
