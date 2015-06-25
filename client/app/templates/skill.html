@@ -1,6 +1,12 @@
 <h1 class="text-center">{{skillname}}</h1>
 <div class="col-md-5 col-md-offset-1">
   <h2 class="text-center">
+    <button class="btn btn-default btn-md"
+      ng-disabled="$scope.user.learnSkills.indexOf($scope.allSkills[$index].id)"
+      ng-click="addLearnSkill(skillname)">
+      <div class="glyphicon glyphicon-plus"></div>
+      <div>learn</div>
+    </button>
     learners
   </h2>
   <div class="skill well clearfix" ng-repeat="learner in learners">
@@ -18,6 +24,12 @@
 
 <div class="col-md-5" >
   <h2 class="text-center">
+    <button class="btn btn-default btn-md"
+      ng-disabled="$scope.user.teachSkills.indexOf($scope.allSkills[$index].id)"
+      ng-click="addTeachSkill(skillname)">
+      <div class="glyphicon glyphicon-plus"></div>
+      <div>teach</div>
+    </button>
     teachers
   </h2>
   <div class="skill well clearfix" ng-repeat="teacher in teachers">

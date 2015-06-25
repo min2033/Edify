@@ -1,3 +1,10 @@
+p {
+  font-size: 18px;
+}
+
+h2 button {
+  display: inline-block;
+}
 .bio img {
   width:140px;
   height:140px;
@@ -62,6 +69,10 @@ a {
   cursor: pointer;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 #main {
   margin-top: 50px;
 }
@@ -101,7 +112,9 @@ li.signin-false, li.signout-false {
 .teacher-learner-count {
   /*padding: 20px 0 23px 0;*/
   /*margin: 0px 10px 0 10px;*/
-  border: 2px solid grey;
+  /*border: 2px solid grey;*/
+  margin-top: 10px;
+  background-color: white;
   width: 120px;
 }
 
