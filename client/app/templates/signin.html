@@ -12,8 +12,8 @@
 
 <!-- </div> -->
 
-<div class="col-md-4 col-md-offset-4 well">
-  <div class="text-center">
+<div class="col-md-4 col-md-offset-4 well signin-container">
+  <div class="text-center signin-box" ng-init="spin = false">
     <h1>edify</h1>
     <ol id="signin-copy" class="text-left">
       <li>meet nerds</li>
@@ -22,9 +22,9 @@
       <li>profit</li>
     </ol>
     <div id="octocat">
-      <img src="assets/GitHub-Mark-64px.png" alt="octocat" />
+      <img ng-class="{spin: spin}" src="assets/GitHub-Mark-64px.png" alt="octocat" />
     </div>
-    <a href="/auth/github" class="btn-lg btn-info signin-button">
+    <a ng-click="spin = true" href="/auth/github" class="btn-lg btn-info signin-button">
       sign in with github
     </a>
   </div>
