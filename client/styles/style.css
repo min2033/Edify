@@ -99,9 +99,10 @@ li.signin-false, li.signout-false {
 }
 
 .teacher-learner-count {
-  padding: 20px 0 23px 0;
-  margin: 0px 10px 0 10px;
+  /*padding: 20px 0 23px 0;*/
+  /*margin: 0px 10px 0 10px;*/
   border: 2px solid grey;
+  width: 120px;
 }
 
 .teacher-learner-count button {

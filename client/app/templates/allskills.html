@@ -13,34 +13,53 @@
 
   <div class="row skill-entry well" ng-repeat="skill in allSkills | filter: query | orderBy: sort">
     <!-- <span>ID: {{skill[1].skill_id}}</span> -->
-    <div class="skill-title text-center">
-      <a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a>
+    <!-- <div class="skill-title text-center"> -->
+    <!-- </div> -->
+
+    <div class="col-xs-3">
+      <a ui-sref="skill({skillname: '{{skill.skill_name}}' })">
+        <!-- <img ng-src="{{skill.icon}}" class="profile img-circle img-responsive center-block"></img> -->
+        <img src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
+      </a>
+    </div>
+    <div class="col-xs-6">
+      <div class="username">
+        <a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}
+        </a>
+      </div>
+      <p>
+        Blue Bottle cardigan Thundercats chambray Williamsburg, cliche hella Pitchfork ethical.
+      </p>
+    </div>
+    <div class="col-xs-3">
+      <!-- <div class="counters pull-right"> -->
+
+        <div class="teacher-learner-count">
+          <button class="btn btn-default btn-md"
+            ng-disabled="$scope.user.learnSkills.indexOf($scope.allSkills[$index].id)"
+            ng-click="addLearnSkill(skill.skill_name)">
+            <div class="glyphicon glyphicon-plus"></div>
+            <div>learn</div>
+          </button>
+          <span class="count">{{skill.learners.length}}</span>
+        </div>
+
+        <div class="teacher-learner-count">
+          <button class="btn btn-default btn-md"
+            ng-disabled="$scope.user.teachSkills.indexOf($scope.allSkills[$index].id)"
+            ng-click="addTeachSkill(skill.skill_name)">
+            <div class="glyphicon glyphicon-plus"></div>
+            <div>teach</div>
+          </button>
+          <span class="count">{{skill.teachers.length}}</span>
+        </div>
+
+      <!-- </div> -->
     </div>
 
-    <div class="counters text-center">
 
-      <span class="teacher-learner-count">
-        <button class="btn btn-default btn-md"
-          ng-disabled="$scope.user.learnSkills.indexOf($scope.allSkills[$index].id)"
-          ng-click="addLearnSkill(skill.skill_name)">
-          <div class="glyphicon glyphicon-plus"></div>
-          <div>learn</div>
-        </button>
-        <span class="count">{{skill.learners.length}}</span>
-      </span>
 
-      <span class="teacher-learner-count">
-        <button class="btn btn-default btn-md"
-          ng-disabled="$scope.user.teachSkills.indexOf($scope.allSkills[$index].id)"
-          ng-click="addTeachSkill(skill.skill_name)">
-          <div class="glyphicon glyphicon-plus"></div>
-          <div>teach</div>
-        </button>
-        <span class="count">{{skill.teachers.length}}</span>
-      </span>
-
-    </div>
-
+  <!-- end of row -->
   </div>
 
 </div>
