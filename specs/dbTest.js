@@ -58,28 +58,32 @@ var learnSkill1 = new LearnSkill({
   skill_id: 1,
   user_id: 1,
   skill_level: 1,
-  blurb: 'im good'
+  blurb: 'im good',
+  stars: 3
 });
 
 var learnSkill2 = new LearnSkill({
   skill_id: 3,
   user_id: 1,
   skill_level: 5,
-  blurb: 'im ok'
+  blurb: 'im ok',
+  stars: 0
 });
 
 var teachSkill1 = new TeachSkill({
   skill_id: 1,
   user_id: 2,
   skill_level: 7,
-  blurb: 'im very good'
+  blurb: 'im very good',
+  stars: 10
 });
 
 var teachSkill2 = new TeachSkill({
   skill_id: 3,
   user_id: 2,
   skill_level: 3,
-  blurb: 'wat'
+  blurb: 'wat',
+  stars: 1
 });
 
 
