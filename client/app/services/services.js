@@ -138,8 +138,8 @@ angular.module('edify.services', [])
 .directive('starRating', function () {
   return {
     restrict: 'A',
-    template: '<span class="rating" ng-repeat="star in stars" ng-class="star">'
-              + '\u2605'
+    template: '<span class="rating">'
+              + '{{stars.length}}\u2605'
               +'</span>',
     scope: {
       ratingValue: '=',
