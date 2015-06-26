@@ -28,6 +28,14 @@ h2 button {
   display: inline-block;
 }
 
+p.zip {
+  font-size: 16px;
+}
+
+input.zip {
+  width: 80px;
+}
+
 .bio {
   /*position: fixed;*/
 }

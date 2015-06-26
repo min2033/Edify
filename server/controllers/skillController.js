@@ -21,6 +21,7 @@ module.exports = {
             id: item.attributes.id,
             username: item.attributes.username,
             avatar: item.attributes.avatar,
+            zip: item.attributes.zip,
             skill_level: item.pivot.attributes.skill_level,
             blurb: item.pivot.attributes.blurb,
             stars: item.pivot.attributes.stars
@@ -33,6 +34,7 @@ module.exports = {
             id: item.attributes.id,
             username: item.attributes.username,
             avatar: item.attributes.avatar,
+            zip: item.attributes.zip,
             skill_level: item.pivot.attributes.skill_level,
             blurb: item.pivot.attributes.blurb,
             stars: item.pivot.attributes.stars
@@ -63,6 +65,7 @@ module.exports = {
               id: item.attributes.id,
               username: item.attributes.username,
               avatar: item.attributes.avatar,
+              zip: item.attributes.zip,
               skill_level: item.pivot.attributes.skill_level,
               blurb: item.pivot.attributes.blurb,
               stars: item.pivot.attributes.stars
@@ -74,6 +77,7 @@ module.exports = {
               id: item.attributes.id,
               username: item.attributes.username,
               avatar: item.attributes.avatar,
+              zip: item.attributes.zip,
               skill_level: item.pivot.attributes.skill_level,
               blurb: item.pivot.attributes.blurb,
               stars: item.pivot.attributes.stars

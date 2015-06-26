@@ -18,6 +18,7 @@ module.exports = {
         result.id = user.attributes.id;
         result.blurb = user.attributes.blurb;
         result.avatar = user.attributes.avatar;
+        result.zip = user.attributes.zip;
 
         result.learnSkills = [];
         user.relations.learnSkills.models.forEach(function (item) {
@@ -26,7 +27,7 @@ module.exports = {
             skill_name: item.attributes.skill_name,
             skill_level: item.pivot.attributes.skill_level,
             blurb: item.pivot.attributes.blurb,
-            stars: item.pivot.attributes.stars
+            stars: item.pivot.attributes.stars,
           });
         });
 
@@ -37,7 +38,7 @@ module.exports = {
             skill_name: item.attributes.skill_name,
             skill_level: item.pivot.attributes.skill_level,
             blurb: item.pivot.attributes.blurb,
-            stars: item.pivot.attributes.stars
+            stars: item.pivot.attributes.stars,
           });
         });
         // console.log(result);
@@ -55,14 +56,21 @@ module.exports = {
   },
 
   updateUser: function(req,res,next){
-    var data = req.body; // { blurb: 'sometext', userId: 4}
+    var data = req.body; // { blurb: 'sometext', zip: '12345' userId: 4}
     console.log(data);
 
     new User({id: data.userId})
       .fetch()
       .then(function(item){ // check if already exists, update if exist
         if(item){
-          item.attributes.blurb = data.blurb;
+
+          //overwrite all non userId attributes passed in
+          for (key in data) {
+            if (key != 'userId') {
+              item.attributes[key] = data[key];
+            }
+          }
+          
           item.save().then(function(){
             console.log('update complete!');
             res.send(data);

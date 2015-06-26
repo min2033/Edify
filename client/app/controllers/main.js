@@ -27,6 +27,23 @@ angular.module('edify.main', [])
     });
   };
 
+  $scope.updateZip = function() {
+
+    if (!$scope.zip_form.$valid) {
+      alert('Please enter valid zip code');
+      return;
+    }
+
+    var user = {
+      zip: $scope.user.zip,
+      userId: $scope.user.id
+    };
+
+    Users.putUser(user).then(function(data) {
+      console.log('saved user zip code!');
+    });
+  };
+
   $scope.increaseLearnSkillLevel = function(index) {
     console.log('learn skill level increased!');
     $scope.user.learnSkills[index].skill_level += 1;
