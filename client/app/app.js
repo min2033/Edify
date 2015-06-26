@@ -84,7 +84,7 @@ angular.module('edify',[
         controller: 'UserController'
       })
       .state('allskills', {
-        url: '/allskills',
+        url: '/skills',
         templateUrl: 'app/templates/allskills.html',
         controller: 'AllSkillsController'
       })
