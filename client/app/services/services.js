@@ -153,11 +153,11 @@ angular.module('edify.services', [])
     }
   };
 })
-.directive('upVote', function () {
+.directive('upvote', function () {
   return {
     restrict: 'E',
     template: '<div>'
-              + '<button type="button" class="btn btn-default btn-sm" ng-click="upVoteUser()">'
+              + '<button type="button" class="btn btn-default btn-sm" ng-click="upvoteUser()">'
               + '{{actionStatus}}'
               + '</button>'
               + '{{message}}'
@@ -170,9 +170,10 @@ angular.module('edify.services', [])
     },
     link: function (scope, elem, attrs) {
       scope.message = "";
-      scope.upVoted = false;
-      scope.actionStatus = "Upvote"
-      scope.upVoteUser = function () {
+      scope.upvoted = false;
+      scope.actionStatus = "Upvote";
+
+      scope.upvoteUser = function () {
 
         // show me the vitals:
         console.log("voter:", scope.voter);
@@ -180,8 +181,8 @@ angular.module('edify.services', [])
         console.log("learner:", scope.learner);
         console.log("skill:", scope.skill);
 
-        if (!scope.upVoted) {
-          scope.upVoted = true;
+        if (!scope.upvoted) {
+          scope.upvoted = true;
           scope.message = "Thanks for your feedback!";
           scope.actionStatus = '\uD83D\uDC4D'
         }
