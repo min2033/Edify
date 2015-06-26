@@ -88,34 +88,34 @@ db.knex.schema.hasTable('users_teach_skills').then(function(exists) {
   }
 });
 
-//  TABLE FOR USER LIKING TEACHERS:
-// db.knex.schema.hasTable('users_like_teachers').then(function(exists) {
-//   if (!exists) {
-//     db.knex.schema.createTable('users_like_teachers', function (entry) {
-//       entry.increments('id').primary();
-//       entry.integer('voter_id', 255).references('users.id');
-//       entry.integer('teacher_id', 255).references('users_teach_skills.user_id');
-//       entry.integer('teach_skill_id', 255).references('users_teach_skills.skill_id');
-//       entry.timestamps();
-//     }).then(function (table) {
-//       console.log('Created Table', table);
-//     });
-//   }
-// });
 
-// TABLE FOR USER LIKING LEARNERS:
-// db.knex.schema.hasTable('users_like_learners').then(function(exists) {
-//   if (!exists) {
-//     db.knex.schema.createTable('users_like_learners', function (entry) {
-//       entry.increments('id').primary();
-//       entry.integer('voter_id', 255).references('users.id');
-//       entry.integer('learner_id', 255).references('users_learn_skills.user_id');
-//       entry.integer('learn_skill_id', 255).references('users_learn_skills.skill_id');
-//       entry.timestamps();
-//     }).then(function (table) {
-//       console.log('Created Table', table);
-//     });
-//   }
-// });
+db.knex.schema.hasTable('users_like_teachers').then(function(exists) {
+  if (!exists) {
+    db.knex.schema.createTable('users_like_teachers', function (entry) {
+      entry.increments('id').primary();
+      entry.integer('voter_id', 255).references('users.id');
+      entry.integer('teach_skill_id', 255).references('users_teach_skills.skill_id');
+      entry.integer('teacher_id', 255).references('users_teach_skills.user_id');
+      entry.timestamps();
+    }).then(function (table) {
+      console.log('Created Table', table);
+    });
+  }
+});
+
+db.knex.schema.hasTable('users_like_learners').then(function(exists) {
+  if (!exists) {
+    db.knex.schema.createTable('users_like_learners', function (entry) {
+      entry.increments('id').primary();
+      entry.integer('voter_id', 255).references('users.id');
+      entry.integer('learn_skill_id', 255).references('users_learn_skills.skill_id');
+      entry.integer('learner_id', 255).references('users_learn_skills.user_id');
+      entry.timestamps();
+    }).then(function (table) {
+      console.log('Created Table', table);
+    });
+  }
+});
+
 
 module.exports = db;
