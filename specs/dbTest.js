@@ -13,7 +13,8 @@ var user1 = new User({
   email: 'casparsons@gmail.com',
   github_id: 'ultralame',
   avatar: 'https://avatars.githubusercontent.com/u/690729?v=3',
-  blurb: 'I like to do stuff'
+  blurb: 'I like to do stuff',
+  zip: '94601'
 });
 
 var user2 = new User({
@@ -21,7 +22,8 @@ var user2 = new User({
   email: 'theboss@canadatopcondoms.com',
   github_id: 'baka101',
   avatar: 'https://avatars.githubusercontent.com/u/7163397?v=3',
-  blurb: 'I also like to do stuff'
+  blurb: 'I also like to do stuff', 
+  zip: '94115'
 });
 
 var user3 = new User({
@@ -70,6 +72,18 @@ var learnSkill2 = new LearnSkill({
   stars: 0
 });
 
+var learnSkill3 = new LearnSkill({
+  skill_id: 3,
+  user_id: 3,
+  skill_level: 0,
+});
+
+var learnSkill4 = new LearnSkill({
+  skill_id: 1,
+  user_id: 3,
+  skill_level: 0,
+});
+
 var teachSkill1 = new TeachSkill({
   skill_id: 1,
   user_id: 2,
@@ -94,6 +108,8 @@ user3.save();
 
 learnSkill1.save();
 learnSkill2.save();
+learnSkill3.save();
+learnSkill4.save();
 teachSkill1.save();
 teachSkill2.save();
 

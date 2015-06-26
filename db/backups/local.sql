@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.23, for osx10.10 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.25, for osx10.10 (x86_64)
 --
 -- Host: localhost    Database: edify
 -- ------------------------------------------------------
--- Server version	5.6.23
+-- Server version	5.6.25
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +38,7 @@ CREATE TABLE `skills` (
 
 LOCK TABLES `skills` WRITE;
 /*!40000 ALTER TABLE `skills` DISABLE KEYS */;
-INSERT INTO `skills` VALUES (1,'html','2015-06-24 17:47:20','2015-06-24 17:47:20'),(2,'css','2015-06-24 17:47:20','2015-06-24 17:47:20'),(3,'databases','2015-06-24 17:47:20','2015-06-24 17:47:20'),(4,'javascript','2015-06-24 17:47:20','2015-06-24 17:47:20'),(5,'ruby','2015-06-24 17:47:20','2015-06-24 17:47:20'),(6,'python','2015-06-24 17:47:20','2015-06-24 17:47:20'),(7,'algorithms','2015-06-24 17:47:20','2015-06-24 17:47:20'),(8,'electronics','2015-06-24 17:47:20','2015-06-24 17:47:20'),(9,'microcontrollers','2015-06-24 17:47:20','2015-06-24 17:47:20'),(10,'fabrication','2015-06-24 17:47:20','2015-06-24 17:47:20');
+INSERT INTO `skills` VALUES (1,'css','2015-06-25 16:15:54','2015-06-25 16:15:54'),(2,'html','2015-06-25 16:15:54','2015-06-25 16:15:54'),(3,'javascript','2015-06-25 16:15:54','2015-06-25 16:15:54'),(4,'python','2015-06-25 16:15:54','2015-06-25 16:15:54'),(5,'ruby','2015-06-25 16:15:54','2015-06-25 16:15:54'),(6,'databases','2015-06-25 16:15:54','2015-06-25 16:15:54'),(7,'algorithms','2015-06-25 16:15:54','2015-06-25 16:15:54'),(8,'electronics','2015-06-25 16:15:54','2015-06-25 16:15:54'),(9,'microcontrollers','2015-06-25 16:15:54','2015-06-25 16:15:54'),(10,'fabrication','2015-06-25 16:15:54','2015-06-25 16:15:54');
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,6 +56,7 @@ CREATE TABLE `users` (
   `github_id` varchar(255) DEFAULT NULL,
   `blurb` varchar(255) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
+  `zip` varchar(5) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -69,7 +70,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'colin','casparsons@gmail.com','ultralame','I like to do stuff','https://avatars.githubusercontent.com/u/690729?v=3','2015-06-24 17:47:20','2015-06-24 17:47:20'),(2,'jp','theboss@canadatopcondoms.com','baka101','I also like to do stuff','https://avatars.githubusercontent.com/u/7163397?v=3','2015-06-24 17:47:20','2015-06-24 17:47:20'),(3,'sally','asdf@aol.com','sol33t','wait a minute...','https://avatars.githubusercontent.com/u/10736577?v=3','2015-06-24 17:47:20','2015-06-24 17:47:20');
+INSERT INTO `users` VALUES (1,'colin','casparsons@gmail.com','ultralame','I like to do stuff','https://avatars.githubusercontent.com/u/690729?v=3','94601','2015-06-25 16:15:54','2015-06-25 16:15:54'),(2,'jp','theboss@canadatopcondoms.com','baka101','I also like to do stuff','https://avatars.githubusercontent.com/u/7163397?v=3','94115','2015-06-25 16:15:54','2015-06-25 16:15:54'),(3,'sally','asdf@aol.com','sol33t','wait a minute...','https://avatars.githubusercontent.com/u/10736577?v=3',NULL,'2015-06-25 16:15:54','2015-06-25 16:15:54');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +91,7 @@ CREATE TABLE `users_learn_skills` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +100,7 @@ CREATE TABLE `users_learn_skills` (
 
 LOCK TABLES `users_learn_skills` WRITE;
 /*!40000 ALTER TABLE `users_learn_skills` DISABLE KEYS */;
-INSERT INTO `users_learn_skills` VALUES (1,1,1,'im good',1,3,'2015-06-24 17:47:20','2015-06-24 17:47:20'),(2,1,3,'im ok',5,0,'2015-06-24 17:47:20','2015-06-24 17:47:20');
+INSERT INTO `users_learn_skills` VALUES (1,1,1,'im good',1,3,'2015-06-25 16:15:54','2015-06-25 16:15:54'),(2,1,3,'im ok',5,0,'2015-06-25 16:15:54','2015-06-25 16:15:54'),(3,3,3,NULL,0,NULL,'2015-06-25 16:15:54','2015-06-25 16:15:54'),(4,3,1,NULL,0,NULL,'2015-06-25 16:15:54','2015-06-25 16:15:54');
 /*!40000 ALTER TABLE `users_learn_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,7 @@ CREATE TABLE `users_teach_skills` (
 
 LOCK TABLES `users_teach_skills` WRITE;
 /*!40000 ALTER TABLE `users_teach_skills` DISABLE KEYS */;
-INSERT INTO `users_teach_skills` VALUES (1,2,1,'im very good',7,10,'2015-06-24 17:47:20','2015-06-24 17:47:20'),(2,2,3,'wat',3,1,'2015-06-24 17:47:20','2015-06-24 17:47:20');
+INSERT INTO `users_teach_skills` VALUES (1,2,1,'im very good',7,10,'2015-06-25 16:15:54','2015-06-25 16:15:54'),(2,2,3,'wat',3,1,'2015-06-25 16:15:54','2015-06-25 16:15:54');
 /*!40000 ALTER TABLE `users_teach_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -142,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-24 17:47:50
+-- Dump completed on 2015-06-25 16:16:51

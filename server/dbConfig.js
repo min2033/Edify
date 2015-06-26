@@ -36,6 +36,7 @@ db.knex.schema.hasTable('users').then(function(exists) {
       user.string('github_id', 255);
       user.string('blurb', 255);
       user.string('avatar', 255);
+      user.string('zip', 5);
       user.timestamps();
     }).then(function (table) {
       console.log('Created Table', table);
