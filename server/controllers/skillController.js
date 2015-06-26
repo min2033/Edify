@@ -177,19 +177,23 @@ module.exports = {
       new TeachSkill({skill_id: req.body.skillId, user_id: req.body.userId})
         .fetch()
         .then(function(item){
-          item.destroy()
-            .then(function(){
-              res.send("Teach item successfully deleted.");
-            });
+          if(item){
+            item.destroy()
+              .then(function(){
+                res.send("Teach item successfully deleted.");
+              });  
+          }
         });
     }else if(req.body.type === "learn"){
       new LearnSkill({skill_id: req.body.skillId, user_id: req.body.userId})
         .fetch()
         .then(function(item){
-          item.destroy()
-            .then(function(){
-              res.send("Learn item successfully deleted.");
-            });
+          if(item){
+            item.destroy()
+              .then(function(){
+                res.send("Learn item successfully deleted.");
+              });  
+          }
         });
     }else{
       res.send("Specify Learn/Teach Type!");
