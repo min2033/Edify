@@ -20,9 +20,9 @@ p {
   -moz-animation:spin 4s ease-in infinite;
   animation:spin 4s ease-in infinite;
 }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(1440deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(1440deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(1440deg); transform:rotate(1440deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(5760deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(5760deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(5760deg); transform:rotate(5760deg); } }
 
 h2 button {
   display: inline-block;
