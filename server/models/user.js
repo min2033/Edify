@@ -2,6 +2,8 @@ var db = require('../dbConfig');
 require('./skill');
 var TeachSkill = require('./teachSkill');
 var LearnSkill = require('./learnSkill');
+var LikeTeacher = require('./likeTeacher');
+var LikeLearner = require('./likeLearner');
 
 var User = db.Model.extend({
   tableName: 'users',
@@ -16,12 +18,20 @@ var User = db.Model.extend({
   },
 
   likeTeachers: function () {
-    return this.belongsToMany('Skill', 'users_like_teachers');
+    return this.belongsToMany('LikeTeacher', 'users_like_teachers');
   },
 
   likeLearners: function () {
-    return this.belongsToMany('Skill', 'users_like_learners');
+    return this.belongsToMany('LikeLearner', 'users_like_learners');
   },
+
+  // likeTeachers: function () {
+  //   return this.belongsToMany('Skill', 'users_like_teachers').withPivot(['teacher_name']);
+  // },
+
+  // likeLearners: function () {
+  //   return this.belongsToMany('Skill', 'users_like_learners').withPivot(['learner_name']);
+  // },
 
   initialize: function () {
     // Place for creating event listener

@@ -5,7 +5,8 @@ var Users = require('../server/collections/users');
 var Skills = require('../server/collections/skills');
 var LearnSkill = require('../server/models/learnSkill');
 var TeachSkill = require('../server/models/teachSkill');
-
+var LikeTeacher = require('../server/models/likeTeacher');
+var LikeLearner = require('../server/models/likeLearner');
 
 //SAVE USERS
 var user1 = new User({
@@ -100,6 +101,41 @@ var teachSkill2 = new TeachSkill({
   stars: 1
 });
 
+var likeTeacher1 = new LikeTeacher({
+  voter_id: 7,
+  teacher_id: 1,
+  teach_skill_id: 1
+});
+
+var likeTeacher2 = new LikeTeacher({
+  voter_id: 3,
+  teacher_id: 2,
+  teach_skill_id: 1
+});
+
+var likeTeacher3 = new LikeTeacher({
+  voter_id: 2,
+  teacher_id: 3,
+  teach_skill_id: 1
+});
+
+var likeLearner1 = new LikeLearner({
+  voter_id: 3,
+  learner_id: 2,
+  learn_skill_id: 1
+});
+
+var likeLearner2 = new LikeLearner({
+  voter_id: 1,
+  learner_id: 2,
+  learn_skill_id: 1
+});
+
+var likeLearner3 = new LikeLearner({
+  voter_id: 7,
+  learner_id: 2,
+  learn_skill_id: 1
+});
 
 // SAVE SAMPLE DATA
 user1.save();
@@ -112,6 +148,15 @@ learnSkill3.save();
 learnSkill4.save();
 teachSkill1.save();
 teachSkill2.save();
+
+likeTeacher1.save();
+likeTeacher2.save();
+likeTeacher3.save();
+
+likeLearner1.save();
+likeLearner2.save();
+likeLearner3.save();
+
 
 // TEST FETCHING
 // new User({username: 'colin'})
