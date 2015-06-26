@@ -5,6 +5,7 @@ angular.module('edify',[
   'edify.services',
   'edify.user',
   'edify.allskills',
+  'edify.allusers',
   'edify.main',
   'edify.skill',
   'edify.location'
@@ -83,9 +84,14 @@ angular.module('edify',[
         controller: 'UserController'
       })
       .state('allskills', {
-        url: '/allskills',
+        url: '/skills',
         templateUrl: 'app/templates/allskills.html',
         controller: 'AllSkillsController'
+      })
+      .state('allusers', {
+        url: '/users',
+        templateUrl: 'app/templates/allusers.html',
+        controller: 'AllUsersController'
       })
       .state('skill', {
         url: '/skill/:skillname',

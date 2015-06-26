@@ -21,6 +21,7 @@ module.exports = function(grunt) {
           files: {
                   'client/dist/annotated.js': [
                     'client/app/controllers/allskills.js',
+                    'client/app/controllers/allusers.js',
                     'client/app/controllers/user.js',
                     'client/app/controllers/main.js',
                     'client/app/controllers/skill.js',
@@ -36,6 +37,7 @@ module.exports = function(grunt) {
       files: [
         // Add filespec list here
         'client/app/controllers/allskills.js',
+        'client/app/controllers/allusers.js',
         'client/app/controllers/user.js',
         'client/app/controllers/main.js',
         'client/app/controllers/skill.js',

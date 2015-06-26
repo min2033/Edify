@@ -1,0 +1,40 @@
+<div class="col-md-6 col-md-offset-3">
+
+  <h1 class="text-center">Users</h1>
+
+  <div class="filter-sort">
+    <input type="text" placeholder="Search..." ng-model="query" name="Filter" id="filter-form" autofocus>
+  </div>
+
+  <div class="row skill-entry well" ng-repeat="user in allUsers | filter: query | orderBy: 'username'">
+    <!-- <span>ID: {{skill[1].skill_id}}</span> -->
+    <!-- <div class="skill-title text-center"> -->
+    <!-- </div> -->
+
+    <div class="col-xs-3">
+      <a ui-sref="user({username: '{{user.username}}' })">
+        <!-- <img ng-src="{{skill.icon}}" class="profile img-circle img-responsive center-block"></img> -->
+        <img src="{{user.avatar}}" class="profile img-circle img-responsive center-block"></img>
+      </a>
+    </div>
+    <div class="col-xs-6">
+      <div class="username">
+        <a ui-sref="user({username: '{{user.username}}' })">{{user.username}}
+        </a>
+      </div>
+      <p>
+        {{user.blurb}}
+      </p>
+    </div>
+    <div class="col-xs-3">
+      <!-- <div class="counters pull-right"> -->
+
+      <!-- </div> -->
+    </div>
+
+
+
+  <!-- end of row -->
+  </div>
+
+</div>

@@ -51,6 +51,16 @@ angular.module('edify.services', [])
     });
   };
 
+  var getAllUsers = function(){
+    return $http({
+      method: 'GET',
+      url: '/api/users/'
+    })
+    .then(function(resp){
+      return resp.data;
+    });
+  };
+
   var postUser = function(user){
     return $http({
       method: 'POST',
@@ -76,7 +86,8 @@ angular.module('edify.services', [])
   return {
     getUser: getUser,
     postUser: postUser,
-    putUser: putUser
+    putUser: putUser,
+    getAllUsers: getAllUsers
   };
 })
 .factory('Skills', function ($http) {
