@@ -163,7 +163,7 @@ angular.module('edify.services', [])
               + '{{message}}'
               + '</div>',
     scope: {
-      clicker: '=',
+      voter: '=',
       teacher: '=',
       learner: '=',
       skill: '='
@@ -175,10 +175,10 @@ angular.module('edify.services', [])
       scope.upVoteUser = function () {
 
         // show me the vitals:
-        console.log("clicker", scope.clicker);
-        console.log("teacher", scope.teacher);
-        console.log("learner", scope.learner);
-        console.log("skill", scope.skill);
+        console.log("voter:", scope.voter);
+        console.log("teacher:", scope.teacher);
+        console.log("learner:", scope.learner);
+        console.log("skill:", scope.skill);
 
         if (!scope.upVoted) {
           scope.upVoted = true;

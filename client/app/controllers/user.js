@@ -17,7 +17,7 @@ angular.module('edify.user', [
 
   $scope.getUser();
 
-  $scope.getClicker = function () {
+  $scope.getVoter = function () {
     return Auth.user().username;
   };
 

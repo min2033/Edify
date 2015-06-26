@@ -15,6 +15,14 @@ var User = db.Model.extend({
     return this.belongsToMany('Skill', 'users_learn_skills').withPivot(['skill_level','blurb','stars']);
   },
 
+  likeTeachers: function () {
+    return this.belongsToMany('Skill', 'users_like_teachers');
+  },
+
+  likeLearners: function () {
+    return this.belongsToMany('Skill', 'users_like_learners');
+  },
+
   initialize: function () {
     // Place for creating event listener
     // e.g. this.on('creating', function(model, attrs, options){
