@@ -153,7 +153,7 @@ angular.module('edify.main', [])
 
     modalInstance.result.then(function(){
       // Refetch the user data after modal close.
-      console.log('model closed!');
+      console.log('modal closed!');
       Auth.getUser()
         .success(function(data, status) {
           $scope.user = data;
@@ -162,9 +162,7 @@ angular.module('edify.main', [])
           console.log('ERROR:', status);
         });
     });
-
-  };
-
+  };  
 
 
 

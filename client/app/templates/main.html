@@ -1,3 +1,5 @@
+<!-- <div class="row"> -->
+
 <div class="well col-md-2">
   <div class="bio">
     <div class="row text-center">
@@ -14,7 +16,7 @@
 
     <!-- BIO EDITOR -->
     <div class="bio-editor">
-<!--    disable zip code editing for demo version   
+<!--    disable zip code editing for demo version
         <p class="zip"><span  ng-show="!$scope.bioEditor">zip: {{user.zip}}</span>
         <form name="zip_form">
           <input class="zip"
@@ -23,30 +25,22 @@
             ng-show="$scope.bioEditor" ng-model="user.zip"
           </input> -->
 
-
-
           <!-- disabling all the ng-blurs in favor of save buttons for now.... -->
           <!-- ng-blur="updateUser(); $scope.bioEditor = false"> -->
-
-
 
 <!--         </form>
       </p> -->
 
-      <p ng-show="!$scope.bioEditor">{{user.blurb}}</p>
+
+
+      <p ng-show="!$scope.bioEditor" ng-click="$scope.bioEditor = true">{{user.blurb}}</p>
       <textarea
         ng-show="$scope.bioEditor" ng-model="user.blurb"
-    <div class="bio-bioEditor">
-      <p ng-show="!$scope.bioEditor">{{user.blurb}}</p>
-      <textarea
-        ng-show="$scope.bioEditor" ng-model="user.blurb"
-        class="editor" rows="3" maxlength="255">
+        class="editor" rows="2" maxlength="255">
       </textarea>
-      <button class="btn btn-default btn-md pull-right" ng-show="!$scope.bioEditor" ng-click="$scope.bioEditor = true">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-      </button>
+
       <button class="btn btn-default btn-md pull-right" ng-show="$scope.bioEditor" ng-click="updateUser(); $scope.bioEditor = false">
-        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+      save
       </button>
     </div>
   </div>
@@ -65,14 +59,21 @@
   </h1>
 
   <!-- skill entries -->
-  <div class="skill well clearfix" ng-repeat="skill in user.learnSkills">
+  <div class="skill well clearfix" ng-repeat="skill in user.learnSkills"
+    ng-mouseover="$scope.hover = true" ng-mouseleave="$scope.hover = false">
+    <span class="glyphicon glyphicon-remove pull-right delete-button"
+      ng-show="$scope.hover" ng-click="removeLearnSkill($index)"></span>
+    <div class="col-xs-3">
+      <img src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
+    </div>
+
     <div class="col-xs-3">
 
       <!-- title -->
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level">level: {{skill.skill_level}}
+      <div class="skill-level" ng-click="$scope.skillEditor = true">level: {{skill.skill_level}}
 
         <!-- plus and minus buttons -->
         <div class="skill-level-buttons" ng-show="$scope.skillEditor">
@@ -91,33 +92,34 @@
     </div>
 
     <!-- skill blurb editor -->
-    <div class="col-xs-6 blurb-editor">
-      <p ng-show="!$scope.skillEditor">{{skill.blurb}}</p>
+    <div class="col-xs-5 blurb-editor">
+      <p ng-show="!$scope.skillEditor && !$scope.hover">{{skill.blurb}}</p>
       <textarea
-        ng-show="$scope.skillEditor" ng-model="skill.blurb"
-        class="editor" rows="3" maxlength="255">
+        ng-show="$scope.skillEditor || $scope.hover" ng-model="skill.blurb"
+        ng-click="$scope.skillEditor = true" class="editor" rows="2" maxlength="255">
       </textarea>
       <!-- <button class="btn btn-default btn-md pull-right" ng-show="!$scope.skillEditor" ng-click="$scope.skillEditor = true">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
       </button> -->
 
       <!-- save button closes editor -->
-      <button class="btn btn-default btn-lg pull-right" ng-show="$scope.skillEditor" ng-click="saveLearnSkill($index); $scope.skillEditor = false">
+      <button class="btn btn-default btn-md pull-right" ng-show="$scope.skillEditor" ng-click="saveLearnSkill($index); $scope.skillEditor = false">
         save
         <!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> -->
       </button>
 
     <!-- open editor button -->
-    <button ng-show="!$scope.skillEditor" class="btn btn-default btn-lg pull-left" ng-click="$scope.skillEditor = true">
+
+    <!-- <button ng-show="!$scope.skillEditor" class="btn btn-default btn-lg pull-left" ng-click="$scope.skillEditor = true">
       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-    </button>
+    </button> -->
 
     </div>
 
     <!-- delete button -->
-    <button ng-show="$scope.skillEditor" class="btn btn-default btn-lg pull-right" ng-click="removeLearnSkill($index)">
+    <!-- <button ng-show="$scope.skillEditor" class="btn btn-default btn-lg pull-right" ng-click="removeLearnSkill($index)">
       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-    </button>
+    </button> -->
 
   </div>
 </div>
@@ -142,7 +144,7 @@
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level">level: {{skill.skill_level}}
+      <div class="skill-level" ng-click="$scope.skillEditor = true">level: {{skill.skill_level}}
 
         <!-- plus and minus buttons -->
         <div class="skill-level-buttons" ng-show="$scope.skillEditor">
@@ -161,29 +163,30 @@
 
     <!-- skill blurb editor -->
     <div class="col-xs-6 blurb-editor">
-      <p ng-show="!$scope.skillEditor">{{skill.blurb}}</p>
+      <p ng-show="!$scope.skillEditor" ng-click="$scope.skillEditor = true">{{skill.blurb}}</p>
       <textarea
         ng-show="$scope.skillEditor" ng-model="skill.blurb"
-        class="editor" rows="3" maxlength="255">
+        class="editor" rows="2" maxlength="255">
       </textarea>
 
       <!-- save button closes editor -->
-      <button class="btn btn-default btn-lg pull-right" ng-show="$scope.skillEditor" ng-click="saveTeachSkill($index); $scope.skillEditor = false">
+      <button class="btn btn-default btn-md pull-right" ng-show="$scope.skillEditor" ng-click="saveTeachSkill($index); $scope.skillEditor = false">
         save
-        <!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> -->
       </button>
 
     <!-- open editor button -->
-    <button ng-show="!$scope.skillEditor" class="btn btn-default btn-lg pull-left" ng-click="$scope.skillEditor = true">
+    <!-- <button ng-show="!$scope.skillEditor" class="btn btn-default btn-lg pull-left" ng-click="$scope.skillEditor = true">
       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-    </button>
+    </button> -->
 
     </div>
 
     <!-- delete button -->
-    <button ng-show="$scope.skillEditor" class="btn btn-default btn-lg pull-right" ng-click="removeTeachSkill($index)">
+    <button ng-show="$scope.skillEditor" class="btn btn-default btn-md pull-right" ng-click="removeTeachSkill($index)">
       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
     </button>
 
   </div>
 </div>
+
+<!-- </div> -->
