@@ -14,13 +14,14 @@
 
     <!-- BIO EDITOR -->
     <div class="bio-editor">
-      <p class="zip"><span  ng-show="!$scope.bioEditor">zip: {{user.zip}}</span>
+<!--    disable zip code editing for demo version   
+        <p class="zip"><span  ng-show="!$scope.bioEditor">zip: {{user.zip}}</span>
         <form name="zip_form">
           <input class="zip"
             name="zipcode"
             ng-pattern="/^\d{5}$/"
             ng-show="$scope.bioEditor" ng-model="user.zip"
-          </input>
+          </input> -->
 
 
 
@@ -29,8 +30,8 @@
 
 
 
-        </form>
-      </p>
+<!--         </form>
+      </p> -->
 
       <p ng-show="!$scope.bioEditor">{{user.blurb}}</p>
       <textarea
