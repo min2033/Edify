@@ -20,12 +20,12 @@ angular.module('edify',[
     return !Auth.isAuth();
   };
 
-  //Test for Location service: see console for output
-  window.onGoogleReady = function () {  
-    Location.calculateZipDistance('94115', '92084', function ( result ) {
-      console.log('distance is: ', result);
-    })
-  }
+  // Test for Location service: see console for output
+  // window.onGoogleReady = function () {  
+  //   Location.calculateZipDistance('94115', '92084', function ( result ) {
+  //     console.log('distance is: ', result);
+  //   })
+  // }
 
 })
 

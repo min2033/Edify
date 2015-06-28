@@ -37,15 +37,17 @@ angular.module('edify.main', [])
   // }
 
   $scope.updateUser = function() {
-    if (!$scope.zip_form.$valid) {
-      alert('Please enter valid zip code');
-      return;
-    }
+
+    // Disable editing zip code in the demo version
+    // if (!$scope.zip_form.$valid) {
+    //   alert('Please enter valid zip code');
+    //   return;
+    // }
 
     var user = {
       blurb: $scope.user.blurb,
-      zip: $scope.user.zip,
       userId: $scope.user.id
+      // zip: $scope.user.zip,
     };
 
     console.log(user);

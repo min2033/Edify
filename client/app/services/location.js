@@ -1,3 +1,13 @@
+// Location service: calculates distance based on two zip codes
+// Not yet implemented: to be used for filtering users by distance.
+// See app.js for test code:
+  // Test for Location service: see console for output
+  // window.onGoogleReady = function () {  
+  //   Location.calculateZipDistance('94115', '92084', function ( result ) {
+  //     console.log('distance is: ', result);
+  //   })
+  // }
+
 angular.module('edify.location', [])
 
 .factory('Location', function ($http, $location, $window, $q) {
