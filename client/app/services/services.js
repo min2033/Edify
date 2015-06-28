@@ -145,6 +145,10 @@ angular.module('edify.services', [])
     getSkill: getSkill
   };
 })
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Services for incomplete feature: UPVOTING OTHER USERS
+//          use ONLY for building out this feature
 .directive('starRating', function () {
   return {
     restrict: 'A',

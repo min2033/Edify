@@ -18,8 +18,9 @@
     <div class="col-xs-8">
       <div class="username"><a ui-sref="user({username: '{{learner.username}}' })">{{learner.username}}</a></div>
       <div class="skill-level">level: {{learner.skill_level}}</div>
-      <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
-      <upvote voter="getVoter()" learner="learner.id" skill="skill_id"></upvote>
+      <!-- Elements below are for incomplete feature: upvoting other users -->
+      <!-- div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div -->
+      <!-- upvote voter="getVoter()" learner="learner.id" skill="skill_id"></upvote -->
     </div>
   </div>
 </div>
@@ -43,8 +44,9 @@
     <div class="col-xs-8">
       <div class="username"><a ui-sref="user({username: '{{teacher.username}}' })">{{teacher.username}}</a></div>
       <div class="skill-level">level: {{teacher.skill_level}}</div>
-      <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
-      <upvote voter="getVoter()" teacher="teacher.id" skill="skill_id"></upvote>
+      <!-- Elements below are for incomplete feature: upvoting other users -->
+      <!-- div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div -->
+      <!-- upvote voter="getVoter()" teacher="teacher.id" skill="skill_id"></upvote -->
     </div>
   </div>
 </div>

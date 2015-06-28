@@ -1,7 +1,14 @@
 var db = require('../dbConfig');
 require('./skill');
 require('./user');
+
+
+//////////////////////////////////////////////////////////////////
+// Require statement for incomplete feature: UPVOTING OTHER USERS
+//
 require('./likeTeacher');
+//////////////////////////////////////////////////////////////////
+
 
 var TeachSkill = db.Model.extend({
   tableName: 'users_teach_skills',
@@ -15,9 +22,15 @@ var TeachSkill = db.Model.extend({
     return this.belongsTo('User', 'user_id');
   },
 
+
+  ///////////////////////////////////////////////////////////////////
+  // Relations functions for incomplete feature: UPVOTING OTHER USERS
+  // 
   likeTeacher: function () {
     return this.belongsToMany('LikeTeacher', 'users_like_teachers');
   }
+  ///////////////////////////////////////////////////////////////////
+
 
 });
 
