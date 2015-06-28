@@ -2,6 +2,48 @@ p {
   font-size: 18px;
 }
 
+/*.skill p {
+  width: 115%;
+  min-height: 75px;
+  background-color: white;
+  padding: 3px;
+}*/
+
+textarea {
+  padding: 10px;
+}
+
+.skill textarea,
+.bio textarea {
+  border: 1px solid white;
+  transition: height .1s ease-out;
+}
+
+.skill textarea {
+  width: 115%;
+}
+
+.skill textarea:hover,
+.bio textarea:hover {
+  border: 1px solid #bbb;
+}
+
+.delete-button {
+  color: #ccc;
+}
+
+.delete-button:hover {
+  color: #000;
+}
+
+/*.blurb-editor {
+  float: left;
+}*/
+
+/*.delete-button {
+  float: right;
+}*/
+
 .row{
   margin-left:0;
   margin-right:0;
@@ -59,7 +101,7 @@ input.zip {
 .editor {
   font-size: 18px;
   width: 100%;
-  resize: none;
+  resize: vertical;
 }
 
 p.git{

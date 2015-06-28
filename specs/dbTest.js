@@ -23,7 +23,7 @@ var user2 = new User({
   email: 'theboss@canadatopcondoms.com',
   github_id: 'baka101',
   avatar: 'https://avatars.githubusercontent.com/u/7163397?v=3',
-  blurb: 'I also like to do stuff', 
+  blurb: 'I also like to do stuff',
   zip: '94115'
 });
 
@@ -45,7 +45,7 @@ var skills = ['html',
 'databases',
 'algorithms',
 'electronics',
-'microcontrollers',
+'micro-controllers',
 'fabrication'];
 
 skills.forEach(function(skillName) {

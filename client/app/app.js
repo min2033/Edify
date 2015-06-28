@@ -1,6 +1,7 @@
 angular.module('edify',[
   'ui.router',
   'ui.bootstrap',
+  'monospaced.elastic',
   'edify.modal',
   'edify.services',
   'edify.user',
@@ -21,7 +22,7 @@ angular.module('edify',[
   };
 
   // Test for Location service: see console for output
-  // window.onGoogleReady = function () {  
+  // window.onGoogleReady = function () {
   //   Location.calculateZipDistance('94115', '92084', function ( result ) {
   //     console.log('distance is: ', result);
   //   })
@@ -54,10 +55,10 @@ angular.module('edify',[
           console.log('ERROR:', status);
           event.preventDefault();
           $state.go('signin'); //redirect
-        });      
+        });
     }
-  
-  });  
+
+  });
 })
 
 .config(function($stateProvider,$urlRouterProvider){
