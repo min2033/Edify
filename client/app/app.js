@@ -12,7 +12,17 @@ angular.module('edify',[
   // 'edify.location'
   ])
 
+// add Location to enable location service
 .controller('AppController', function ($scope, Auth){
+
+  Auth.getUser()
+    .success(function(data, status) {
+      $scope.user = data;
+    })
+    .error(function(data, status) {
+      console.log('ERROR:', status);
+    });
+
   $scope.isSignedIn = function () {
     return Auth.isAuth();
   };
@@ -21,7 +31,7 @@ angular.module('edify',[
     return !Auth.isAuth();
   };
 
-  // Test for Location service: see console for output 
+  // Test for Location service: see console for output
   // need to inject "edify.location" in the module, and "Location" in the function parameters
   // window.onGoogleReady = function () {
   //   Location.calculateZipDistance('94115', '92084', function ( result ) {
@@ -49,8 +59,10 @@ angular.module('edify',[
     if (!isAuth) {
       Auth.getUser()
         .success(function(data, status) {
-          console.log('Logged in;', data);
+          console.log('Logged in:', data);
           Auth.setUser(data);
+          // $rootScope.user = data;
+          // console.log($rootScope.user);
         })
         .error(function(data, status) {
           console.log('ERROR:', status);
