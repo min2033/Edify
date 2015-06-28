@@ -8,11 +8,11 @@ angular.module('edify',[
   'edify.allskills',
   'edify.allusers',
   'edify.main',
-  'edify.skill',
-  'edify.location'
+  'edify.skill'
+  // 'edify.location'
   ])
 
-.controller('AppController', function ($scope, Auth, Location){
+.controller('AppController', function ($scope, Auth){
   $scope.isSignedIn = function () {
     return Auth.isAuth();
   };
@@ -21,7 +21,8 @@ angular.module('edify',[
     return !Auth.isAuth();
   };
 
-  // Test for Location service: see console for output
+  // Test for Location service: see console for output 
+  // need to inject "edify.location" in the module, and "Location" in the function parameters
   // window.onGoogleReady = function () {
   //   Location.calculateZipDistance('94115', '92084', function ( result ) {
   //     console.log('distance is: ', result);
