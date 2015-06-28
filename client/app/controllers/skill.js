@@ -57,6 +57,6 @@ angular.module('edify.skill', [
   };
 
   $scope.getVoter = function() {
-    return Auth.user().username;
+    return Auth.user();
   };
 });
