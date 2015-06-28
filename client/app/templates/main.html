@@ -32,7 +32,7 @@
           <!-- disabling all the ng-blurs in favor of save buttons for now.... -->
           <!-- ng-blur="updateUser(); $scope.bioEditor = false"> -->
 
-<!--         </form>
+<!--     </form>
       </p> -->
 
 
@@ -82,19 +82,21 @@
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level" ng-click="$scope.levelHover = true">level: {{skill.skill_level}}
-
+      <div class="skill-level" ng-click="$scope.levelHover = true">
+        {{$parent.levels[skill.skill_level]}}
         <!-- plus and minus buttons -->
         <div class="skill-level-buttons" ng-show="$scope.levelHover">
 
           <button type="button" class="btn btn-default btn-sm"
             ng-click="decreaseLearnSkillLevel($index)"
-            ng-blur="saveLearnSkill($index)">
+            ng-blur="saveLearnSkill($index)"
+            ng-disabled="skill.skill_level < 1">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
           <button type="button" class="btn btn-default btn-sm"
             ng-click="increaseLearnSkillLevel($index)"
-            ng-blur="saveLearnSkill($index)">
+            ng-blur="saveLearnSkill($index)"
+            ng-disabled="skill.skill_level >= $parent.levels.length - 1">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>
@@ -147,19 +149,22 @@
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level" ng-click="$scope.levelHover = true">level: {{skill.skill_level}}
+      <div class="skill-level" ng-click="$scope.levelHover = true">
+        {{$parent.levels[skill.skill_level]}}
 
         <!-- plus and minus buttons -->
         <div class="skill-level-buttons" ng-show="$scope.levelHover">
 
           <button type="button" class="btn btn-default btn-sm"
             ng-click="decreaseTeachSkillLevel($index)"
-            ng-blur="saveTeachSkill($index)">
+            ng-blur="saveTeachSkill($index)"
+            ng-disabled="skill.skill_level < 1">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
           <button type="button" class="btn btn-default btn-sm"
             ng-click="increaseTeachSkillLevel($index)"
-            ng-blur="saveTeachSkill($index)">
+            ng-blur="saveTeachSkill($index)"
+            ng-disabled="skill.skill_level >= $parent.levels.length - 1">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>

@@ -18,16 +18,15 @@ angular.module('edify.main', [])
 
   // TODO: see #150
 
-  // $scope.levels = [
-  //   'wat',
-  //   'noob',
-  //   'dabbling',
-  //   'enthusiast',
-  //   'aficionado',
-  //   'master',
-  //   'sorcerer',
-  //   'demigod'
-  // ];
+  $scope.levels = [
+    'wat',
+    'noob',
+    'adventurer',
+    'enthusiast',
+    'practicioner',
+    'master',
+    'sorcerer'
+  ];
   //
   // // $scope.displayLevel = '';
   //
