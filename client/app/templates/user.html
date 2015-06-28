@@ -18,7 +18,7 @@
     <div class="skill-title"><a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
     <div class="skill-level">level: {{skill.skill_level}}</div>
     <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
-    <upvote voter="getVoter()" learner="user.username" skill="skill.skill_name"></upvote>
+    <upvote voter="getVoter()" learner="user.id" skill="skill.skill_name"></upvote>
   </div>
 </div>
 
@@ -30,6 +30,6 @@
     <div class="skill-title"><a ui-sref="skill({skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
     <div class="skill-level">level: {{skill.skill_level}}</div>
     <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
-    <upvote voter="getVoter()" teacher="user.username" skill="skill.skill_name"></upvote>
+    <upvote voter="getVoter()" teacher="user.id" skill="skill.skill_name"></upvote>
   </div>
 </div>
