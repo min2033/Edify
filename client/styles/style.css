@@ -52,6 +52,10 @@ input.zip {
   font-size: 18px;
 }
 
+.bio p{
+  word-wrap: break-word;
+}
+
 .editor {
   font-size: 18px;
   width: 100%;
