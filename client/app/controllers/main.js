@@ -162,8 +162,6 @@ angular.module('edify.main', [])
           console.log('ERROR:', status);
         });
     });
-  };  
-
-
+  };
 
 });

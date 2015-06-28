@@ -18,6 +18,10 @@
     <div class="bio-editor">
 <!--    disable zip code editing for demo version
         <p class="zip"><span  ng-show="!$scope.bioEditor">zip: {{user.zip}}</span>
+      <p class="zip">
+        <span ng-click="$scope.bioEditor = true" ng-show="!$scope.bioEditor">
+          zip: {{user.zip}}
+        </span>
         <form name="zip_form">
           <input class="zip"
             name="zipcode"
@@ -33,15 +37,14 @@
 
 
 
-      <p ng-show="!$scope.bioEditor" ng-click="$scope.bioEditor = true">{{user.blurb}}</p>
+
       <textarea
-        ng-show="$scope.bioEditor" ng-model="user.blurb"
-        class="editor" rows="2" maxlength="255">
+        msd-elastic="\n"
+        ng-model="user.blurb"
+        ng-blur="updateUser()"
+        class="editor" rows="3" maxlength="255">
       </textarea>
 
-      <button class="btn btn-default btn-md pull-right" ng-show="$scope.bioEditor" ng-click="updateUser(); $scope.bioEditor = false">
-      save
-      </button>
     </div>
   </div>
 </div>
@@ -55,138 +58,125 @@
     <!-- <a class="add" ui-sref="allskills"> -->
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
-    learning {{user.learnSkills.length}} skills
+    learning {{user.learnSkills.length}}
+    <ng-pluralize
+      count="user.learnSkills.length"
+      when="{'0': ' topics :(',
+        '1': ' topic',
+        'other': 'topics'}">
+    </ng-pluralize>
   </h1>
 
   <!-- skill entries -->
   <div class="skill well clearfix" ng-repeat="skill in user.learnSkills"
-    ng-mouseover="$scope.hover = true" ng-mouseleave="$scope.hover = false">
+    ng-mouseenter="$scope.entryHover = true" ng-mouseleave="$scope.entryHover = false">
     <span class="glyphicon glyphicon-remove pull-right delete-button"
-      ng-show="$scope.hover" ng-click="removeLearnSkill($index)"></span>
+      ng-show="$scope.entryHover" ng-click="removeLearnSkill($index)"></span>
     <div class="col-xs-3">
       <img src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
     </div>
 
-    <div class="col-xs-3">
+    <div class="col-xs-3" ng-mouseenter="$scope.levelHover = true" ng-mouseleave="$scope.levelHover = false">
 
       <!-- title -->
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level" ng-click="$scope.skillEditor = true">level: {{skill.skill_level}}
+      <div class="skill-level" ng-click="$scope.levelHover = true">level: {{skill.skill_level}}
 
         <!-- plus and minus buttons -->
-        <div class="skill-level-buttons" ng-show="$scope.skillEditor">
+        <div class="skill-level-buttons" ng-show="$scope.levelHover">
 
-          <button type="button" class="btn btn-default btn-sm" ng-click="decreaseLearnSkillLevel($index)">
+          <button type="button" class="btn btn-default btn-sm"
+            ng-click="decreaseLearnSkillLevel($index)"
+            ng-blur="saveLearnSkill($index)">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
-          <button type="button" class="btn btn-default btn-sm" ng-click="increaseLearnSkillLevel($index)">
+          <button type="button" class="btn btn-default btn-sm"
+            ng-click="increaseLearnSkillLevel($index)"
+            ng-blur="saveLearnSkill($index)">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>
       </div>
 
       <!-- stars / likes / hearts / coconuts / whatever -->
-      <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
+      <!-- <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div> -->
     </div>
 
     <!-- skill blurb editor -->
-    <div class="col-xs-5 blurb-editor">
-      <p ng-show="!$scope.skillEditor && !$scope.hover">{{skill.blurb}}</p>
+    <div class="col-xs-5">
       <textarea
-        ng-show="$scope.skillEditor || $scope.hover" ng-model="skill.blurb"
-        ng-click="$scope.skillEditor = true" class="editor" rows="2" maxlength="255">
+        msd-elastic="\n"
+        ng-model="skill.blurb" class="editor" rows="3" maxlength="255"
+        ng-blur="saveLearnSkill($index)">
       </textarea>
-      <!-- <button class="btn btn-default btn-md pull-right" ng-show="!$scope.skillEditor" ng-click="$scope.skillEditor = true">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-      </button> -->
-
-      <!-- save button closes editor -->
-      <button class="btn btn-default btn-md pull-right" ng-show="$scope.skillEditor" ng-click="saveLearnSkill($index); $scope.skillEditor = false">
-        save
-        <!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> -->
-      </button>
-
-    <!-- open editor button -->
-
-    <!-- <button ng-show="!$scope.skillEditor" class="btn btn-default btn-lg pull-left" ng-click="$scope.skillEditor = true">
-      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-    </button> -->
 
     </div>
-
-    <!-- delete button -->
-    <!-- <button ng-show="$scope.skillEditor" class="btn btn-default btn-lg pull-right" ng-click="removeLearnSkill($index)">
-      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-    </button> -->
-
   </div>
 </div>
 
 <!-- TEACH SKILLS -->
 <div class="col-md-5">
   <h1 class="text-center" ng-model="$scope.user">
-      <!-- Modal to Teach Skills -->
+      <!-- Modal to Learn Skills -->
     <a class="add" ng-click="open('teach')">
-    <!-- old link -->
-    <!-- <a class="add" ui-sref="allskills"> -->
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
-    teaching {{user.teachSkills.length}} skills
+    teaching {{user.teachSkills.length}}
+    <ng-pluralize
+      count="user.teachSkills.length"
+      when="{'0': ' topics :(',
+        '1': ' topic',
+        'other': 'topics'}">
+    </ng-pluralize>
   </h1>
 
   <!-- skill entries -->
-  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">
+  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills"
+    ng-mouseenter="$scope.entryHover = true" ng-mouseleave="$scope.entryHover = false">
+    <span class="glyphicon glyphicon-remove pull-right delete-button"
+      ng-show="$scope.entryHover" ng-click="removeTeachSkill($index)"></span>
     <div class="col-xs-3">
+      <img src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
+    </div>
+
+    <div class="col-xs-3" ng-mouseenter="$scope.levelHover = true" ng-mouseleave="$scope.levelHover = false">
 
       <!-- title -->
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level" ng-click="$scope.skillEditor = true">level: {{skill.skill_level}}
+      <div class="skill-level" ng-click="$scope.levelHover = true">level: {{skill.skill_level}}
 
         <!-- plus and minus buttons -->
-        <div class="skill-level-buttons" ng-show="$scope.skillEditor">
-          <button type="button" class="btn btn-default btn-sm" ng-click="decreaseTeachSkillLevel($index)">
+        <div class="skill-level-buttons" ng-show="$scope.levelHover">
+
+          <button type="button" class="btn btn-default btn-sm"
+            ng-click="decreaseTeachSkillLevel($index)"
+            ng-blur="saveTeachSkill($index)">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
-          <button type="button" class="btn btn-default btn-sm" ng-click="increaseTeachSkillLevel($index)">
+          <button type="button" class="btn btn-default btn-sm"
+            ng-click="increaseTeachSkillLevel($index)"
+            ng-blur="saveTeachSkill($index)">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>
       </div>
 
       <!-- stars / likes / hearts / coconuts / whatever -->
-      <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div>
+      <!-- <div class="skill-stars" star-rating rating-value="skill.stars" max="skill.stars"></div> -->
     </div>
 
     <!-- skill blurb editor -->
-    <div class="col-xs-6 blurb-editor">
-      <p ng-show="!$scope.skillEditor" ng-click="$scope.skillEditor = true">{{skill.blurb}}</p>
+    <div class="col-xs-5">
       <textarea
-        ng-show="$scope.skillEditor" ng-model="skill.blurb"
-        class="editor" rows="2" maxlength="255">
+        msd-elastic="\n"
+        ng-model="skill.blurb" class="editor" rows="3" maxlength="255"
+        ng-blur="saveTeachSkill($index)">
       </textarea>
 
-      <!-- save button closes editor -->
-      <button class="btn btn-default btn-md pull-right" ng-show="$scope.skillEditor" ng-click="saveTeachSkill($index); $scope.skillEditor = false">
-        save
-      </button>
-
-    <!-- open editor button -->
-    <!-- <button ng-show="!$scope.skillEditor" class="btn btn-default btn-lg pull-left" ng-click="$scope.skillEditor = true">
-      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-    </button> -->
-
     </div>
-
-    <!-- delete button -->
-    <button ng-show="$scope.skillEditor" class="btn btn-default btn-md pull-right" ng-click="removeTeachSkill($index)">
-      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-    </button>
-
   </div>
 </div>
-
-<!-- </div> -->
