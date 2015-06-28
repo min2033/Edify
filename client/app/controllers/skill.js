@@ -11,6 +11,7 @@ angular.module('edify.skill', [
     .then(function (skills) {
       $scope.learners = skills.learners;
       $scope.teachers = skills.teachers;
+      $scope.skill_id = skills.skill_id;
     })
     .catch(function (error) {
       console.error(error);
