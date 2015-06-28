@@ -2,8 +2,14 @@ var db = require('../dbConfig');
 require('./user');
 var TeachSkill = require('./teachSkill');
 var LearnSkill = require('./learnSkill');
+
+//////////////////////////////////////////////////////////////////
+// Require statements for incomplete feature: UPVOTING OTHER USERS
+//
 var LikeTeacher = require('./likeTeacher');
 var LikeLearner = require('./likeLearner');
+//////////////////////////////////////////////////////////////////
+
 
 var Skill = db.Model.extend({
   tableName: 'skills',

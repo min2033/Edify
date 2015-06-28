@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////
+// Database Model for incomplete feature: UPVOTING OTHER USERS
+//                use only for building out this feature
+//
 var db = require('../dbConfig');
 require('./skill');
 require('./user');
@@ -23,3 +27,4 @@ var LikeTeacher = db.Model.extend({
 });
 
 module.exports = db.model('LikeTeacher', LikeTeacher);
+//////////////////////////////////////////////////////////////

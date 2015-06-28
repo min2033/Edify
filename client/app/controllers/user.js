@@ -6,7 +6,7 @@ angular.module('edify.user', [
   $scope.user = null;
 
   $scope.getUser = function () {
-    Users.getUser($stateParams.username) //  We need to pass something into the service to retrieve one user
+    Users.getUser($stateParams.username)
     .then(function (user) {
       $scope.user = user;
     })
@@ -17,8 +17,11 @@ angular.module('edify.user', [
 
   $scope.getUser();
 
+  ////////////////////////////////////////////////////////////////
+  // Support method for incomplete feature: UPVOTING OTHER USERS
+  //   this method helps identify the user who clicked the upvote
   $scope.getVoter = function () {
     return Auth.user();
   };
-
+  ////////////////////////////////////////////////////////////////
 });

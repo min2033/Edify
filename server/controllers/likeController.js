@@ -1,3 +1,9 @@
+////////////////////////////////////////////////////////////////////
+// Server Controller for incomplete feature: UPVOTING OTHER USERS
+//                   use ONLY for building out this feature
+//                   note: very rough, this module basically returns
+//                         the whole table
+//
 var LikeTeacher = require('../models/likeTeacher');
 var LikeLearner = require('../models/likeLearner');
 var Promise = require('bluebird');

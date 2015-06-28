@@ -89,6 +89,9 @@ db.knex.schema.hasTable('users_teach_skills').then(function(exists) {
 });
 
 
+/////////////////////////////////////////////////////////////////////////////////////
+//  Database Schema for incomplete feature: UPVOTING OTHER USERS
+//                   
 db.knex.schema.hasTable('users_like_teachers').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users_like_teachers', function (entry) {
@@ -102,7 +105,11 @@ db.knex.schema.hasTable('users_like_teachers').then(function(exists) {
     });
   }
 });
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+//  Database Schema for incomplete feature: UPVOTING OTHER USERS
+//                  
 db.knex.schema.hasTable('users_like_learners').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users_like_learners', function (entry) {
@@ -116,6 +123,6 @@ db.knex.schema.hasTable('users_like_learners').then(function(exists) {
     });
   }
 });
-
+/////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = db;

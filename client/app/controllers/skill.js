@@ -57,7 +57,11 @@ angular.module('edify.skill', [
     });
   };
 
+  ////////////////////////////////////////////////////////////////
+  // Support method for incomplete feature: UPVOTING OTHER USERS
+  //   this method helps identify the user who clicked the upvote
   $scope.getVoter = function() {
     return Auth.user();
   };
+  ////////////////////////////////////////////////////////////////
 });

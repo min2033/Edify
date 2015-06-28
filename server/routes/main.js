@@ -28,15 +28,6 @@ router.get('/api/users/:username', ensureAuthenticated, function(req,res,next){
   userController.getUser(req, res, next, {username:user});
 });
 
-// Gets user's likes
-router.get('/api/likeTeachers', ensureAuthenticated, function(req,res,next){
-  likeController.getLikeTeachers(req, res, next);
-});
-
-// router.get('/api/likeLearners', ensureAuthenticated, function(req,res,next){
-//   likeController.getLikeLearners(req, res, next, {voter_id:req.user.id});
-// });
-
 // Gets all users with username
 router.get('/api/users/', function(req,res,next){
 // router.get('/api/users/:username', function(req,res,next){
@@ -70,12 +61,21 @@ router.post('/api/skills/', ensureAuthenticated, function(req,res,next){
     });
 });
 
+///////////////////////////////////////////////////////////////////////////////
+// Route for incomplete feature: UPVOTING OTHER USERS
+//       use ONLY for building out this feature
+//       note: may require more than 1 route depending on your implementation
+router.get('/api/likeTeachers', ensureAuthenticated, function(req,res,next){
+  likeController.getLikeTeachers(req, res, next);
+});
+///////////////////////////////////////////////////////////////////////////////
 
 router.get('/logout', function(req, res) {
   console.log('logging out user...');
   req.logout(); // passport - destroys session
   res.redirect('/');
 });
+
 
 
 
