@@ -64,6 +64,11 @@ p.git{
   font-size:18px;
 }
 
+.bio img.icon{
+  width:48px;
+  height:48px;
+}
+
 #github{
   z-index:10;
   position: fixed;
