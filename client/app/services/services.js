@@ -10,23 +10,6 @@ angular.module('edify.services', [])
     });
   };
 
-  var getLikeTeachers = function () {
-    return $http({
-      method: 'GET',
-      url: '/api/likeTeachers'
-    })
-    .then(function(resp){
-      return resp.data;
-    });;
-  };
-
-  // var getLikeLearners = function () {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/api/likeLearners'
-  //   });
-  // };
-
   var user = function(){
     return currentUser;
   };
@@ -52,7 +35,6 @@ angular.module('edify.services', [])
     user: user,
     getUser: getUser,
     setUser: setUser,
-    getLikeTeachers: getLikeTeachers,
     isAuth: isAuth,
     signOut: signOut
   };
@@ -182,7 +164,30 @@ angular.module('edify.services', [])
     }
   };
 })
-.directive('upvote', function (Auth) {
+.factory('Likes', function ($http) {
+
+  var getLikeTeachers = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/likeTeachers'
+    })
+    .then(function(resp){
+      return resp.data;
+    });;
+  };
+
+  // var getLikeLearners = function () {
+  //   return $http({
+  //     method: 'GET',
+  //     url: '/api/likeLearners'
+  //   });
+  // };
+  return {
+    getLikeTeachers: getLikeTeachers
+  };
+
+})
+.directive('upvote', function (Likes) {
   return {
     restrict: 'E',
     template: '<div>'
@@ -205,15 +210,15 @@ angular.module('edify.services', [])
 
 
       scope.upvoteUser = function () {
-        Auth.getLikeTeachers()
+        Likes.getLikeTeachers()
         .then(function(data) {
-          console.log('request to Auth.getLikeTeachers');
+          console.log('request to Likes.getLikeTeachers');
           scope.voterLikes.teachers = data;
           console.log(scope.voterLikes.teachers);
         });
 
         // show me the vitals:
-        console.log("voter:", scope.voter.username);
+        console.log("voter id:", scope.voter.id);
         console.log("teacher id:", scope.teacher);
         console.log("learner id:", scope.learner);
         console.log("skill:", scope.skill);
