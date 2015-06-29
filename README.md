@@ -61,20 +61,20 @@ Set up with Heroku & ClearDB (mySQL)
 
 From root directory:
 
-'''sh
+```sh
 grunt build
 heroku addon:add cleardb:ignite
 new github application vars -> server/oauth.js
 push to heroku
-'''
+```
 
 ### Database
 
-'''sh
+```sh
 grunt backup - Store current db as the backup
 grunt reset - Restore db from backup
 grunt dbInit - Initialize db with default data
-'''
+```
 
 ### Roadmap
 
