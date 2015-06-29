@@ -17,19 +17,19 @@
         <img ng-src="{{user.avatar}}" class="profile img-circle img-responsive center-block"></img>
       </a>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <div class="username">
         <a ui-sref="user({username: '{{user.username}}' })">{{user.username}}
         </a>
-      </div>
-      <p>
-        {{user.blurb}}
-      </p>
-    </div>
-    <div class="col-xs-3">
-      <!-- <div class="counters pull-right"> -->
 
-      <!-- </div> -->
+        <!-- here's where you'd add topic count, points, likes, whatever -->
+        <!-- maybe a button for following that user -->
+
+      </div>
+
+    </div>
+    <div class="col-xs-6">
+      <p class="blurb">{{user.blurb}}</p>
     </div>
 
 

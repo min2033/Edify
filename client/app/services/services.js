@@ -145,6 +145,28 @@ angular.module('edify.services', [])
     getSkill: getSkill
   };
 })
+.factory('Level', function() {
+
+  var words = [
+    'wat',
+    'noob',
+    'adventurer',
+    'enthusiast',
+    'practicioner',
+    'master',
+    'sorcerer'
+  ];
+
+  var toWord = function(index) {
+    return words[index];
+  }
+
+  return {
+    toWord: toWord,
+    max: words.length - 1,
+    min: 0
+  };
+})
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////

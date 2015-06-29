@@ -22,6 +22,7 @@ angular.module('edify.allusers', [])
   $scope.getAllUsers = function () {
     Users.getAllUsers()
     .then(function (users) {
+      console.log(users);
       var obj = {};
       $scope.allUsers = users;
     })
@@ -35,7 +36,5 @@ angular.module('edify.allusers', [])
   $scope.setSort = function (option) {
     $scope.sort = option;
   };
-
-
 
 });

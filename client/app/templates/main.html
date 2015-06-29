@@ -16,9 +16,10 @@
 
     <!-- BIO EDITOR -->
     <div class="bio-editor">
-<!--    disable zip code editing for demo version
-        <p class="zip"><span  ng-show="!$scope.bioEditor">zip: {{user.zip}}</span>
-      <p class="zip">
+
+   <!-- disable zip code editing for demo version -->
+
+      <!-- <p class="zip"><span  ng-show="!$scope.bioEditor">zip: {{user.zip}}</span>
         <span ng-click="$scope.bioEditor = true" ng-show="!$scope.bioEditor">
           zip: {{user.zip}}
         </span>
@@ -27,16 +28,9 @@
             name="zipcode"
             ng-pattern="/^\d{5}$/"
             ng-show="$scope.bioEditor" ng-model="user.zip"
-          </input> -->
-
-          <!-- disabling all the ng-blurs in favor of save buttons for now.... -->
-          <!-- ng-blur="updateUser(); $scope.bioEditor = false"> -->
-
-<!--     </form>
+          </input>
+        </form>
       </p> -->
-
-
-
 
       <textarea
         msd-elastic="\n"
@@ -84,7 +78,7 @@
 
       <!-- skill level -->
       <div class="skill-level" ng-click="$scope.levelHover = true">
-        {{$parent.levels[skill.skill_level]}}
+        {{$parent.levelToWord(skill.skill_level)}}
         <!-- plus and minus buttons -->
         <div class="skill-level-buttons" ng-show="$scope.levelHover">
 
@@ -97,7 +91,7 @@
           <button type="button" class="btn btn-default btn-sm"
             ng-click="increaseLearnSkillLevel($index)"
             ng-blur="saveLearnSkill($index)"
-            ng-disabled="skill.skill_level >= $parent.levels.length - 1">
+            ng-disabled="skill.skill_level >= $parent.maxLevel">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>
@@ -151,7 +145,7 @@
 
       <!-- skill level -->
       <div class="skill-level" ng-click="$scope.levelHover = true">
-        {{$parent.levels[skill.skill_level]}}
+        {{$parent.levelToWord(skill.skill_level)}}
 
         <!-- plus and minus buttons -->
         <div class="skill-level-buttons" ng-show="$scope.levelHover">
@@ -165,7 +159,7 @@
           <button type="button" class="btn btn-default btn-sm"
             ng-click="increaseTeachSkillLevel($index)"
             ng-blur="saveTeachSkill($index)"
-            ng-disabled="skill.skill_level >= $parent.levels.length - 1">
+            ng-disabled="skill.skill_level >= $parent.maxLevel">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>

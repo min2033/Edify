@@ -2,7 +2,8 @@ angular.module('edify.user', [
   'ui.router'
 ])
 
-.controller('UserController', function($scope, $stateParams, $state, Users, Auth) {
+.controller('UserController', function($scope, $stateParams, $state, Users, Auth, Level) {
+
   $scope.user = null;
 
   $scope.getUser = function () {
@@ -16,6 +17,11 @@ angular.module('edify.user', [
   };
 
   $scope.getUser();
+
+  $scope.levelToWord = function(level) {
+    return Level.toWord(level);
+  };
+
 
   ////////////////////////////////////////////////////////////////
   // Support method for incomplete feature: UPVOTING OTHER USERS
