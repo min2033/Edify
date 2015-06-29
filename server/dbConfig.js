@@ -2,10 +2,12 @@
 var dbUrl = {};
 
 var url_parse = function(url){ // I wrote this parse function, you're welcome.
-  dbUrl.user = url.split(':')[1].substring(2);
-  dbUrl.password = url.split(':')[2].split("@")[0];
-  dbUrl.host = url.split('@')[1].split("/")[0];
-  dbUrl.database = url.split('/')[3].split("?")[0];
+  if(url){
+    dbUrl.user = url.split(':')[1].substring(2);
+    dbUrl.password = url.split(':')[2].split("@")[0];
+    dbUrl.host = url.split('@')[1].split("/")[0];
+    dbUrl.database = url.split('/')[3].split("?")[0];
+  }
 };
 
 url_parse(process.env.CLEARDB_DATABASE_URL);
