@@ -1,15 +1,14 @@
 angular.module('edify.allskills', [])
 
 .controller('AllSkillsController', function($scope, Auth, Skills) {
-  // the data returned by the database server is JSON,
-  //   which looks like this:
+  // the JSON data returned by the database looks like this:
   //   {
-  //     "JavaScript" : {
+  //     "javascript" : {
   //                     learners: [{},{},{}],
   //                     teachers: [{},{},{}],
   //                     skill_id: 100
   //                    },
-  //      "Databases" : {
+  //      "databases" : {
   //                     learners: [{},{},{}],
   //                     teachers: [{},{},{}],
   //                     skill_id: 500
@@ -20,8 +19,8 @@ angular.module('edify.allskills', [])
   //                               /|\
   //                                |
 
-  // We want to change the above format to something that looks like below
-  //   then in AllSkills template, display the skills using ng-repeat
+  // We want to change the above format to an array that looks like below,
+  //   then in the AllSkills template, display the skills using ng-repeat
 
   //                                |
   //                               \|/

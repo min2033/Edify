@@ -15,7 +15,7 @@ angular.module('edify.skill', [
     .then(function (skill) {
       $scope.learners = skill.learners;
       $scope.teachers = skill.teachers;
-      $scope.skill_id = skill.skill_id;
+      $scope.skill_id = skill.skill_id;  // we want the skill_id because new features may need to reference the skill_id
       $scope.skill_description = skill.skill_description;
     })
     .catch(function (error) {
