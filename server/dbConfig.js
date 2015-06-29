@@ -1,5 +1,6 @@
-// var path = require('path');
 var dbUrl = {};
+
+dbUrl.deploy = true; // CHANGE TO FALSE FOR LOCAL.
 
 var url_parse = function(url){ // I wrote this parse function, you're welcome.
   if(url){
@@ -12,22 +13,31 @@ var url_parse = function(url){ // I wrote this parse function, you're welcome.
 
 url_parse(process.env.CLEARDB_DATABASE_URL);
 
-var knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'edify',
-    charset: 'utf8'
-    // host: dbUrl.host || '127.0.0.1',
-    // user: dbUrl.user || 'root',
-    // password: dbUrl.password || '',
-    // database: dbUrl.database || 'edify',
-    // charset: 'utf8'
-  }
-});
+var knex;
 
+if(dbUrl.deploy){
+  knex = require('knex')({
+    client: 'mysql',
+    connection: {
+      host: dbUrl.host,
+      user: dbUrl.user,
+      password: dbUrl.password,
+      database: dbUrl.database,
+      charset: 'utf8'
+    }
+  });
+}else{
+  knex = require('knex')({
+    client: 'mysql',
+    connection: {
+      host: '127.0.0.1',
+      user: 'root',
+      password: '',
+      database: 'edify',
+      charset: 'utf8'
+    }
+  });
+}
 
 
 var db = require('bookshelf')(knex);
