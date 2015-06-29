@@ -6,7 +6,7 @@ if(process.env.NODE_ENV == "production"){
   dbUrl.deploy = false; // TRUE = DEPLOYED
 }
 
-var url_parse = function(url){ // I wrote this parse function, you're welcome.
+var url_parse = function(url){ // I wrote this parse function, you're welcome. (<-- "Thanks Mike!")
   if(url){
     dbUrl.user = url.split(':')[1].substring(2);
     dbUrl.password = url.split(':')[2].split("@")[0];
@@ -85,7 +85,13 @@ db.knex.schema.hasTable('users_learn_skills').then(function(exists) {
       entry.integer('skill_id', 255);
       entry.string('blurb', 255);
       entry.integer('skill_level', 255);
+
+      // "stars" is the number of upvotes received by a teacher or learner from other users
+      //    This is part of an incomplete feature for upvoting other users.
+      //    This column of the schema should likely be removed in favor of
+      //    tabulating the number of upvotes through "user_like_teachers" and "users_like_learners"   
       entry.integer('stars', 255);
+
       entry.timestamps();
     }).then(function (table) {
       console.log('Created Table', table);
@@ -101,7 +107,13 @@ db.knex.schema.hasTable('users_teach_skills').then(function(exists) {
       entry.integer('skill_id', 255);
       entry.string('blurb', 255);
       entry.integer('skill_level', 255);
+
+      // "stars" is the number of upvotes received by a teacher or learner from other users
+      //    This is part of an incomplete feature for upvoting other users.
+      //    This column of the schema should likely be removed in favor of
+      //    tabulating the number of upvotes through "user_like_teachers" and "users_like_learners"  
       entry.integer('stars', 255);
+
       entry.timestamps();
     }).then(function (table) {
       console.log('Created Table', table);
