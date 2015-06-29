@@ -1,19 +1,48 @@
-// var path = require('path');
-var knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'edify',
-    charset: 'utf8'
-    // host: 'us-cdbr-iron-east-02.cleardb.net',
-    // user: 'b7abb5a35e3177',
-    // password: 'e23d2ee5',
-    // database: 'heroku_b8b67000aedbc53',
-    // charset: 'utf8'
+var dbUrl = {};
+
+if(process.env.NODE_ENV == "production"){
+  dbUrl.deploy = true; // FALSE = LOCAL
+}else{
+  dbUrl.deploy = false; // TRUE = DEPLOYED
+}
+
+var url_parse = function(url){ // I wrote this parse function, you're welcome.
+  if(url){
+    dbUrl.user = url.split(':')[1].substring(2);
+    dbUrl.password = url.split(':')[2].split("@")[0];
+    dbUrl.host = url.split('@')[1].split("/")[0];
+    dbUrl.database = url.split('/')[3].split("?")[0];
   }
-});
+};
+
+url_parse(process.env.CLEARDB_DATABASE_URL);
+
+var knex;
+
+if(dbUrl.deploy){
+  knex = require('knex')({
+    client: 'mysql',
+    connection: {
+      host: dbUrl.host,
+      user: dbUrl.user,
+      password: dbUrl.password,
+      database: dbUrl.database,
+      charset: 'utf8'
+    }
+  });
+}else{
+  knex = require('knex')({
+    client: 'mysql',
+    connection: {
+      host: '127.0.0.1',
+      user: 'root',
+      password: '',
+      database: 'edify',
+      charset: 'utf8'
+    }
+  });
+}
+
 
 var db = require('bookshelf')(knex);
 db.plugin('registry');
