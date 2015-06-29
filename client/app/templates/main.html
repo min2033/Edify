@@ -42,7 +42,8 @@
         msd-elastic="\n"
         ng-model="user.blurb"
         ng-blur="updateUser()"
-        class="editor" rows="3" maxlength="255">
+        class="editor" rows="3" maxlength="255"
+        placeholder="tell us a bit about yourself!">
       </textarea>
 
     </div>
@@ -73,7 +74,7 @@
     <span class="glyphicon glyphicon-remove pull-right delete-button"
       ng-show="$scope.entryHover" ng-click="removeLearnSkill($index)"></span>
     <div class="col-xs-3">
-      <img ng-src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
+      <img ng-src="/assets/{{skill.skill_name}}.png" class="profile img-circle img-responsive center-block"></img>
     </div>
 
     <div class="col-xs-3" ng-mouseenter="$scope.levelHover = true" ng-mouseleave="$scope.levelHover = false">
@@ -140,7 +141,7 @@
     <span class="glyphicon glyphicon-remove pull-right delete-button"
       ng-show="$scope.entryHover" ng-click="removeTeachSkill($index)"></span>
     <div class="col-xs-3">
-      <img ng-src="http://lorempixel.com/150/150/cats" class="profile img-circle img-responsive center-block"></img>
+      <img ng-src="/assets/{{skill.skill_name}}.png" class="profile img-circle img-responsive center-block"></img>
     </div>
 
     <div class="col-xs-3" ng-mouseenter="$scope.levelHover = true" ng-mouseleave="$scope.levelHover = false">

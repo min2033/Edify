@@ -29,7 +29,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="signin-{{isSignedOut()}}">
               <a class="ng-cloak" ui-sref="home" ng-model="$scope.user"
-                data-toggle="collapse" data-target="#navbar">
+                data-toggle="collapse" data-target=".navbar-collapse.in">
                 <span>
                   <img ng-src="{{user.avatar}}"
                     class="nav-pic img-circle pull-left">
@@ -39,12 +39,12 @@
               </a>
             </li>
             <!-- <li class="signin-{{isSignedIn()}}"><a ui-sref="signin">sign in</a></li> -->
-            <li class="signout-{{isSignedOut()}}"><a ui-sref="signout">sign out</a></li>
+            <li class="signout-{{isSignedOut()}}"><a data-target=".navbar-collapse" ui-sref="signout" >sign out</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a ui-sref="allskills" data-toggle="collapse" data-target="#navbar">topics</a></li>
-            <li><a ui-sref="allusers" data-toggle="collapse" data-target="#navbar">users</a></li>
+            <li class="signout-{{isSignedOut()}}"><a ui-sref="allskills" data-toggle="collapse" data-target=".navbar-collapse.in">topics</a></li>
+            <li class="signout-{{isSignedOut()}}"><a ui-sref="allusers" data-toggle="collapse" data-target=".navbar-collapse.in">users</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
