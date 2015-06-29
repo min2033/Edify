@@ -3,18 +3,6 @@ var Skill = require('../server/models/skill');
 var Skills = require('../server/collections/skills');
 
 //SAVE SKILLS
-var skills = ['html',
-'css',
-'javascript',
-'python',
-'ruby',
-'databases',
-'algorithms',
-'electronics',
-'micro-controllers',
-'fabrication'];
-
-//SAVE SKILLS
 
 var topics = {
   html: "the hypertext markup language has come a long way since it was created in the early 90s. learn to use some of the powerful new elements like audio, video, and canvas.",
@@ -38,13 +26,6 @@ var each = function(object, callback) {
 
 //give it a sec create the tables first;
 setTimeout(function () {
-  skills.forEach(function(skillName) {
-    var skill = new Skill({
-      skill_name: skillName
-    });
-    skill.save();
-  });
-
   each(topics, function(description, name) {
     var skill = new Skill({
       skill_name: name,
