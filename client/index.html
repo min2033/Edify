@@ -2,6 +2,7 @@
 <html ng-app="edify" ng-controller="AppController">
 
   <head>
+    <script src="bower_components/angular/angular.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <!-- For Deployment -->
@@ -19,15 +20,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" ui-sref="allskills">edify</a>
-          <a class="navbar-brand" ui-sref="allusers">users</a>
+
+          <a class="navbar-brand" ui-sref="about">edify</a>
+
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+
           <ul class="nav navbar-nav navbar-right">
-            <li><a ui-sref="home">profile</a></li>
-            <li class="signin-{{isSignedIn()}}"><a ui-sref="signin">sign in</a></li>
+            <li class="signin-{{isSignedOut()}}">
+              <a class="ng-cloak" ui-sref="home" ng-model="$scope.user"
+                data-toggle="collapse" data-target="#navbar">
+                <span>
+                  <img ng-src="{{user.avatar}}"
+                    class="nav-pic img-circle pull-left">
+                  </img>
+                </span>
+                {{user.username}}
+              </a>
+            </li>
+            <!-- <li class="signin-{{isSignedIn()}}"><a ui-sref="signin">sign in</a></li> -->
             <li class="signout-{{isSignedOut()}}"><a ui-sref="signout">sign out</a></li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+            <li><a ui-sref="allskills" data-toggle="collapse" data-target="#navbar">topics</a></li>
+            <li><a ui-sref="allusers" data-toggle="collapse" data-target="#navbar">users</a></li>
+          </ul>
+
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
     </nav>
@@ -36,7 +55,6 @@
       <div class="row" id="main" ui-view></div>
     </div>
 
-    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>

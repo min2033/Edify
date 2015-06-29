@@ -27,13 +27,7 @@ angular.module('edify.main', [])
     'master',
     'sorcerer'
   ];
-  //
-  // // $scope.displayLevel = '';
-  //
-  // $scope.levelify = function(numLevel) {
-  //   'debugger'
-  //   return $scope.levels[numLevel];
-  // }
+
 
   $scope.updateUser = function() {
 
