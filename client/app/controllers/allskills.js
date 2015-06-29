@@ -1,9 +1,33 @@
 angular.module('edify.allskills', [])
 
 .controller('AllSkillsController', function($scope, Auth, Skills) {
+  // the data returned by the database server is JSON,
+  //   which looks like this:
+  //   {
+  //     "JavaScript" : {
+  //                     learners: [{},{},{}],
+  //                     teachers: [{},{},{}],
+  //                     skill_id: 100
+  //                    },
+  //      "Databases" : {
+  //                     learners: [{},{},{}],
+  //                     teachers: [{},{},{}],
+  //                     skill_id: 500
+  //                    }
+  //   }
 
-  // Use this assignment only for STATIC data testing
-  //   - comment out when doing real database testing
+  //                                , 
+  //                               /|\
+  //                                |
+
+  // We want to change the above format to something that looks like below
+  //   then in AllSkills template, display the skills using ng-repeat
+
+  //                                |
+  //                               \|/
+  //                                `
+
+  // Use the following for STATIC testing only. Comment out when pulling from the database.
   // $scope.allSkills = [
   //                     { skill_name: "javascript", learners: [{},{},{},{}], teachers: [{},{},{},{}], skill_id: 100 },
   //                     { skill_name: "backbone", learners: [{},{}], teachers: [{}], skill_id: 200 },
@@ -14,8 +38,10 @@ angular.module('edify.allskills', [])
   //                     { skill_name: "data structures", learners: [{}], teachers: [{},{},{},{},{}], skill_id: 99 },
   //                    ];
 
-  // USE this assignment for real database testing
+  // Use this by default, comment out only when testing the above. Array will be populated by getAllSkills.
   $scope.allSkills = [];
+
+  //  The default sort order is most to least number of learners
   $scope.sort = '-learners';
 
   $scope.getProfile = function () {
@@ -31,7 +57,7 @@ angular.module('edify.allskills', [])
 
   $scope.getProfile();
 
-
+  //  Changes the JSON data from the server into an array.  See above for example.
   $scope.getAllSkills = function () {
     Skills.getAllSkills()
     .then(function (skills) {
@@ -52,7 +78,7 @@ angular.module('edify.allskills', [])
     });
   };
 
-  $scope.getAllSkills();
+  $scope.getAllSkills();  // immediately request and parse the JSON data from the database
 
   $scope.setSort = function (option) {
     $scope.sort = option;
