@@ -1,6 +1,6 @@
 angular.module('edify.main', [])
 
-.controller('MainController', function($rootScope, $scope, $modal, Auth, Users, Skills) {
+.controller('MainController', function($rootScope, $scope, $modal, Auth, Users, Skills, Level) {
 
   Auth.getUser()
     .success(function(data, status) {
@@ -16,17 +16,11 @@ angular.module('edify.main', [])
 
   $rootScope.$on('skillChange', update);
 
-  // TODO: see #150
+  $scope.levelToWord = function(level) {
+    return Level.toWord(level);
+  };
 
-  $scope.levels = [
-    'wat',
-    'noob',
-    'adventurer',
-    'enthusiast',
-    'practicioner',
-    'master',
-    'sorcerer'
-  ];
+  $scope.maxLevel = Level.max;
 
 
   $scope.updateUser = function() {

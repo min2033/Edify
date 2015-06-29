@@ -32,7 +32,16 @@
   <div class="col-xs-3">
     <!-- <div class="counters pull-right"> -->
 
-      <span class="count">Learners: {{skill.learners.length}}</span>
+      <span class="count">
+        {{skill.learners.length}}
+        <ng-pluralize
+          count="skill.learners.length"
+          when="{'0': ' learners :(',
+            '1': ' learner',
+            'other': 'learners'}">
+        </ng-pluralize>
+      </span>
+      <!-- <span class="count">teachers: {{skill.teachers.length}}</span> -->
 
       <div class="teacher-learner-count">
         <button class="btn btn-default btn-md"

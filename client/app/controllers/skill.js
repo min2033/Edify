@@ -2,9 +2,13 @@ angular.module('edify.skill', [
   'ui.router'
 ])
 
-.controller('SkillController', function($scope, $stateParams, Skills, Auth) {
+.controller('SkillController', function($scope, $stateParams, Skills, Auth, Level) {
 
   $scope.skillname = $stateParams.skillname;
+
+  $scope.levelToWord = function(level) {
+    return Level.toWord(level);
+  };
 
   $scope.getSkill = function () {
     Skills.getSkill($stateParams.skillname)
