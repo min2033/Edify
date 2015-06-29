@@ -13,16 +13,16 @@ url_parse(process.env.CLEARDB_DATABASE_URL);
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    // host: '127.0.0.1',
-    // user: 'root',
-    // password: '',
-    // database: 'edify',
-    // charset: 'utf8'
-    host: dbUrl.host || '127.0.0.1',
-    user: dbUrl.user || 'root',
-    password: dbUrl.password || '',
-    database: dbUrl.database || 'edify',
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'edify',
     charset: 'utf8'
+    // host: dbUrl.host || '127.0.0.1',
+    // user: dbUrl.user || 'root',
+    // password: dbUrl.password || '',
+    // database: dbUrl.database || 'edify',
+    // charset: 'utf8'
   }
 });
 
