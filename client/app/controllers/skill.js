@@ -8,10 +8,11 @@ angular.module('edify.skill', [
 
   $scope.getSkill = function () {
     Skills.getSkill($stateParams.skillname)
-    .then(function (skills) {
-      $scope.learners = skills.learners;
-      $scope.teachers = skills.teachers;
-      $scope.skill_id = skills.skill_id;
+    .then(function (skill) {
+      $scope.learners = skill.learners;
+      $scope.teachers = skill.teachers;
+      $scope.skill_id = skill.skill_id;
+      $scope.skill_description = skill.skill_description;
     })
     .catch(function (error) {
       console.error(error);
