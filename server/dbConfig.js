@@ -2,16 +2,16 @@
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    // host: '127.0.0.1',
-    // user: 'root',
-    // password: '',
-    // database: 'edify',
-    // charset: 'utf8'
-    host: 'us-cdbr-iron-east-02.cleardb.net',
-    user: 'b7abb5a35e3177',
-    password: 'e23d2ee5',
-    database: 'heroku_b8b67000aedbc53',
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'edify',
     charset: 'utf8'
+    // host: 'us-cdbr-iron-east-02.cleardb.net',
+    // user: 'b7abb5a35e3177',
+    // password: 'e23d2ee5',
+    // database: 'heroku_b8b67000aedbc53',
+    // charset: 'utf8'
   }
 });
 
@@ -49,6 +49,7 @@ db.knex.schema.hasTable('skills').then(function(exists) {
     db.knex.schema.createTable('skills', function (skill) {
       skill.increments('id').primary();
       skill.string('skill_name', 255).unique();
+      skill.string('skill_description', 255);
       skill.timestamps();
     }).then(function (table) {
       console.log('Created Table', table);

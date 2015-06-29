@@ -42,6 +42,7 @@ angular.module('edify.modal',[])
         obj.learners = skills[key].learners;
         obj.teachers = skills[key].teachers;
         obj.skill_id = skills[key].skill_id;
+        obj.skill_description = skills[key].skill_description;
         if(alreadyHave.indexOf(key) === -1) $scope.allSkills.push(obj);
         obj = {};
       }
@@ -135,6 +136,7 @@ angular.module('edify.modal',[])
         obj.learners = skills[key].learners;
         obj.teachers = skills[key].teachers;
         obj.skill_id = skills[key].skill_id;
+        obj.skill_description = skills[key].skill_description;
         if(alreadyHave.indexOf(key) === -1) $scope.allSkills.push(obj);
         obj = {};
       }

@@ -41,10 +41,11 @@ angular.module('edify.allskills', [])
         obj.learners = skills[key].learners;
         obj.teachers = skills[key].teachers;
         obj.skill_id = skills[key].skill_id;
+        obj.skill_description = skills[key].skill_description;
         $scope.allSkills.push(obj);
         obj = {};
       }
-      // console.log('allSkills', $scope.allSkills);
+      console.log('allSkills', $scope.allSkills);
     })
     .catch(function (error) {
       console.error(error);

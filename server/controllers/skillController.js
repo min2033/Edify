@@ -14,6 +14,7 @@ module.exports = {
 
         result.skill_name = skill.attributes.skill_name;
         result.skill_id = skill.attributes.id;
+        result.skill_description = skill.attributes.skill_description;
 
         result.learners = [];
         skill.relations.learners.models.forEach(function (item) {
@@ -59,6 +60,7 @@ module.exports = {
           var skill = models[i];
           result[skill.attributes.skill_name] = {learners: [],teachers:[]};
           result[skill.attributes.skill_name].skill_id = skill.attributes.id;
+          result[skill.attributes.skill_name].skill_description = skill.attributes.skill_description;
 
           skill.relations.learners.models.forEach(function (item) {
             result[skill.attributes.skill_name].learners.push({

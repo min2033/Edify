@@ -25,6 +25,7 @@ module.exports = {
           result.learnSkills.push({
             id: item.attributes.id,
             skill_name: item.attributes.skill_name,
+            skill_description: item.attributes.skill_description,
             skill_level: item.pivot.attributes.skill_level,
             blurb: item.pivot.attributes.blurb,
             stars: item.pivot.attributes.stars,
@@ -36,6 +37,7 @@ module.exports = {
           result.teachSkills.push({
             id: item.attributes.id,
             skill_name: item.attributes.skill_name,
+            skill_description: item.attributes.skill_description,
             skill_level: item.pivot.attributes.skill_level,
             blurb: item.pivot.attributes.blurb,
             stars: item.pivot.attributes.stars,
