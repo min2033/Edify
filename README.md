@@ -59,7 +59,10 @@ bower install
 
 Future
  - Add upvoting system to allow user to "like" other users
+ - Add favorites view for user to see all "liked" entries
  - Add location service to allow user to find other nearby users
+ - Remove dichotomy of learners/teachers and
+    - replace with just learners
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 

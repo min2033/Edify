@@ -64,7 +64,7 @@ router.post('/api/skills/', ensureAuthenticated, function(req,res,next){
 ///////////////////////////////////////////////////////////////////////////////
 // Route for incomplete feature: UPVOTING OTHER USERS
 //       use ONLY for building out this feature
-//       note: may require more than 1 route depending on your implementation
+//       note: may need another similar route for "likeLearners"
 router.get('/api/likeTeachers', ensureAuthenticated, function(req,res,next){
   likeController.getLikeTeachers(req, res, next);
 });

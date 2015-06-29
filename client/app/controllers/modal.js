@@ -1,6 +1,8 @@
 angular.module('edify.modal',[])
 
 .controller('learnModalController',function($rootScope,$scope,$modalInstance,Auth,Skills,items){
+  // Very similar to AllSkills Controller
+
 
   $scope.items = items;
   $scope.ok = function () {
@@ -27,6 +29,7 @@ angular.module('edify.modal',[])
 
   $scope.getProfile();
 
+  // for detailed explanation of the parsing of the JSON data, please see ./allskills.js
   $scope.getAllSkills = function () {
     Skills.getAllSkills()
     .then(function (skills) {
