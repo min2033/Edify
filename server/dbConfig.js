@@ -8,9 +8,9 @@ var knex = require('knex')({
     database: 'edify',
     charset: 'utf8'
     // host: 'us-cdbr-iron-east-02.cleardb.net',
-    // user: 'bae2cae4b6e5c7',
-    // password: '227a853d',
-    // database: 'heroku_624f14e9d7bb9b4',
+    // user: 'bb24014bdd49b0',
+    // password: 'dc94c0f8',
+    // database: 'heroku_94f42c48526e9af',
     // charset: 'utf8'
   }
 });
