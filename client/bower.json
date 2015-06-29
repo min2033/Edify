@@ -18,6 +18,9 @@
     "bootstrap": "~3.3.5",
     "angular-ui-router": "~0.2.15",
     "angular-bootstrap": "~0.13.0",
-    "angular-elastic": "~2.4.2"
+    "angular-elastic": "~2.4.2",
+    "mocha": "~2.2.5",
+    "chai": "~3.0.0",
+    "sinon": "~1.15.4"
   }
 }

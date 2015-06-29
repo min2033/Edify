@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+
+    <link rel="stylesheet" href="bower_components/mocha/mocha.css" />
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/chai/chai.js"></script>
+    <script src="dist/lib.min.js"></script>
+    
+    <script>
+      mocha.setup('bdd');
+      $(function() {
+        window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run();
+      })
+    </script>
+
+    <!-- include source files here... -->
+    <script src="dist/main.min.js"></script>
+
+    <!-- include spec files here... -->
+    <script src="specs/servicesSpec.js"></script>
+
+
+    <script>
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>
