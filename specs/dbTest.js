@@ -37,20 +37,22 @@ var user3 = new User({
 
 //SAVE SKILLS
 
-var skills = ['html',
-'css',
-'javascript',
-'python',
-'ruby',
-'databases',
-'algorithms',
-'electronics',
-'micro-controllers',
-'fabrication'];
 
-skills.forEach(function(skillName) {
+var skills = [
+{skill_name: 'css',skill_description: 'css description'},
+{skill_name: 'javascript',skill_description: 'javascript description'},
+{skill_name: 'python',skill_description: 'python description'},
+{skill_name: 'ruby',skill_description: 'ruby description'},
+{skill_name: 'databases',skill_description: 'database description'},
+{skill_name: 'algorithms',skill_description: 'algorithm description'},
+{skill_name: 'electronics',skill_description: 'electronic description'},
+{skill_name: 'fabrication',skill_description: 'fabrication'}
+]
+
+skills.forEach(function(skillObj) {
   var skill = new Skill({
-    skill_name: skillName
+    skill_name: skillObj.skill_name,
+    skill_description: skillObj.skill_description
   });
   skill.save();
 });
