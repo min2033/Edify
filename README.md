@@ -34,6 +34,8 @@
 - Bookshelf 0.8.x
 - Knex 0.8.6
 - Passport 0.2.2
+- Passport-github2 0.1.9
+- Bluebird 2.9.30
 
 ## Development
 
@@ -54,6 +56,10 @@ bower install
 ```
 
 ### Roadmap
+
+Future
+ - Add upvoting system to allow user to "like" other users
+ - Add location service to allow user to find other nearby users
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
