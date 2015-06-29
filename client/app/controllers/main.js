@@ -116,8 +116,9 @@ angular.module('edify.main', [])
   // For Modals
 
   $scope.open = function(type){
+    var modalInstance;
     if(type === "learn"){
-      var modalInstance = $modal.open({
+      modalInstance = $modal.open({
         animation: true,
         templateUrl: 'app/templates/modals/learn.html',
         controller: 'learnModalController',
@@ -130,7 +131,7 @@ angular.module('edify.main', [])
         }
       });
     }else if(type === "teach"){
-      var modalInstance = $modal.open({
+      modalInstance = $modal.open({
         animation: true,
         templateUrl: 'app/templates/modals/teach.html',
         controller: 'teachModalController',

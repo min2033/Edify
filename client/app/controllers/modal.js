@@ -35,7 +35,7 @@ angular.module('edify.modal',[])
       var alreadyHave = [];
       for (var i = 0; i < userSkills.length; i++) {
         alreadyHave.push(userSkills[i].skill_name);
-      };
+      }
 
       for (var key in skills) {
         obj.skill_name = key;
@@ -72,7 +72,7 @@ angular.module('edify.modal',[])
       if(cur.skill_name === skillName){
         index = i;
       }
-    };
+    }
     if(index !== -1) $scope.allSkills.splice(index,1);
 
     Skills.postSkill(skill).then(function(data) {
@@ -128,7 +128,7 @@ angular.module('edify.modal',[])
       var alreadyHave = [];
       for (var i = 0; i < userSkills.length; i++) {
         alreadyHave.push(userSkills[i].skill_name);
-      };
+      }
 
       for (var key in skills) {
         obj.skill_name = key;
@@ -165,7 +165,7 @@ angular.module('edify.modal',[])
     if(cur.skill_name === skillName){
       index = i;
     }
-  };
+  }
   if(index !== -1) $scope.allSkills.splice(index,1);
   Skills.postSkill(skill).then(function(data) {
     console.log('added skill to teach!');

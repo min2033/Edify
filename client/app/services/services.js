@@ -153,9 +153,7 @@ angular.module('edify.services', [])
   return {
     restrict: 'A',
               // star is thumbs-up emoji
-    template: '<span class="rating">'
-              + '{{stars.length}}\uD83D\uDC4D'
-              +'</span>',
+    template: '<span class="rating">' + '{{stars.length}}\uD83D\uDC4D'+'</span>',
     scope: {
       ratingValue: '=',
       max: '='
@@ -177,7 +175,7 @@ angular.module('edify.services', [])
     })
     .then(function(resp){
       return resp.data;
-    });;
+    });
   };
 
   // var getLikeLearners = function () {
@@ -194,12 +192,7 @@ angular.module('edify.services', [])
 .directive('upvote', function (Likes) {
   return {
     restrict: 'E',
-    template: '<div>'
-              + '<button type="button" class="btn btn-default btn-sm" ng-click="upvoteUser()">'
-              + '{{actionStatus}}'
-              + '</button>'
-              + '{{message}}'
-              + '</div>',
+    template: '<div><button type="button" class="btn btn-default btn-sm" ng-click="upvoteUser()">/{{actionStatus}}</button>{{message}}</div>',
     scope: {
       voter: '=',
       teacher: '=',
@@ -231,7 +224,7 @@ angular.module('edify.services', [])
         if (!scope.upvoted) {
           scope.upvoted = true;
           scope.message = "Thanks for your feedback!";
-          scope.actionStatus = '\uD83D\uDC4D'
+          scope.actionStatus = '\uD83D\uDC4D';
         }
       };
 

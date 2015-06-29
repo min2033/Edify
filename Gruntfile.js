@@ -27,6 +27,7 @@ module.exports = function(grunt) {
                     'client/app/controllers/skill.js',
                     'client/app/controllers/modal.js',
                     'client/app/services/services.js',
+                    'client/app/services/location.js',
                     'client/app/app.js'
                     ]
                   },
@@ -43,6 +44,7 @@ module.exports = function(grunt) {
         'client/app/controllers/skill.js',
         'client/app/controllers/modal.js',
         'client/app/services/services.js',
+        'client/app/services/location.js',
         'client/app/app.js'
       ],
       options: {

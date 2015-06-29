@@ -25,7 +25,7 @@ angular.module('edify.location', [])
         callback(result);
       });
     });
-  }
+  };
 
   /**
   * Gets the latitude and longitude for a zipcode
@@ -48,7 +48,7 @@ angular.module('edify.location', [])
     });
 
     return coords.promise;
-  }
+  };
 
   var deg2rad = function(deg) {
     return deg * Math.PI/180; // radians = degrees * pi/180
@@ -56,7 +56,7 @@ angular.module('edify.location', [])
 
   var round = function(number){
     return Math.round( number * 1000) / 1000;
-  }
+  };
 
   var calculateDistance = function (pointA, pointB) {
 
@@ -87,6 +87,6 @@ angular.module('edify.location', [])
     calculateDistance: calculateDistance,
     byZipCode: byZipCode,
     calculateZipDistance: calculateZipDistance
-  }
+  };
 
 });
