@@ -2,10 +2,17 @@ angular.module('edify.user', [
   'ui.router'
 ])
 
-.controller('UserController', function($scope, $stateParams, Users, Auth) {
+.controller('UserController', function($scope, $stateParams, $state, Users, Auth) {
   $scope.user = null;
 
   $scope.getUser = function () {
+
+    //if user clicks on their own profile, take them to the profile page
+    if ($stateParams.username === Auth.user().username) {
+      $state.go('home');
+      return;
+    }
+
     Users.getUser($stateParams.username)
     .then(function (user) {
       $scope.user = user;
