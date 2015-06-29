@@ -33,5 +33,8 @@ setTimeout(function () {
     });
     skill.save();
   });
-
 }, 2000);
+
+setTimeout(function () {
+  process.exit();
+}, 4000);
