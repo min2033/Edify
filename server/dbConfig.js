@@ -1,4 +1,15 @@
 // var path = require('path');
+var dbUrl = {};
+
+var url_parse = function(url){ // I wrote this parse function, you're welcome.
+  dbUrl.user = url.split(':')[1].substring(2);
+  dbUrl.password = url.split(':')[2].split("@")[0];
+  dbUrl.host = url.split('@')[1].split("/")[0];
+  dbUrl.database = url.split('/')[3].split("?")[0];
+};
+
+url_parse(process.env.CLEARDB_DATABASE_URL);
+
 var knex = require('knex')({
   client: 'mysql',
   connection: {
@@ -7,13 +18,15 @@ var knex = require('knex')({
     // password: '',
     // database: 'edify',
     // charset: 'utf8'
-    host: 'us-cdbr-iron-east-02.cleardb.net',
-    user: 'b7abb5a35e3177',
-    password: 'e23d2ee5',
-    database: 'heroku_b8b67000aedbc53',
+    host: dbUrl.host || '127.0.0.1',
+    user: dbUrl.user || 'root',
+    password: dbUrl.password || '',
+    database: dbUrl.database || 'edify',
     charset: 'utf8'
   }
 });
+
+
 
 var db = require('bookshelf')(knex);
 db.plugin('registry');
