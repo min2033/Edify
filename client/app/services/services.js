@@ -146,9 +146,16 @@ angular.module('edify.services', [])
   };
 })
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Services for incomplete feature: UPVOTING OTHER USERS
 //          use ONLY for building out this feature
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Directive for displaying "stars" or total upvotes
+//   the star is a thumbs-up emoji
+//   restricted as an attribute but restriction may be changed to an element if desired
 .directive('starRating', function () {
   return {
     restrict: 'A',
@@ -166,6 +173,13 @@ angular.module('edify.services', [])
     }
   };
 })
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Factory for handling server communication to poll the database for "likes" data
+//   INCOMPLETE - lacks many support methods for parsing the data from the database
+//                 we may also want to store the data from database locally here instead
+//                 of repeatedly fetching, but if data is too large storing locally might
+//                 not be feasible
 .factory('Likes', function ($http) {
 
   var getLikeTeachers = function () {
@@ -189,6 +203,13 @@ angular.module('edify.services', [])
   };
 
 })
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Directive for upvote button. The button should only be clickable if the user
+//   has not already upvoted for that person before.
+//   INCOMPLETE - needs the above "Likes" factory built out to support this directive
+//                preliminary code for upvoteUser method is in a testing state and much of it
+//                should be moved into the "Likes" factory
 .directive('upvote', function (Likes) {
   return {
     restrict: 'E',
