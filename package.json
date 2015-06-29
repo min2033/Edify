@@ -4,8 +4,7 @@
   "description": "> Pithy project description",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "postinstall": "node db/dbSetup.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
