@@ -18,15 +18,6 @@ var knex = require('knex')({
 var db = require('bookshelf')(knex);
 db.plugin('registry');
 
-///////////////////////
-// clean
-/////////////////////
-// db.knex.schema.dropTable('users');
-// db.knex.schema.dropTable('skills');
-// db.knex.schema.dropTable('users_learn_skills');
-// db.knex.schema.dropTable('users_teach_skills');
-
-
 db.knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users', function (user) {
@@ -61,8 +52,8 @@ db.knex.schema.hasTable('users_learn_skills').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users_learn_skills', function (entry) {
       entry.increments('id').primary();
-      entry.integer('user_id', 255).references('users.id');
-      entry.integer('skill_id', 255).references('skills.id');
+      entry.integer('user_id', 255);
+      entry.integer('skill_id', 255);
       entry.string('blurb', 255);
       entry.integer('skill_level', 255);
       entry.integer('stars', 255);
@@ -77,8 +68,8 @@ db.knex.schema.hasTable('users_teach_skills').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users_teach_skills', function (entry) {
       entry.increments('id').primary();
-      entry.integer('user_id', 255).references('users.id');
-      entry.integer('skill_id', 255).references('skills.id');
+      entry.integer('user_id', 255);
+      entry.integer('skill_id', 255);
       entry.string('blurb', 255);
       entry.integer('skill_level', 255);
       entry.integer('stars', 255);
@@ -97,9 +88,9 @@ db.knex.schema.hasTable('users_like_teachers').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users_like_teachers', function (entry) {
       entry.increments('id').primary();
-      entry.integer('voter_id', 255).references('users.id');
-      entry.integer('teach_skill_id', 255).references('users_teach_skills.skill_id');
-      entry.integer('teacher_id', 255).references('users_teach_skills.user_id');
+      entry.integer('voter_id', 255);
+      entry.integer('teach_skill_id', 255);
+      entry.integer('teacher_id', 255);
       entry.timestamps();
     }).then(function (table) {
       console.log('Created Table', table);
@@ -115,9 +106,9 @@ db.knex.schema.hasTable('users_like_learners').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users_like_learners', function (entry) {
       entry.increments('id').primary();
-      entry.integer('voter_id', 255).references('users.id');
-      entry.integer('learn_skill_id', 255).references('users_learn_skills.skill_id');
-      entry.integer('learner_id', 255).references('users_learn_skills.user_id');
+      entry.integer('voter_id', 255);
+      entry.integer('learn_skill_id', 255);
+      entry.integer('learner_id', 255);
       entry.timestamps();
     }).then(function (table) {
       console.log('Created Table', table);
