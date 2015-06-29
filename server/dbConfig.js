@@ -1,6 +1,10 @@
 var dbUrl = {};
 
-dbUrl.deploy = true; // CHANGE TO FALSE FOR LOCAL.
+if(process.env.NODE_ENV == "production"){
+  dbUrl.deploy = true; // FALSE = LOCAL
+}else{
+  dbUrl.deploy = false; // TRUE = DEPLOYED
+}
 
 var url_parse = function(url){ // I wrote this parse function, you're welcome.
   if(url){
