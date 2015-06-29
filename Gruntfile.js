@@ -61,6 +61,12 @@ module.exports = function(grunt) {
             'mysql -u root -e "CREATE DATABASE edify"',
             'mysql -u root edify < db/backups/local.sql'
         ].join('&&')
+      },
+      dbSetup: {
+        command: [
+          'node db/dbSetup.js',
+          '.exit'
+        ].join('&&')
       }
     },
 
@@ -112,7 +118,8 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('default', []);
   grunt.registerTask('backup', ['db_dump']);  // Save current MySQL data as pre-fill.
-  grunt.registerTask('reset', ['shell']); // Reset DB with pre-fill data.
+  grunt.registerTask('reset', ['shell:multiple']); // Reset DB with pre-fill data.
+  grunt.registerTask('dbInit', ['shell:dbSetup']);
   grunt.registerTask('build', [
     'jshint',
     'ngAnnotate',
