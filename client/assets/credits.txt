@@ -1,0 +1,5 @@
+This site uses icons from the Noun Project
+Diamond by Terrage Black
+Database by Dalpat Prajapati
+Cyclomatic Complexity by Richard Slater
+3D Printer by Bryan Allen
