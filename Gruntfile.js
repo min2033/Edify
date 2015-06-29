@@ -71,6 +71,7 @@ module.exports = function(grunt) {
       basic: {
         src: ['client/bower_components/angular/angular.js',
               'client/bower_components/angular-ui-router/release/angular-ui-router.js',
+              'client/bower_components/angular-elastic/elastic.js',
               'client/bower_components/jquery/dist/jquery.js',
               'client/bower_components/bootstrap/dist/js/bootstrap.js',
               'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
