@@ -69,6 +69,14 @@ angular.module('edify',[
           event.preventDefault();
           $state.go('signin'); //redirect
         });
+      return;
+    }
+
+    //if user clicks on their own profile, take them to the profile page
+    if (isAuth && (toState.name === 'user') && (toParams.username === Auth.user().username)) {
+      event.preventDefault();
+      $state.go('home');
+      return;
     }
 
   });
