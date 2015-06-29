@@ -2,16 +2,16 @@
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'edify',
-    charset: 'utf8'
-    // host: 'us-cdbr-iron-east-02.cleardb.net',
-    // user: 'bb24014bdd49b0',
-    // password: 'dc94c0f8',
-    // database: 'heroku_94f42c48526e9af',
+    // host: '127.0.0.1',
+    // user: 'root',
+    // password: '',
+    // database: 'edify',
     // charset: 'utf8'
+    host: 'us-cdbr-iron-east-02.cleardb.net',
+    user: 'b7abb5a35e3177',
+    password: 'e23d2ee5',
+    database: 'heroku_b8b67000aedbc53',
+    charset: 'utf8'
   }
 });
 
