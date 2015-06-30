@@ -159,7 +159,7 @@ angular.module('edify.services', [])
 
   var toWord = function(index) {
     return words[index];
-  }
+  };
 
   return {
     toWord: toWord,
