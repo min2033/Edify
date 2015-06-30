@@ -2,26 +2,29 @@ p {
   font-size: 18px;
 }
 
+.about h1 {
+  font-size: 58px;
+}
+
+.about {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.about-img {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
 .blurb {
   padding: 4px;
 }
-
-/*.skill p {
-  width: 115%;
-  min-height: 75px;
-  background-color: white;
-  padding: 3px;
-}*/
 
 .nav-pic {
   width: 40px;
   height: 40px;
   margin-top: -10px;
   margin-right: 10px;
-}
-
-.navbar-fixed-top {
-  /*height: 75px;*/
 }
 
 .ng-cloak {
@@ -55,19 +58,6 @@ textarea {
   color: #000;
 }
 
-/*.blurb-editor {
-  float: left;
-}*/
-
-/*.delete-button {
-  float: right;
-}*/
-
-.row{
-  margin-left:0;
-  margin-right:0;
-}
-
 .signin-box {
   margin-bottom: 20px;
 }
@@ -95,10 +85,6 @@ p.zip {
 
 input.zip {
   width: 80px;
-}
-
-.bio {
-  /*position: fixed;*/
 }
 
 .bio img {
@@ -132,39 +118,6 @@ p.git{
 .bio img.icon{
   width:48px;
   height:48px;
-}
-
-#github{
-  z-index:10;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-
-#github img{
-  width:350px;
-}
-
-.wallpaper-one {
-  background: #ffffff url("../assets/tiles/wood-pattern8-512.jpg") repeat right top;
-  position: fixed;
-  width: 60%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  /*z-index: 10;*/
-}
-
-.wallpaper-two {
-  background: #ffffff url("../assets/tiles/wood-pattern3-512.jpg") repeat right top;
-  position: fixed;
-  width: 60%;
-  height: 100%;
-  left: 60%;
-  top: 0;
-  /*z-index: 10;*/
 }
 
 .signin li {
@@ -206,9 +159,6 @@ li.signin-false, li.signout-false {
 }
 
 .teacher-learner-count {
-  /*padding: 20px 0 23px 0;*/
-  /*margin: 0px 10px 0 10px;*/
-  /*border: 2px solid grey;*/
   margin-top: 10px;
   background-color: white;
   width: 120px;
@@ -230,9 +180,6 @@ li.signin-false, li.signout-false {
 
 .counters {
   margin-top: 10px;
-}
-
-#filter-form {
 }
 
 .filter-sort {

@@ -47,10 +47,11 @@ angular.module('edify',[
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
     //allow going to signin page
-    var isSignin = toState.name === 'signin';
+    // var isSignin = toState.name === 'signin'
+
 
     //allow access signin page
-    if (isSignin) {
+    if (toState.name === 'signin' || toState.name === 'about') {
       return;
     }
 
@@ -85,22 +86,26 @@ angular.module('edify',[
 .config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('home',{
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/templates/about.html'
+      })
+      .state('home', {
         url: '/',
         templateUrl: 'app/templates/main.html',
         controller:'MainController'
       })
-      .state('signin',{
+      .state('signin', {
         url:'/signin',
         templateUrl: 'app/templates/signin.html',
       })
-      .state('signout',{
+      .state('signout', {
         url:'/',
-        controller: function(Auth){
+        controller: function(Auth) {
           Auth.signOut();
         }
       })
-      .state('user',{
+      .state('user', {
         url:'/user/:username',
         templateUrl: 'app/templates/user.html',
         controller: 'UserController'
