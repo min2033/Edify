@@ -46,7 +46,7 @@
       <div class="skill-title"><a ui-sref="skill({ skillname: '{{skill.skill_name}}' })">{{skill.skill_name}}</a></div>
 
       <!-- skill level -->
-      <div class="skill-level" ng-click="$scope.levelHover = true">
+      <div class="skill-level">
         {{$parent.levelToWord(skill.skill_level)}}
       </div>
 
@@ -74,10 +74,7 @@
   </h1>
 
   <!-- skill entries -->
-  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills"
-    ng-mouseenter="$scope.entryHover = true" ng-mouseleave="$scope.entryHover = false">
-    <span class="glyphicon glyphicon-remove pull-right delete-button"
-      ng-show="$scope.entryHover" ng-click="removeTeachSkill($index)"></span>
+  <div class="skill well clearfix" ng-repeat="skill in user.teachSkills">
     <div class="col-xs-3">
       <img ng-src="/assets/{{skill.skill_name}}.png" class="profile img-circle img-responsive center-block"></img>
     </div>
