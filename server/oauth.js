@@ -4,7 +4,7 @@ if(process.env.NODE_ENV == "production"){
  ids.github = {
    clientID: '13aeb27bf031b456a0e2',
    clientSecret: 'deba9ae2ab059c9ec1b90cfabb5c2e607e3fc39c',
-   callbackURL: 'https://obscure-coast-8580.herokuapp.com/auth/github/callback'
+   callbackURL: 'https://edify29.herokuapp.com/auth/github/callback'
   };
 }else{
   ids.github = {
