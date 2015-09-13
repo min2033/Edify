@@ -2,6 +2,11 @@ p {
   font-size: 18px;
 }
 
+.well{
+  padding:0;
+  background-color:none;
+}
+
 .row{
   margin-left:0;
   margin-right:0;
@@ -80,7 +85,10 @@ textarea {
   margin-top: 80px;
   box-shadow: 10px 10px 5px;
   opacity:.9;
+}
 
+.signin-container h3{
+  color:white;
 }
 
 .spin {
