@@ -37,6 +37,7 @@
             </li>
             <!-- <li class="signin-{{isSignedIn()}}"><a ui-sref="signin">sign in</a></li> -->
             <li class="signout-{{isSignedOut()}}"><a data-target=".navbar-collapse" ui-sref="signout" >Logout</a></li>
+            <li class="signout-{{!(isSignedOut())}}"><a data-target=".navbar-collapse" ui-sref="signin" >Login</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-left">
