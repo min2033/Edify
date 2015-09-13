@@ -101,7 +101,17 @@ module.exports = function(grunt) {
           'client/dist/style.min.css': ['client/bower_components/bootstrap/dist/css/bootstrap.css','client/styles/style.css']
         }
       }
-    }
+    },
+
+    watch: {
+      scripts: {
+        files: ['client/app/*.js','client/styles/*.css'],
+        tasks: ['build'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
 
   });
 
@@ -113,10 +123,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ng-annotate');
 
   // Default task(s).
-  grunt.registerTask('default', []);
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('backup', ['db_dump']);  // Save current MySQL data as pre-fill.
   grunt.registerTask('reset', ['shell:multiple']); // Reset DB with pre-fill data.
   grunt.registerTask('dbInit', ['shell:dbSetup']);
