@@ -7,18 +7,18 @@ p {
   margin-right:0;
 }
 
-.about h1 {
-  font-size: 58px;
+.about{
+  margin-bottom:20px;
 }
 
-.about {
-  margin-top: 40px;
-  margin-bottom: 100px;
+.about-steps{
+  display:inline-block;
+  border-radius:20px;
+  background-color:green;
 }
 
 .about-img {
-  margin-top: 30px;
-  margin-bottom: 40px;
+  margin: 30px auto 40px auto;
 }
 
 .blurb {
