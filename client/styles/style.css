@@ -4,7 +4,6 @@ p {
 
 .well{
   padding:0;
-  background-color:none;
 }
 
 .row{
@@ -85,10 +84,6 @@ textarea {
   margin-top: 80px;
   box-shadow: 10px 10px 5px;
   opacity:.9;
-}
-
-.signin-container h3{
-  color:white;
 }
 
 .spin {
